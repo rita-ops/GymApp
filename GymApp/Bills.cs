@@ -132,5 +132,10 @@ namespace GymApp
             this.billsTableTableAdapter.Fill(this.dataSetBills.BillsTable);
 
         }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

@@ -52,6 +52,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.GridViewBills = new System.Windows.Forms.DataGridView();
+            this.billIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.membersIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetBills = new GymApp.DataSetBills();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -64,14 +71,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataSetBills = new GymApp.DataSetBills();
-            this.billsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.billsTableTableAdapter = new GymApp.DataSetBillsTableAdapters.BillsTableTableAdapter();
-            this.billIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membersIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -85,8 +85,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetBills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billsTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBills)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -151,6 +151,7 @@
             this.Logout.Size = new System.Drawing.Size(51, 17);
             this.Logout.TabIndex = 4;
             this.Logout.Text = "Logout";
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // panel2
             // 
@@ -346,6 +347,52 @@
             this.GridViewBills.TabIndex = 40;
             this.GridViewBills.SelectionChanged += new System.EventHandler(this.GridViewBills_SelectionChanged);
             // 
+            // billIDDataGridViewTextBoxColumn
+            // 
+            this.billIDDataGridViewTextBoxColumn.DataPropertyName = "BillID";
+            this.billIDDataGridViewTextBoxColumn.HeaderText = "BillID";
+            this.billIDDataGridViewTextBoxColumn.Name = "billIDDataGridViewTextBoxColumn";
+            this.billIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // membersIDDataGridViewTextBoxColumn
+            // 
+            this.membersIDDataGridViewTextBoxColumn.DataPropertyName = "MembersID";
+            this.membersIDDataGridViewTextBoxColumn.HeaderText = "Members";
+            this.membersIDDataGridViewTextBoxColumn.Name = "membersIDDataGridViewTextBoxColumn";
+            this.membersIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // billsTableBindingSource
+            // 
+            this.billsTableBindingSource.DataMember = "BillsTable";
+            this.billsTableBindingSource.DataSource = this.dataSetBills;
+            // 
+            // dataSetBills
+            // 
+            this.dataSetBills.DataSetName = "DataSetBills";
+            this.dataSetBills.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -480,55 +527,9 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Bills";
             // 
-            // dataSetBills
-            // 
-            this.dataSetBills.DataSetName = "DataSetBills";
-            this.dataSetBills.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billsTableBindingSource
-            // 
-            this.billsTableBindingSource.DataMember = "BillsTable";
-            this.billsTableBindingSource.DataSource = this.dataSetBills;
-            // 
             // billsTableTableAdapter
             // 
             this.billsTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // billIDDataGridViewTextBoxColumn
-            // 
-            this.billIDDataGridViewTextBoxColumn.DataPropertyName = "BillID";
-            this.billIDDataGridViewTextBoxColumn.HeaderText = "BillID";
-            this.billIDDataGridViewTextBoxColumn.Name = "billIDDataGridViewTextBoxColumn";
-            this.billIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // membersIDDataGridViewTextBoxColumn
-            // 
-            this.membersIDDataGridViewTextBoxColumn.DataPropertyName = "MembersID";
-            this.membersIDDataGridViewTextBoxColumn.HeaderText = "Members";
-            this.membersIDDataGridViewTextBoxColumn.Name = "membersIDDataGridViewTextBoxColumn";
-            this.membersIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // currencyDataGridViewTextBoxColumn
-            // 
-            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
-            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
-            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
-            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Bills
             // 
@@ -557,8 +558,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetBills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billsTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetBills)).EndInit();
             this.ResumeLayout(false);
 
         }
