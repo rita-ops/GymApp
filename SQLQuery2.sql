@@ -1,0 +1,1 @@
+﻿SELECT MembersTable.MembersID, CONCAT(MembersTable.MemberFName,' ', MembersTable.MemberLName) AS Member , BillsTable.Date, BillsTable.Amount , BillsTable.Currency, BillsTable.BillID FROM MembersTable INNER JOIN BillsTable ON MembersTable.MembersID = BillsTable.MembersID;
