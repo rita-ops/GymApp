@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Memberships));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -62,16 +60,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.GridViewMemberships = new System.Windows.Forms.DataGridView();
-            this.membershipIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membershipTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membershipsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gymDataSet = new GymApp.GymDataSet();
             this.label6 = new System.Windows.Forms.Label();
-            this.membershipsTableTableAdapter = new GymApp.GymDataSetTableAdapters.MembershipsTableTableAdapter();
+            this.GridViewMemberships = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -84,8 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewMemberships)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membershipsTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gymDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -416,114 +404,43 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Delete_click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(690, 233);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(149, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Memberships List";
+            // 
             // GridViewMemberships
             // 
-            this.GridViewMemberships.AutoGenerateColumns = false;
+            this.GridViewMemberships.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewMemberships.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridViewMemberships.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridViewMemberships.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewMemberships.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.membershipIDDataGridViewTextBoxColumn,
-            this.membershipTypeDataGridViewTextBoxColumn,
-            this.durationDataGridViewTextBoxColumn,
-            this.costDataGridViewTextBoxColumn,
-            this.currencyDataGridViewTextBoxColumn});
-            this.GridViewMemberships.DataSource = this.membershipsTableBindingSource;
-            this.GridViewMemberships.EnableHeadersVisualStyles = false;
-            this.GridViewMemberships.Location = new System.Drawing.Point(251, 275);
+            this.GridViewMemberships.Location = new System.Drawing.Point(305, 275);
             this.GridViewMemberships.MultiSelect = false;
             this.GridViewMemberships.Name = "GridViewMemberships";
             this.GridViewMemberships.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewMemberships.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.GridViewMemberships.Size = new System.Drawing.Size(1046, 434);
-            this.GridViewMemberships.TabIndex = 17;
-            this.GridViewMemberships.SelectionChanged += new System.EventHandler(this.GridViewMemberships_SelectionChanged);
-            // 
-            // membershipIDDataGridViewTextBoxColumn
-            // 
-            this.membershipIDDataGridViewTextBoxColumn.DataPropertyName = "MembershipID";
-            this.membershipIDDataGridViewTextBoxColumn.HeaderText = "MembershipID";
-            this.membershipIDDataGridViewTextBoxColumn.Name = "membershipIDDataGridViewTextBoxColumn";
-            this.membershipIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.membershipIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // membershipTypeDataGridViewTextBoxColumn
-            // 
-            this.membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
-            this.membershipTypeDataGridViewTextBoxColumn.HeaderText = "MembershipType";
-            this.membershipTypeDataGridViewTextBoxColumn.Name = "membershipTypeDataGridViewTextBoxColumn";
-            this.membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.membershipTypeDataGridViewTextBoxColumn.Width = 253;
-            // 
-            // durationDataGridViewTextBoxColumn
-            // 
-            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
-            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
-            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
-            this.durationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.durationDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
-            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            this.costDataGridViewTextBoxColumn.ReadOnly = true;
-            this.costDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // currencyDataGridViewTextBoxColumn
-            // 
-            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
-            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
-            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
-            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.currencyDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // membershipsTableBindingSource
-            // 
-            this.membershipsTableBindingSource.DataMember = "MembershipsTable";
-            this.membershipsTableBindingSource.DataSource = this.gymDataSet;
-            // 
-            // gymDataSet
-            // 
-            this.gymDataSet.DataSetName = "GymDataSet";
-            this.gymDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(725, 233);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 20);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Memberships List";
-            // 
-            // membershipsTableTableAdapter
-            // 
-            this.membershipsTableTableAdapter.ClearBeforeFill = true;
+            this.GridViewMemberships.Size = new System.Drawing.Size(891, 398);
+            this.GridViewMemberships.TabIndex = 19;
             // 
             // Memberships
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.GridViewMemberships);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -540,7 +457,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Memberships";
             this.Text = "Memberships";
-            this.Load += new System.EventHandler(this.Memberships_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -555,8 +471,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewMemberships)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membershipsTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gymDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,15 +508,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView GridViewMemberships;
         private System.Windows.Forms.Label label6;
-        private GymDataSet gymDataSet;
-        private System.Windows.Forms.BindingSource membershipsTableBindingSource;
-        private GymDataSetTableAdapters.MembershipsTableTableAdapter membershipsTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn membershipIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView GridViewMemberships;
     }
 }

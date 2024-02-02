@@ -19,6 +19,9 @@ namespace GymApp
             InitializeComponent();
             Con = new Functions();
             ShowTrainers();
+            GridViewTrainers.Columns[0].Visible = false;
+            GridViewTrainers.Columns[2].HeaderText = "Date Of Birth";
+            GridViewTrainers.Columns[3].HeaderText = "Phone";
             GridViewTrainers.SelectionChanged += GridViewTrainers_SelectionChanged;
         }
         private void Reset()
@@ -35,7 +38,7 @@ namespace GymApp
 
         private void ShowTrainers()
         {
-            string Query = "Select TrainersTable.TrainerID, TrainersTable.TrainerFName , TrainersTable.TrainerLName , TrainersTable.TrainerDOB, TrainersTable.TrainerPhone, TrainersTable.Experience, TrainersTable.Address, TrainersTable.Gender, TrainersTable.BloodType from TrainersTable";
+            string Query = "Select TrainersTable.TrainerID,  CONCAT(TrainersTable.TrainerFName ,' ', TrainersTable.TrainerLName ,' ') AS Trainer , TrainersTable.TrainerDOB, TrainersTable.TrainerPhone, TrainersTable.Experience, TrainersTable.Address, TrainersTable.Gender, TrainersTable.BloodType from TrainersTable";
             GridViewTrainers.DataSource = Con.GetData(Query);
             GridViewTrainers.ClearSelection();
         }
@@ -132,26 +135,18 @@ namespace GymApp
             if (GridViewTrainers.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = GridViewTrainers.SelectedRows[0];
-              
-                    //string[] Trainer = dataGridView1.SelectedRows[0].Cells[1].Value.ToString().Split(' ');
-                    //TrainerFName.Text = Trainer[0];
-                    //TrainerLName.Text = Trainer[1];
 
-                TrainerFName.Text = GridViewTrainers.SelectedRows[0].Cells[1].Value.ToString();
-                TrainerLName.Text = GridViewTrainers.SelectedRows[0].Cells[2].Value.ToString();
-                TrainerDOB.Text = GridViewTrainers.SelectedRows[0].Cells[3].Value.ToString();
-                TrainerPhone.Text = GridViewTrainers.SelectedRows[0].Cells[4].Value.ToString();
-                Experience.Text = GridViewTrainers.SelectedRows[0].Cells[5].Value.ToString();
-                Address.Text = GridViewTrainers.SelectedRows[0].Cells[6].Value.ToString();
-                Gender.Text = GridViewTrainers.SelectedRows[0].Cells[7].Value.ToString();
-                BloodType.Text = GridViewTrainers.SelectedRows[0].Cells[8].Value.ToString();
+                string[] Trainer = GridViewTrainers.SelectedRows[0].Cells[1].Value.ToString().Split(' ');
+                TrainerFName.Text = Trainer[0];
+                TrainerLName.Text = Trainer[1];
+
+                TrainerDOB.Text = GridViewTrainers.SelectedRows[0].Cells[2].Value.ToString();
+                TrainerPhone.Text = GridViewTrainers.SelectedRows[0].Cells[3].Value.ToString();
+                Experience.Text = GridViewTrainers.SelectedRows[0].Cells[4].Value.ToString();
+                Address.Text = GridViewTrainers.SelectedRows[0].Cells[5].Value.ToString();
+                Gender.Text = GridViewTrainers.SelectedRows[0].Cells[6].Value.ToString();
+                BloodType.Text = GridViewTrainers.SelectedRows[0].Cells[7].Value.ToString();
             }
-        }
-
-        private void Trainers_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dataSetTrainers.TrainersTable' table. You can move, or remove it, as needed.
-            this.trainersTableTableAdapter.Fill(this.dataSetTrainers.TrainersTable);
         }
 
         private void TrainersLbl_Click(object sender, EventArgs e)
@@ -187,6 +182,11 @@ namespace GymApp
             Bills Obj = new Bills();
             Obj.Show();
             this.Hide();
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

@@ -18,6 +18,8 @@ namespace GymApp
             InitializeComponent();
             Con = new Functions();
             ShowPayments();
+            GridViewPayments.Columns[0].Visible = false;
+            GridViewPayments.Columns[1].HeaderText = "Client Name";
             GridViewPayments.SelectionChanged += GridViewPayments_SelectionChanged;
         }
 
@@ -61,6 +63,16 @@ namespace GymApp
             Bills Obj = new Bills();
             Obj.Show();
             this.Hide();
+        }
+
+        private void ChangePassLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
         private void Reset()
@@ -156,15 +168,8 @@ namespace GymApp
             }
         }
 
-        private void Payments_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dataSetPayments.PaymentsTable' table. You can move, or remove it, as needed.
-            this.paymentsTableTableAdapter.Fill(this.dataSetPayments.PaymentsTable);
-
-        }
-
-        private void GridViewPayments_SelectionChanged(object sender, EventArgs e)
-        {
+         private void GridViewPayments_SelectionChanged(object sender, EventArgs e)
+         {
             if (GridViewPayments.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = GridViewPayments.SelectedRows[0];
@@ -175,8 +180,8 @@ namespace GymApp
                 Amount.Text = GridViewPayments.CurrentRow.Cells[4].Value.ToString();
                 Currency.Text = GridViewPayments.CurrentRow.Cells[5].Value.ToString();
             }
-        }
+         }
 
-  
+       
     }
 }

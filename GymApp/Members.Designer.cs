@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Members));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -50,21 +50,8 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.GridViewMembers = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membersTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetMembers1 = new GymApp.DataSetMembers();
+            this.label6 = new System.Windows.Forms.Label();
             this.JoinDate = new System.Windows.Forms.DateTimePicker();
             this.MemberDOB = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
@@ -89,7 +76,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.membersTableTableAdapter1 = new GymApp.DataSetMembersTableAdapters.MembersTableTableAdapter();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -103,8 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewMembers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membersTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetMembers1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -307,8 +291,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.GridViewMembers);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.JoinDate);
             this.panel3.Controls.Add(this.MemberDOB);
             this.panel3.Controls.Add(this.button3);
@@ -338,143 +322,43 @@
             this.panel3.Size = new System.Drawing.Size(1152, 745);
             this.panel3.TabIndex = 10;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(546, 272);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 20);
-            this.label6.TabIndex = 53;
-            this.label6.Text = "Members List";
-            // 
             // GridViewMembers
             // 
-            this.GridViewMembers.AutoGenerateColumns = false;
+            this.GridViewMembers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewMembers.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridViewMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridViewMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewMembers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.GridViewMembers.DataSource = this.membersTableBindingSource;
-            this.GridViewMembers.Location = new System.Drawing.Point(32, 309);
+            this.GridViewMembers.Location = new System.Drawing.Point(31, 309);
             this.GridViewMembers.MultiSelect = false;
             this.GridViewMembers.Name = "GridViewMembers";
             this.GridViewMembers.ReadOnly = true;
-            this.GridViewMembers.Size = new System.Drawing.Size(1084, 212);
-            this.GridViewMembers.TabIndex = 52;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewMembers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.GridViewMembers.Size = new System.Drawing.Size(1029, 371);
+            this.GridViewMembers.TabIndex = 54;
             // 
-            // dataGridViewTextBoxColumn1
+            // label6
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MembersID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "MembersID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MemberFName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "First Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "MemberLName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Last Name";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "MemberDOB";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Date Of Birth";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "JoinDate";
-            this.dataGridViewTextBoxColumn5.HeaderText = "JoinDate";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "MembershipID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Membership Type";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Phone";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Timing";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Timing";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "BloodType";
-            this.dataGridViewTextBoxColumn9.HeaderText = "BloodType";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Gender";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Gender";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "TrainerID";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Trainers";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 120;
-            // 
-            // membersTableBindingSource
-            // 
-            this.membersTableBindingSource.DataMember = "MembersTable";
-            this.membersTableBindingSource.DataSource = this.dataSetMembers1;
-            // 
-            // dataSetMembers1
-            // 
-            this.dataSetMembers1.DataSetName = "DataSetMembers";
-            this.dataSetMembers1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(420, 282);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 20);
+            this.label6.TabIndex = 53;
+            this.label6.Text = "Members List";
             // 
             // JoinDate
             // 
@@ -500,7 +384,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(881, 213);
+            this.button3.Location = new System.Drawing.Point(818, 213);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 32);
             this.button3.TabIndex = 43;
@@ -512,7 +396,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(591, 213);
+            this.button2.Location = new System.Drawing.Point(510, 213);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 42;
@@ -524,7 +408,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(250, 213);
+            this.button1.Location = new System.Drawing.Point(187, 213);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 41;
@@ -729,10 +613,6 @@
             this.label1.TabIndex = 44;
             this.label1.Text = "Members";
             // 
-            // membersTableTableAdapter1
-            // 
-            this.membersTableTableAdapter1.ClearBeforeFill = true;
-            // 
             // Members
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -743,7 +623,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Members";
             this.Text = "Members";
-            this.Load += new System.EventHandler(this.Members_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -760,8 +639,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewMembers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.membersTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetMembers1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -811,9 +688,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label Trainer2;
-        private System.Windows.Forms.DataGridView GridViewMembers;
-        private DataSetMembers dataSetMembers;
-        private DataSetMembersTableAdapters.MembersTableTableAdapter membersTableTableAdapter;
+       /// private DataSetMembers dataSetMembers;
+        //private DataSetMembersTableAdapters.MembersTableTableAdapter membersTableTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn membersIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn memberFNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn memberLNameDataGridViewTextBoxColumn;
@@ -826,19 +702,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trainerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label6;
-        private DataSetMembers dataSetMembers1;
-        private System.Windows.Forms.BindingSource membersTableBindingSource;
-        private DataSetMembersTableAdapters.MembersTableTableAdapter membersTableTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridView GridViewMembers;
     }
 }

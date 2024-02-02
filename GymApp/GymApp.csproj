@@ -79,16 +79,6 @@
     <Compile Include="Bills.Designer.cs">
       <DependentUpon>Bills.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSetBills.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetBills.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetMembers.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetMembers.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSetPayments.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,28 +154,6 @@
     <EmbeddedResource Include="Trainers.resx">
       <DependentUpon>Trainers.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSetBills.xsc">
-      <DependentUpon>DataSetBills.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetBills.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetBills.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetBills.xss">
-      <DependentUpon>DataSetBills.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetMembers.xsc">
-      <DependentUpon>DataSetMembers.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetMembers.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetMembers.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetMembers.xss">
-      <DependentUpon>DataSetMembers.xsd</DependentUpon>
-    </None>
     <None Include="DataSetPayments.xsc">
       <DependentUpon>DataSetPayments.xsd</DependentUpon>
     </None>

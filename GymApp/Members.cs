@@ -20,12 +20,16 @@ namespace GymApp
             ShowMembers();
             GetTrainers();
             GetMemberships();
+            GridViewMembers.Columns[0].Visible = false;
+            GridViewMembers.Columns[4].Visible = false;
+            GridViewMembers.Columns[10].Visible = false;
+            GridViewMembers.Columns[2].HeaderText = "Date Of Birth";
             GridViewMembers.SelectionChanged += GridViewMembers_SelectionChanged;
         }
 
         private void ShowMembers()
         {
-            string Query = " SELECT MembersTable.MembersID, MembersTable.MemberFName , MembersTable.MemberLName, MembersTable.MemberDOB, MembersTable.JoinDate, MembershipsTable.MembershipID , MembershipsTable.MembershipType, MembersTable.Phone, MembersTable.Timing, MembersTable.BloodType, MembersTable.Gender,  TrainersTable.TrainerID , Concat(TrainersTable.TrainerFName ,' ' , TrainersTable.TrainerLName) AS Trainer  FROM MembersTable JOIN MembershipsTable ON MembersTable.MembershipID = MembershipsTable.MembershipID JOIN TrainersTable ON MembersTable.TrainerID = TrainersTable.TrainerID ";
+            string Query = " SELECT MembersTable.MembersID, CONCAT(MembersTable.MemberFName ,' ', MembersTable.MemberLName ,' ') AS Member, MembersTable.MemberDOB, MembersTable.JoinDate, MembershipsTable.MembershipID , MembershipsTable.MembershipType, MembersTable.Phone, MembersTable.Timing, MembersTable.BloodType, MembersTable.Gender,  TrainersTable.TrainerID , Concat(TrainersTable.TrainerFName ,' ' , TrainersTable.TrainerLName) AS Trainer  FROM MembersTable JOIN MembershipsTable ON MembersTable.MembershipID = MembershipsTable.MembershipID JOIN TrainersTable ON MembersTable.TrainerID = TrainersTable.TrainerID ";
             GridViewMembers.DataSource = Con.GetData(Query);
             GridViewMembers.ClearSelection();
         }
@@ -113,7 +117,6 @@ namespace GymApp
                 }
                 else
                 {
-                    //string FullName = MemberFName.Text +  MemberLName.Text;
                     string MemFName = MemberFName.Text;
                     string MemLName = MemberLName.Text;
                     string BirthDate = MemberDOB.Value.Date.ToString();
@@ -159,7 +162,7 @@ namespace GymApp
                     string Blood = BloodType.SelectedItem.ToString();
                     string Gen = Gender.SelectedItem.ToString();
                     string TrainerName = Trainer.SelectedValue.ToString();
-                    string Query = "Update MembersTable set MemberFName = '{0}', MemberLName = '{1}', MemberDOB = '{2}', JoinDate = '{3}', MembershipID = '{4}', Phone = '{5}' , Timing = '{6}', BloodType = '{7}', Gender = '{8}' , TrainerID = '{9}' Where MembersID = {10}";
+                    string Query = "Update MembersTable set MemberFName = '{0}', MemberLName = '{1}', MemberDOB = '{2}', JoinDate = '{3}', MembershipID = {4}, Phone = '{5}' , Timing = '{6}', BloodType = '{7}', Gender = '{8}' , TrainerID = {9} Where MembersID = {10}";
                     Query = string.Format(Query, MemFName, MemLName, MemberDOB.Value.Date, JoinDate.Value.Date, Memship, Number, Time, Blood, Gen, TrainerName, Key);
                     Con.setData(Query);
                     ShowMembers();
@@ -204,27 +207,21 @@ namespace GymApp
             {
                 DataGridViewRow selectedRow = GridViewMembers.SelectedRows[0];
 
-                MemberFName.Text = GridViewMembers.CurrentRow.Cells[1].Value.ToString();
-                MemberLName.Text = GridViewMembers.CurrentRow.Cells[2].Value.ToString();
-                MemberDOB.Text = GridViewMembers.CurrentRow.Cells[3].Value.ToString();
-                JoinDate.Text = GridViewMembers.CurrentRow.Cells[4].Value.ToString();
+                string[] Member = GridViewMembers.SelectedRows[0].Cells[1].Value.ToString().Split(' ');
+                MemberFName.Text = Member[0];
+                MemberLName.Text = Member[1];
+
+                MemberDOB.Text = GridViewMembers.CurrentRow.Cells[2].Value.ToString();
+                JoinDate.Text = GridViewMembers.CurrentRow.Cells[3].Value.ToString();
                 MembershipType.Text = GridViewMembers.CurrentRow.Cells[5].Value.ToString();
                 Phone.Text = GridViewMembers.CurrentRow.Cells[6].Value.ToString();
                 Timing.Text = GridViewMembers.CurrentRow.Cells[7].Value.ToString();
                 BloodType.Text = GridViewMembers.CurrentRow.Cells[8].Value.ToString();
                 Gender.Text = GridViewMembers.CurrentRow.Cells[9].Value.ToString();
-                Trainer.Text = GridViewMembers.CurrentRow.Cells[10].Value.ToString();
+                Trainer.Text = GridViewMembers.CurrentRow.Cells[11].Value.ToString();
 
             }
         }
-
-        private void Members_Load_1(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dataSetMembers1.MembersTable' table. You can move, or remove it, as needed.
-            this.membersTableTableAdapter1.Fill(this.dataSetMembers1.MembersTable);
-
-        }
-
-     
+   
     }
 }

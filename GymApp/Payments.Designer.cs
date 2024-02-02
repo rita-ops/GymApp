@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payments));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -50,31 +49,22 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Date = new System.Windows.Forms.DateTimePicker();
-            this.Currency = new System.Windows.Forms.ComboBox();
-            this.Phone = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Amount = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ClientName = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Date = new System.Windows.Forms.DateTimePicker();
+            this.ClientName = new System.Windows.Forms.ComboBox();
+            this.Currency = new System.Windows.Forms.ComboBox();
+            this.Amount = new System.Windows.Forms.TextBox();
+            this.Phone = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.GridViewPayments = new System.Windows.Forms.DataGridView();
-            this.dataSetPayments = new GymApp.DataSetPayments();
-            this.paymentsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paymentsTableTableAdapter = new GymApp.DataSetPaymentsTableAdapters.PaymentsTableTableAdapter();
-            this.paymentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -88,8 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPayments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPayments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentsTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -143,6 +131,7 @@
             this.ChangePassLbl.Size = new System.Drawing.Size(116, 17);
             this.ChangePassLbl.TabIndex = 2;
             this.ChangePassLbl.Text = "Change Password";
+            this.ChangePassLbl.Click += new System.EventHandler(this.ChangePassLbl_Click);
             // 
             // Logout
             // 
@@ -154,6 +143,7 @@
             this.Logout.Size = new System.Drawing.Size(51, 17);
             this.Logout.TabIndex = 4;
             this.Logout.Text = "Logout";
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // panel2
             // 
@@ -292,8 +282,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.GridViewPayments);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
@@ -313,121 +303,15 @@
             this.panel3.Size = new System.Drawing.Size(1155, 754);
             this.panel3.TabIndex = 28;
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 24);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Payments";
-            // 
-            // Date
-            // 
-            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Date.Location = new System.Drawing.Point(240, 103);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(160, 22);
-            this.Date.TabIndex = 31;
-            this.Date.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
-            // 
-            // Currency
-            // 
-            this.Currency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Currency.FormattingEnabled = true;
-            this.Currency.Items.AddRange(new object[] {
-            "USD",
-            "LBP"});
-            this.Currency.Location = new System.Drawing.Point(933, 101);
-            this.Currency.Name = "Currency";
-            this.Currency.Size = new System.Drawing.Size(160, 24);
-            this.Currency.TabIndex = 33;
-            // 
-            // Phone
-            // 
-            this.Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Phone.Location = new System.Drawing.Point(464, 101);
-            this.Phone.Name = "Phone";
-            this.Phone.Size = new System.Drawing.Size(160, 22);
-            this.Phone.TabIndex = 32;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(460, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Phone";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(236, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 20);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Date";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 78);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 20);
-            this.label10.TabIndex = 35;
-            this.label10.Text = "Client Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(695, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Amount";
-            // 
-            // Amount
-            // 
-            this.Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Amount.Location = new System.Drawing.Point(699, 101);
-            this.Amount.Name = "Amount";
-            this.Amount.Size = new System.Drawing.Size(160, 22);
-            this.Amount.TabIndex = 32;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(929, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 20);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Currency";
-            // 
-            // ClientName
-            // 
-            this.ClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientName.FormattingEnabled = true;
-            this.ClientName.Items.AddRange(new object[] {
-            "Rent",
-            "Electricity",
-            "Water",
-            "Moteur",
-            "Internet",
-            "Salaries",
-            "Cleanings",
-            "Others"});
-            this.ClientName.Location = new System.Drawing.Point(24, 105);
-            this.ClientName.Name = "ClientName";
-            this.ClientName.Size = new System.Drawing.Size(160, 24);
-            this.ClientName.TabIndex = 33;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(512, 257);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 20);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "Payments List";
             // 
             // button3
             // 
@@ -465,106 +349,139 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
             // 
+            // Date
+            // 
+            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date.Location = new System.Drawing.Point(240, 103);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(160, 22);
+            this.Date.TabIndex = 31;
+            this.Date.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
+            // 
+            // ClientName
+            // 
+            this.ClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientName.FormattingEnabled = true;
+            this.ClientName.Items.AddRange(new object[] {
+            "Rent",
+            "Electricity",
+            "Water",
+            "Moteur",
+            "Internet",
+            "Salaries",
+            "Cleanings",
+            "Others"});
+            this.ClientName.Location = new System.Drawing.Point(24, 105);
+            this.ClientName.Name = "ClientName";
+            this.ClientName.Size = new System.Drawing.Size(160, 24);
+            this.ClientName.TabIndex = 33;
+            // 
+            // Currency
+            // 
+            this.Currency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Currency.FormattingEnabled = true;
+            this.Currency.Items.AddRange(new object[] {
+            "USD",
+            "LBP"});
+            this.Currency.Location = new System.Drawing.Point(933, 101);
+            this.Currency.Name = "Currency";
+            this.Currency.Size = new System.Drawing.Size(160, 24);
+            this.Currency.TabIndex = 33;
+            // 
+            // Amount
+            // 
+            this.Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Amount.Location = new System.Drawing.Point(699, 101);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(160, 22);
+            this.Amount.TabIndex = 32;
+            // 
+            // Phone
+            // 
+            this.Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Phone.Location = new System.Drawing.Point(464, 101);
+            this.Phone.Name = "Phone";
+            this.Phone.Size = new System.Drawing.Size(160, 22);
+            this.Phone.TabIndex = 32;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(929, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 20);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Currency";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(695, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Amount";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(460, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Phone";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(236, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 20);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "Date";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(20, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 20);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Client Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 24);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Payments";
+            // 
             // GridViewPayments
             // 
-            this.GridViewPayments.AutoGenerateColumns = false;
+            this.GridViewPayments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewPayments.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridViewPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.paymentIDDataGridViewTextBoxColumn,
-            this.clientNameDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.currencyDataGridViewTextBoxColumn});
-            this.GridViewPayments.DataSource = this.paymentsTableBindingSource;
-            this.GridViewPayments.Location = new System.Drawing.Point(108, 294);
-            this.GridViewPayments.MultiSelect = false;
+            this.GridViewPayments.Location = new System.Drawing.Point(152, 290);
             this.GridViewPayments.Name = "GridViewPayments";
-            this.GridViewPayments.ReadOnly = true;
-            this.GridViewPayments.Size = new System.Drawing.Size(893, 150);
-            this.GridViewPayments.TabIndex = 40;
-            this.GridViewPayments.SelectionChanged += new System.EventHandler(this.GridViewPayments_SelectionChanged);
-            // 
-            // dataSetPayments
-            // 
-            this.dataSetPayments.DataSetName = "DataSetPayments";
-            this.dataSetPayments.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // paymentsTableBindingSource
-            // 
-            this.paymentsTableBindingSource.DataMember = "PaymentsTable";
-            this.paymentsTableBindingSource.DataSource = this.dataSetPayments;
-            // 
-            // paymentsTableTableAdapter
-            // 
-            this.paymentsTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // paymentIDDataGridViewTextBoxColumn
-            // 
-            this.paymentIDDataGridViewTextBoxColumn.DataPropertyName = "PaymentID";
-            this.paymentIDDataGridViewTextBoxColumn.HeaderText = "PaymentID";
-            this.paymentIDDataGridViewTextBoxColumn.Name = "paymentIDDataGridViewTextBoxColumn";
-            this.paymentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.paymentIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // clientNameDataGridViewTextBoxColumn
-            // 
-            this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "ClientName";
-            this.clientNameDataGridViewTextBoxColumn.HeaderText = "Client Name";
-            this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
-            this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clientNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // currencyDataGridViewTextBoxColumn
-            // 
-            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
-            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
-            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
-            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.currencyDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(542, 257);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 20);
-            this.label6.TabIndex = 41;
-            this.label6.Text = "Payments List";
+            this.GridViewPayments.Size = new System.Drawing.Size(827, 371);
+            this.GridViewPayments.TabIndex = 42;
             // 
             // Payments
             // 
@@ -576,7 +493,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payments";
             this.Text = "Payments";
-            this.Load += new System.EventHandler(this.Payments_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -593,8 +509,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPayments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPayments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentsTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -634,16 +548,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView GridViewPayments;
-        private DataSetPayments dataSetPayments;
-        private System.Windows.Forms.BindingSource paymentsTableBindingSource;
-        private DataSetPaymentsTableAdapters.PaymentsTableTableAdapter paymentsTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paymentIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView GridViewPayments;
     }
 }

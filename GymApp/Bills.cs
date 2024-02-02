@@ -17,17 +17,26 @@ namespace GymApp
         {
             InitializeComponent();
             Con = new Functions();
-           // ShowBills();
+            ShowBills();
             GetMembers();
+            GridViewBills.Columns[4].Visible = false;
             GridViewBills.SelectionChanged += GridViewBills_SelectionChanged;
         }
 
-        //private void ShowBills()
-        //{
-        //    string Query = "SELECT MembersTable.MembersID, CONCAT(MembersTable.MemberFName,' ', MembersTable.MemberLName) AS Member , BillsTable.Date, BillsTable.Amount , BillsTable.Currency, BillsTable.BillID FROM MembersTable INNER JOIN BillsTable ON MembersTable.MembersID = BillsTable.MembersID";
-        //    GridViewBills.DataSource = Con.GetData(Query);
-        //    GridViewBills.ClearSelection();
-        //}
+        private void Reset()
+        {
+            Member.Text = string.Empty;
+            Amount.Text = string.Empty;
+            Currency.Text = string.Empty;
+        }
+
+
+        private void ShowBills()
+        {
+            string Query = "SELECT CONCAT(MembersTable.MemberFName ,' ', MembersTable.MemberLName ,' ') AS Member , BillsTable.Date, BillsTable.Amount , BillsTable.Currency, BillsTable.BillID FROM MembersTable INNER JOIN BillsTable ON MembersTable.MembersID = BillsTable.MembersID";
+            GridViewBills.DataSource = Con.GetData(Query);
+            GridViewBills.ClearSelection();
+        }
 
         private void GetMembers()
         {
@@ -48,7 +57,6 @@ namespace GymApp
                 }
                 else
                 {
-                    //int Agent = Login.UserId; // Receptionist user
                     string Memship = Member.SelectedValue.ToString();
                     string BillDate = Date.Value.Date.ToString();
                     string Amo = Amount.Text;
@@ -56,9 +64,9 @@ namespace GymApp
                     string Query = "insert into BillsTable values({0},'{1}','{2}','{3}')";
                     Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr);
                     Con.setData(Query);
-                    //ShowBills();
+                    ShowBills();
                     MessageBox.Show("Bill confirmed");
-                    //Reset();
+                    Reset();
                 }
             }
             catch (Exception Ex)
@@ -69,12 +77,56 @@ namespace GymApp
 
         private void Edit_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Member.SelectedIndex == -1 || Amount.Text == "" || Currency.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please enter the required fields!!");
+                }
+                else
+                {
+                    int Key = int.Parse(GridViewBills.SelectedRows[0].Cells[4].Value.ToString());
+                    string Memship = Member.SelectedValue.ToString();
+                    string BillDate = Date.Value.Date.ToString();
+                    string Amo = Amount.Text;
+                    string Curr = Currency.SelectedItem.ToString();
+                    string Query = "update BillsTable set MembersID= {0}, Date = '{1}', Amount = '{2}', Currency = '{3}' where BillID = {4}";
+                    Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr, Key);
+                    Con.setData(Query);
+                    ShowBills();
+                    MessageBox.Show("Bill updated");
+                    Reset();
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Member.SelectedIndex == -1 || Amount.Text == "" || Currency.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select the row!!");
+                }
+                else
+                {
+                    int Key = int.Parse(GridViewBills.SelectedRows[0].Cells[4].Value.ToString());
+                    string Query = "Delete from BillsTable where BillID = {0}";
+                    Query = string.Format(Query, Key);
+                    Con.setData(Query);
+                    ShowBills();
+                    MessageBox.Show("Bill Deleted");
+                    Reset();
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
 
         private void MemberLbl_Click(object sender, EventArgs e)
@@ -112,24 +164,8 @@ namespace GymApp
             this.Hide();
         }
 
-        private void GridViewBills_SelectionChanged(object sender, EventArgs e)
+        private void ChangePassLbl_Click(object sender, EventArgs e)
         {
-
-            if (GridViewBills.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = GridViewBills.SelectedRows[0];
-
-                Member.Text = GridViewBills.CurrentRow.Cells[1].Value.ToString();
-                Date.Text = GridViewBills.CurrentRow.Cells[2].Value.ToString();
-                Amount.Text = GridViewBills.CurrentRow.Cells[3].Value.ToString();
-                Currency.Text = GridViewBills.CurrentRow.Cells[4].Value.ToString();
-            }
-        }
-
-        private void Bills_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dataSetBills.BillsTable' table. You can move, or remove it, as needed.
-            this.billsTableTableAdapter.Fill(this.dataSetBills.BillsTable);
 
         }
 
@@ -137,5 +173,21 @@ namespace GymApp
         {
             Application.Restart();
         }
+
+        private void GridViewBills_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (GridViewBills.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = GridViewBills.SelectedRows[0];
+
+                Member.Text = GridViewBills.CurrentRow.Cells[0].Value.ToString();
+                Date.Text = GridViewBills.CurrentRow.Cells[1].Value.ToString();
+                Amount.Text = GridViewBills.CurrentRow.Cells[2].Value.ToString();
+                Currency.Text = GridViewBills.CurrentRow.Cells[3].Value.ToString();
+            }
+        }
+
+       
     }
 }

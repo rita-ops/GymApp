@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bills));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -52,13 +51,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.GridViewBills = new System.Windows.Forms.DataGridView();
-            this.billIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.membersIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetBills = new GymApp.DataSetBills();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -71,7 +63,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.billsTableTableAdapter = new GymApp.DataSetBillsTableAdapters.BillsTableTableAdapter();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -85,8 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billsTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetBills)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,6 +129,7 @@
             this.ChangePassLbl.Size = new System.Drawing.Size(116, 17);
             this.ChangePassLbl.TabIndex = 2;
             this.ChangePassLbl.Text = "Change Password";
+            this.ChangePassLbl.Click += new System.EventHandler(this.ChangePassLbl_Click);
             // 
             // Logout
             // 
@@ -313,7 +303,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(542, 295);
+            this.label6.Location = new System.Drawing.Point(486, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 20);
             this.label6.TabIndex = 41;
@@ -321,77 +311,24 @@
             // 
             // GridViewBills
             // 
-            this.GridViewBills.AutoGenerateColumns = false;
+            this.GridViewBills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewBills.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.GridViewBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.billIDDataGridViewTextBoxColumn,
-            this.membersIDDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.currencyDataGridViewTextBoxColumn});
-            this.GridViewBills.DataSource = this.billsTableBindingSource;
-            this.GridViewBills.Location = new System.Drawing.Point(355, 330);
+            this.GridViewBills.Location = new System.Drawing.Point(159, 282);
             this.GridViewBills.MultiSelect = false;
             this.GridViewBills.Name = "GridViewBills";
             this.GridViewBills.ReadOnly = true;
-            this.GridViewBills.Size = new System.Drawing.Size(444, 226);
+            this.GridViewBills.Size = new System.Drawing.Size(716, 398);
             this.GridViewBills.TabIndex = 40;
             this.GridViewBills.SelectionChanged += new System.EventHandler(this.GridViewBills_SelectionChanged);
-            // 
-            // billIDDataGridViewTextBoxColumn
-            // 
-            this.billIDDataGridViewTextBoxColumn.DataPropertyName = "BillID";
-            this.billIDDataGridViewTextBoxColumn.HeaderText = "BillID";
-            this.billIDDataGridViewTextBoxColumn.Name = "billIDDataGridViewTextBoxColumn";
-            this.billIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.billIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // membersIDDataGridViewTextBoxColumn
-            // 
-            this.membersIDDataGridViewTextBoxColumn.DataPropertyName = "MembersID";
-            this.membersIDDataGridViewTextBoxColumn.HeaderText = "Members";
-            this.membersIDDataGridViewTextBoxColumn.Name = "membersIDDataGridViewTextBoxColumn";
-            this.membersIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // currencyDataGridViewTextBoxColumn
-            // 
-            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
-            this.currencyDataGridViewTextBoxColumn.HeaderText = "Currency";
-            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
-            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // billsTableBindingSource
-            // 
-            this.billsTableBindingSource.DataMember = "BillsTable";
-            this.billsTableBindingSource.DataSource = this.dataSetBills;
-            // 
-            // dataSetBills
-            // 
-            this.dataSetBills.DataSetName = "DataSetBills";
-            this.dataSetBills.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -527,10 +464,6 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Bills";
             // 
-            // billsTableTableAdapter
-            // 
-            this.billsTableTableAdapter.ClearBeforeFill = true;
-            // 
             // Bills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,7 +474,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Bills";
             this.Text = "Bills";
-            this.Load += new System.EventHandler(this.Bills_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -558,8 +490,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billsTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetBills)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -599,13 +529,5 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
-        private DataSetBills dataSetBills;
-        private System.Windows.Forms.BindingSource billsTableBindingSource;
-        private DataSetBillsTableAdapters.BillsTableTableAdapter billsTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn billIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn membersIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
     }
 }

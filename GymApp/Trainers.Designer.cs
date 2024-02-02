@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trainers));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -72,18 +70,6 @@
             this.BloodType = new System.Windows.Forms.ComboBox();
             this.TrainerFName = new System.Windows.Forms.TextBox();
             this.GridViewTrainers = new System.Windows.Forms.DataGridView();
-            this.trainerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trainerFNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trainerLNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trainerDOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trainerPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.experienceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bloodTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trainersTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetTrainers = new GymApp.DataSetTrainers();
-            this.trainersTableTableAdapter = new GymApp.DataSetTrainersTableAdapters.TrainersTableTableAdapter();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -96,8 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTrainers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trainersTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTrainers)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -297,6 +281,7 @@
             this.Logout.Size = new System.Drawing.Size(51, 17);
             this.Logout.TabIndex = 4;
             this.Logout.Text = "Logout";
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // panel2
             // 
@@ -529,125 +514,23 @@
             // 
             // GridViewTrainers
             // 
-            this.GridViewTrainers.AutoGenerateColumns = false;
+            this.GridViewTrainers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewTrainers.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridViewTrainers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridViewTrainers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewTrainers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.trainerIDDataGridViewTextBoxColumn,
-            this.trainerFNameDataGridViewTextBoxColumn,
-            this.trainerLNameDataGridViewTextBoxColumn,
-            this.trainerDOBDataGridViewTextBoxColumn,
-            this.trainerPhoneDataGridViewTextBoxColumn,
-            this.experienceDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn,
-            this.bloodTypeDataGridViewTextBoxColumn});
-            this.GridViewTrainers.DataSource = this.trainersTableBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridViewTrainers.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GridViewTrainers.Location = new System.Drawing.Point(267, 334);
+            this.GridViewTrainers.Location = new System.Drawing.Point(286, 319);
             this.GridViewTrainers.MultiSelect = false;
             this.GridViewTrainers.Name = "GridViewTrainers";
             this.GridViewTrainers.ReadOnly = true;
-            this.GridViewTrainers.Size = new System.Drawing.Size(1043, 150);
+            this.GridViewTrainers.Size = new System.Drawing.Size(973, 361);
             this.GridViewTrainers.TabIndex = 34;
-            this.GridViewTrainers.SelectionChanged += new System.EventHandler(this.GridViewTrainers_SelectionChanged);
-            // 
-            // trainerIDDataGridViewTextBoxColumn
-            // 
-            this.trainerIDDataGridViewTextBoxColumn.DataPropertyName = "TrainerID";
-            this.trainerIDDataGridViewTextBoxColumn.HeaderText = "TrainerID";
-            this.trainerIDDataGridViewTextBoxColumn.Name = "trainerIDDataGridViewTextBoxColumn";
-            this.trainerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trainerIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // trainerFNameDataGridViewTextBoxColumn
-            // 
-            this.trainerFNameDataGridViewTextBoxColumn.DataPropertyName = "TrainerFName";
-            this.trainerFNameDataGridViewTextBoxColumn.HeaderText = "First Name";
-            this.trainerFNameDataGridViewTextBoxColumn.Name = "trainerFNameDataGridViewTextBoxColumn";
-            this.trainerFNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trainerFNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // trainerLNameDataGridViewTextBoxColumn
-            // 
-            this.trainerLNameDataGridViewTextBoxColumn.DataPropertyName = "TrainerLName";
-            this.trainerLNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
-            this.trainerLNameDataGridViewTextBoxColumn.Name = "trainerLNameDataGridViewTextBoxColumn";
-            this.trainerLNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trainerLNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // trainerDOBDataGridViewTextBoxColumn
-            // 
-            this.trainerDOBDataGridViewTextBoxColumn.DataPropertyName = "TrainerDOB";
-            this.trainerDOBDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
-            this.trainerDOBDataGridViewTextBoxColumn.Name = "trainerDOBDataGridViewTextBoxColumn";
-            this.trainerDOBDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trainerDOBDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // trainerPhoneDataGridViewTextBoxColumn
-            // 
-            this.trainerPhoneDataGridViewTextBoxColumn.DataPropertyName = "TrainerPhone";
-            this.trainerPhoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.trainerPhoneDataGridViewTextBoxColumn.Name = "trainerPhoneDataGridViewTextBoxColumn";
-            this.trainerPhoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // experienceDataGridViewTextBoxColumn
-            // 
-            this.experienceDataGridViewTextBoxColumn.DataPropertyName = "Experience";
-            this.experienceDataGridViewTextBoxColumn.HeaderText = "Experience";
-            this.experienceDataGridViewTextBoxColumn.Name = "experienceDataGridViewTextBoxColumn";
-            this.experienceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.addressDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bloodTypeDataGridViewTextBoxColumn
-            // 
-            this.bloodTypeDataGridViewTextBoxColumn.DataPropertyName = "BloodType";
-            this.bloodTypeDataGridViewTextBoxColumn.HeaderText = "BloodType";
-            this.bloodTypeDataGridViewTextBoxColumn.Name = "bloodTypeDataGridViewTextBoxColumn";
-            this.bloodTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // trainersTableBindingSource
-            // 
-            this.trainersTableBindingSource.DataMember = "TrainersTable";
-            this.trainersTableBindingSource.DataSource = this.dataSetTrainers;
-            // 
-            // dataSetTrainers
-            // 
-            this.dataSetTrainers.DataSetName = "DataSetTrainers";
-            this.dataSetTrainers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // trainersTableTableAdapter
-            // 
-            this.trainersTableTableAdapter.ClearBeforeFill = true;
             // 
             // Trainers
             // 
@@ -680,7 +563,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Trainers";
             this.Text = "Trainers";
-            this.Load += new System.EventHandler(this.Trainers_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -695,8 +577,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTrainers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trainersTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetTrainers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -744,17 +624,5 @@
         private System.Windows.Forms.ComboBox BloodType;
         private System.Windows.Forms.TextBox TrainerFName;
         private System.Windows.Forms.DataGridView GridViewTrainers;
-        private DataSetTrainers dataSetTrainers;
-        private System.Windows.Forms.BindingSource trainersTableBindingSource;
-        private DataSetTrainersTableAdapters.TrainersTableTableAdapter trainersTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trainerIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trainerFNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trainerLNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trainerDOBDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trainerPhoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn experienceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bloodTypeDataGridViewTextBoxColumn;
     }
 }

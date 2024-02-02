@@ -18,6 +18,7 @@ namespace GymApp
             InitializeComponent();
             Con = new Functions();
             ShowMemberships();
+            GridViewMemberships.Columns[0].Visible = false;
             GridViewMemberships.SelectionChanged += GridViewMemberships_SelectionChanged;
         }
 
@@ -161,12 +162,6 @@ namespace GymApp
             {
                 MessageBox.Show(Ex.Message);
             }
-        }
-
-        private void Memberships_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'gymDataSet.MembershipsTable' table. You can move, or remove it, as needed.
-            this.membershipsTableTableAdapter.Fill(this.gymDataSet.MembershipsTable);
         }
 
         private void GridViewMemberships_SelectionChanged(object sender, EventArgs e)
