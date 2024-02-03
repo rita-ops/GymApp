@@ -188,6 +188,11 @@ namespace GymApp
             }
         }
 
-       
+        private void All_Bills(object sender, EventArgs e)
+        {
+            AllBills form2 = new AllBills();
+            form2.ReceivedDataGridView = GridViewBills;
+            form2.Show();
+        }
     }
 }

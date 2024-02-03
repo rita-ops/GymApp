@@ -56,6 +56,7 @@
     <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
     </Reference>
@@ -73,21 +74,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllBills.Designer.cs">
+      <DependentUpon>AllBills.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bills.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bills.Designer.cs">
       <DependentUpon>Bills.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetPayments.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetPayments.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetTrainers.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetTrainers.xsd</DependentUpon>
     </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="GymDataSet.Designer.cs">
@@ -127,6 +124,9 @@
     <Compile Include="Trainers.Designer.cs">
       <DependentUpon>Trainers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AllBills.resx">
+      <DependentUpon>AllBills.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bills.resx">
       <DependentUpon>Bills.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,28 +154,6 @@
     <EmbeddedResource Include="Trainers.resx">
       <DependentUpon>Trainers.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSetPayments.xsc">
-      <DependentUpon>DataSetPayments.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetPayments.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetPayments.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetPayments.xss">
-      <DependentUpon>DataSetPayments.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetTrainers.xsc">
-      <DependentUpon>DataSetTrainers.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetTrainers.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetTrainers.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetTrainers.xss">
-      <DependentUpon>DataSetTrainers.xsd</DependentUpon>
-    </None>
     <None Include="GymDataSet.xsc">
       <DependentUpon>GymDataSet.xsd</DependentUpon>
     </None>

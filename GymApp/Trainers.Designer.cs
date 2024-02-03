@@ -125,7 +125,7 @@
             this.button1.Location = new System.Drawing.Point(485, 213);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 8;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);

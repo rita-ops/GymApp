@@ -49,6 +49,7 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.GridViewPayments = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.GridViewPayments = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -303,6 +303,24 @@
             this.panel3.Size = new System.Drawing.Size(1155, 754);
             this.panel3.TabIndex = 28;
             // 
+            // GridViewPayments
+            // 
+            this.GridViewPayments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridViewPayments.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridViewPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewPayments.Location = new System.Drawing.Point(152, 290);
+            this.GridViewPayments.Name = "GridViewPayments";
+            this.GridViewPayments.Size = new System.Drawing.Size(827, 371);
+            this.GridViewPayments.TabIndex = 42;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -344,7 +362,7 @@
             this.button1.Location = new System.Drawing.Point(205, 151);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 37;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
@@ -356,7 +374,7 @@
             this.Date.Location = new System.Drawing.Point(240, 103);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(160, 22);
-            this.Date.TabIndex = 31;
+            this.Date.TabIndex = 1;
             this.Date.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             // 
             // ClientName
@@ -375,7 +393,7 @@
             this.ClientName.Location = new System.Drawing.Point(24, 105);
             this.ClientName.Name = "ClientName";
             this.ClientName.Size = new System.Drawing.Size(160, 24);
-            this.ClientName.TabIndex = 33;
+            this.ClientName.TabIndex = 0;
             // 
             // Currency
             // 
@@ -387,7 +405,7 @@
             this.Currency.Location = new System.Drawing.Point(933, 101);
             this.Currency.Name = "Currency";
             this.Currency.Size = new System.Drawing.Size(160, 24);
-            this.Currency.TabIndex = 33;
+            this.Currency.TabIndex = 4;
             // 
             // Amount
             // 
@@ -395,7 +413,7 @@
             this.Amount.Location = new System.Drawing.Point(699, 101);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(160, 22);
-            this.Amount.TabIndex = 32;
+            this.Amount.TabIndex = 3;
             // 
             // Phone
             // 
@@ -403,7 +421,7 @@
             this.Phone.Location = new System.Drawing.Point(464, 101);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(160, 22);
-            this.Phone.TabIndex = 32;
+            this.Phone.TabIndex = 2;
             // 
             // label3
             // 
@@ -464,24 +482,6 @@
             this.label1.Size = new System.Drawing.Size(100, 24);
             this.label1.TabIndex = 28;
             this.label1.Text = "Payments";
-            // 
-            // GridViewPayments
-            // 
-            this.GridViewPayments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.GridViewPayments.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.GridViewPayments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewPayments.Location = new System.Drawing.Point(152, 290);
-            this.GridViewPayments.Name = "GridViewPayments";
-            this.GridViewPayments.Size = new System.Drawing.Size(827, 371);
-            this.GridViewPayments.TabIndex = 42;
             // 
             // Payments
             // 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bills));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -51,6 +51,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.GridViewBills = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -282,6 +283,7 @@
             // 
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.GridViewBills);
+            this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
@@ -313,14 +315,14 @@
             // 
             this.GridViewBills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewBills.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridViewBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewBills.Location = new System.Drawing.Point(159, 282);
             this.GridViewBills.MultiSelect = false;
@@ -329,6 +331,18 @@
             this.GridViewBills.Size = new System.Drawing.Size(716, 398);
             this.GridViewBills.TabIndex = 40;
             this.GridViewBills.SelectionChanged += new System.EventHandler(this.GridViewBills_SelectionChanged);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(926, 294);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 32);
+            this.button4.TabIndex = 39;
+            this.button4.Text = "All Bills";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.All_Bills);
             // 
             // button3
             // 
@@ -361,7 +375,7 @@
             this.button1.Location = new System.Drawing.Point(205, 151);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 37;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
@@ -373,7 +387,7 @@
             this.Date.Location = new System.Drawing.Point(322, 103);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(160, 22);
-            this.Date.TabIndex = 31;
+            this.Date.TabIndex = 1;
             this.Date.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             // 
             // Member
@@ -392,7 +406,7 @@
             this.Member.Location = new System.Drawing.Point(24, 105);
             this.Member.Name = "Member";
             this.Member.Size = new System.Drawing.Size(160, 24);
-            this.Member.TabIndex = 33;
+            this.Member.TabIndex = 0;
             // 
             // Currency
             // 
@@ -404,7 +418,7 @@
             this.Currency.Location = new System.Drawing.Point(933, 101);
             this.Currency.Name = "Currency";
             this.Currency.Size = new System.Drawing.Size(160, 24);
-            this.Currency.TabIndex = 33;
+            this.Currency.TabIndex = 3;
             // 
             // Amount
             // 
@@ -412,7 +426,7 @@
             this.Amount.Location = new System.Drawing.Point(639, 101);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(160, 22);
-            this.Amount.TabIndex = 32;
+            this.Amount.TabIndex = 2;
             // 
             // label3
             // 
@@ -529,5 +543,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button4;
     }
 }

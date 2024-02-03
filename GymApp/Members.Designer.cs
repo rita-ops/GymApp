@@ -367,7 +367,7 @@
             this.JoinDate.Location = new System.Drawing.Point(654, 109);
             this.JoinDate.Name = "JoinDate";
             this.JoinDate.Size = new System.Drawing.Size(160, 22);
-            this.JoinDate.TabIndex = 34;
+            this.JoinDate.TabIndex = 3;
             this.JoinDate.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             // 
             // MemberDOB
@@ -377,7 +377,7 @@
             this.MemberDOB.Location = new System.Drawing.Point(438, 109);
             this.MemberDOB.Name = "MemberDOB";
             this.MemberDOB.Size = new System.Drawing.Size(160, 22);
-            this.MemberDOB.TabIndex = 34;
+            this.MemberDOB.TabIndex = 2;
             this.MemberDOB.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             // 
             // button3
@@ -411,7 +411,7 @@
             this.button1.Location = new System.Drawing.Point(187, 213);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 41;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
@@ -432,7 +432,7 @@
             this.BloodType.Location = new System.Drawing.Point(440, 171);
             this.BloodType.Name = "BloodType";
             this.BloodType.Size = new System.Drawing.Size(158, 24);
-            this.BloodType.TabIndex = 39;
+            this.BloodType.TabIndex = 7;
             // 
             // MembershipType
             // 
@@ -441,7 +441,7 @@
             this.MembershipType.Location = new System.Drawing.Point(871, 104);
             this.MembershipType.Name = "MembershipType";
             this.MembershipType.Size = new System.Drawing.Size(160, 24);
-            this.MembershipType.TabIndex = 38;
+            this.MembershipType.TabIndex = 4;
             // 
             // Timing
             // 
@@ -453,7 +453,7 @@
             this.Timing.Location = new System.Drawing.Point(230, 171);
             this.Timing.Name = "Timing";
             this.Timing.Size = new System.Drawing.Size(160, 24);
-            this.Timing.TabIndex = 38;
+            this.Timing.TabIndex = 6;
             // 
             // Trainer
             // 
@@ -465,7 +465,7 @@
             this.Trainer.Location = new System.Drawing.Point(871, 171);
             this.Trainer.Name = "Trainer";
             this.Trainer.Size = new System.Drawing.Size(160, 24);
-            this.Trainer.TabIndex = 38;
+            this.Trainer.TabIndex = 9;
             // 
             // Gender
             // 
@@ -477,7 +477,7 @@
             this.Gender.Location = new System.Drawing.Point(654, 171);
             this.Gender.Name = "Gender";
             this.Gender.Size = new System.Drawing.Size(160, 24);
-            this.Gender.TabIndex = 38;
+            this.Gender.TabIndex = 8;
             // 
             // MemberLName
             // 
@@ -485,7 +485,7 @@
             this.MemberLName.Location = new System.Drawing.Point(230, 111);
             this.MemberLName.Name = "MemberLName";
             this.MemberLName.Size = new System.Drawing.Size(160, 22);
-            this.MemberLName.TabIndex = 33;
+            this.MemberLName.TabIndex = 1;
             // 
             // MemberFName
             // 
@@ -493,7 +493,7 @@
             this.MemberFName.Location = new System.Drawing.Point(31, 111);
             this.MemberFName.Name = "MemberFName";
             this.MemberFName.Size = new System.Drawing.Size(159, 22);
-            this.MemberFName.TabIndex = 32;
+            this.MemberFName.TabIndex = 0;
             // 
             // Phone
             // 
@@ -501,7 +501,7 @@
             this.Phone.Location = new System.Drawing.Point(32, 173);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(160, 22);
-            this.Phone.TabIndex = 35;
+            this.Phone.TabIndex = 5;
             // 
             // label4
             // 
