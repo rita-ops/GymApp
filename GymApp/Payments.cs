@@ -92,19 +92,28 @@ namespace GymApp
                     MessageBox.Show("Please fill required fields!!");
                 }
 
-                else
+                if (DateTime.TryParse(Date.Text, out DateTime paydate))
                 {
-                    string Client = ClientName.SelectedItem.ToString();
-                    string date = Date.Value.Date.ToString();
-                    string Number = Phone.Text;
-                    string Amoun = Amount.Text;
-                    string Curr = Currency.SelectedItem.ToString();
-                    string Query = "Insert into PaymentsTable Values('{0}','{1}','{2}','{3}','{4}')";
-                    Query = string.Format(Query, Client, date, Number, Amoun, Curr);
-                    Con.setData(Query);
-                    ShowPayments();
-                    MessageBox.Show("Payment Added");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (paydate > DateTime.Now || paydate == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date less than the current date.!");
+                    }
+
+                    else
+                    {
+                        string Client = ClientName.SelectedItem.ToString();
+                        string date = Date.Value.Date.ToString();
+                        string Number = Phone.Text;
+                        string Amoun = Amount.Text;
+                        string Curr = Currency.SelectedItem.ToString();
+                        string Query = "Insert into PaymentsTable Values('{0}','{1}','{2}','{3}','{4}')";
+                        Query = string.Format(Query, Client, date, Number, Amoun, Curr);
+                        Con.setData(Query);
+                        ShowPayments();
+                        MessageBox.Show("Payment Added");
+                        Reset();
+                    }
                 }
             }
             catch (Exception Ex)
@@ -121,20 +130,29 @@ namespace GymApp
                 {
                     MessageBox.Show("Please select a row!!");
                 }
-                else
+                if (DateTime.TryParse(Date.Text, out DateTime paydate))
                 {
-                    int Key = int.Parse(GridViewPayments.CurrentRow.Cells[0].Value.ToString());
-                    string Client = ClientName.SelectedItem.ToString();
-                    string date = Date.Value.Date.ToString();
-                    string Number = Phone.Text;
-                    string Amoun = Amount.Text;
-                    string Curr = Currency.SelectedItem.ToString();
-                    string Query = "Update PaymentsTable set ClientName = '{0}', Date = '{1}', Phone = '{2}', Amount = '{3}', Currency = '{4}' Where PaymentID = {5}";
-                    Query = string.Format(Query, Client, Date.Value.Date, Number, Amoun, Curr, Key);
-                    Con.setData(Query);
-                    ShowPayments();
-                    MessageBox.Show("Payment Updated");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (paydate > DateTime.Now || paydate == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date less than the current date.!");
+                    }
+
+                    else
+                    {
+                        int Key = int.Parse(GridViewPayments.CurrentRow.Cells[0].Value.ToString());
+                        string Client = ClientName.SelectedItem.ToString();
+                        string date = Date.Value.Date.ToString();
+                        string Number = Phone.Text;
+                        string Amoun = Amount.Text;
+                        string Curr = Currency.SelectedItem.ToString();
+                        string Query = "Update PaymentsTable set ClientName = '{0}', Date = '{1}', Phone = '{2}', Amount = '{3}', Currency = '{4}' Where PaymentID = {5}";
+                        Query = string.Format(Query, Client, Date.Value.Date, Number, Amoun, Curr, Key);
+                        Con.setData(Query);
+                        ShowPayments();
+                        MessageBox.Show("Payment Updated");
+                        Reset();
+                    }
                 }
             }
             catch (Exception Ex)

@@ -55,18 +55,27 @@ namespace GymApp
                 {
                     MessageBox.Show("Please enter the required fields!!");
                 }
-                else
+
+                if (DateTime.TryParse(Date.Text, out DateTime billdate))
                 {
-                    string Memship = Member.SelectedValue.ToString();
-                    string BillDate = Date.Value.Date.ToString();
-                    string Amo = Amount.Text;
-                    string Curr = Currency.SelectedItem.ToString();
-                    string Query = "insert into BillsTable values({0},'{1}','{2}','{3}')";
-                    Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr);
-                    Con.setData(Query);
-                    ShowBills();
-                    MessageBox.Show("Bill confirmed");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (billdate > DateTime.Now || billdate == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date less than the current date.!");
+                    }
+                    else
+                    {
+                        string Memship = Member.SelectedValue.ToString();
+                        string BillDate = Date.Value.Date.ToString();
+                        string Amo = Amount.Text;
+                        string Curr = Currency.SelectedItem.ToString();
+                        string Query = "insert into BillsTable values({0},'{1}','{2}','{3}')";
+                        Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr);
+                        Con.setData(Query);
+                        ShowBills();
+                        MessageBox.Show("Bill confirmed");
+                        Reset();
+                    }
                 }
             }
             catch (Exception Ex)
@@ -83,19 +92,29 @@ namespace GymApp
                 {
                     MessageBox.Show("Please enter the required fields!!");
                 }
-                else
+
+                if (DateTime.TryParse(Date.Text, out DateTime billdate))
                 {
-                    int Key = int.Parse(GridViewBills.SelectedRows[0].Cells[4].Value.ToString());
-                    string Memship = Member.SelectedValue.ToString();
-                    string BillDate = Date.Value.Date.ToString();
-                    string Amo = Amount.Text;
-                    string Curr = Currency.SelectedItem.ToString();
-                    string Query = "update BillsTable set MembersID= {0}, Date = '{1}', Amount = '{2}', Currency = '{3}' where BillID = {4}";
-                    Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr, Key);
-                    Con.setData(Query);
-                    ShowBills();
-                    MessageBox.Show("Bill updated");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (billdate > DateTime.Now || billdate == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date less than the current date.!");
+                    }
+
+                    else
+                    {
+                        int Key = int.Parse(GridViewBills.SelectedRows[0].Cells[4].Value.ToString());
+                        string Memship = Member.SelectedValue.ToString();
+                        string BillDate = Date.Value.Date.ToString();
+                        string Amo = Amount.Text;
+                        string Curr = Currency.SelectedItem.ToString();
+                        string Query = "update BillsTable set MembersID= {0}, Date = '{1}', Amount = '{2}', Currency = '{3}' where BillID = {4}";
+                        Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr, Key);
+                        Con.setData(Query);
+                        ShowBills();
+                        MessageBox.Show("Bill updated");
+                        Reset();
+                    }
                 }
             }
             catch (Exception Ex)
