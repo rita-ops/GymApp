@@ -118,48 +118,56 @@ namespace GymApp
 
         private void FilterDataByDateRange(DateTime startDate, DateTime endDate)
         {
-            // Assuming your DataGridView has a DataTable as its DataSource
-            if (GridViewBills.DataSource is DataTable dataTable)
+            if (startDate > endDate)
             {
-                // Apply a filter to the DataTable based on the date range
-                string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
-                dataTable.DefaultView.RowFilter = filterExpression;
+                MessageBox.Show("Date To should be greater then Date From");
             }
 
-            decimal SumUSD = 0;
-            decimal SumLBP = 0;
-
-            foreach (DataGridViewRow row in GridViewBills.Rows)
+            else
             {
-                if (row.IsNewRow) continue; // Skip the new row if it's there
-
-                // Assuming your columns are named "DateColumn", "DollarAmountColumn", and "LbpAmountColumn"
-                DateTime date = Convert.ToDateTime(row.Cells["Date"].Value);
-
-                if (date >= startDate && date <= endDate)
+                // Assuming your DataGridView has a DataTable as its DataSource
+                if (GridViewBills.DataSource is DataTable dataTable)
                 {
-                    // Assuming your amount column is at index 1 and currency column is at index 2
-                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
+                    // Apply a filter to the DataTable based on the date range
+                    string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
+                    dataTable.DefaultView.RowFilter = filterExpression;
+                }
 
-                    // You can use the currency information if needed
-                    string currency = Convert.ToString(row.Cells["Currency"].Value);
+                decimal SumUSD = 0;
+                decimal SumLBP = 0;
 
+                foreach (DataGridViewRow row in GridViewBills.Rows)
+                {
+                    if (row.IsNewRow) continue; // Skip the new row if it's there
 
-                    // Convert to dollars and Lebanese pounds based on exchange rates
-                    if (currency == "USD")
+                    // Assuming your columns are named "DateColumn", "DollarAmountColumn", and "LbpAmountColumn"
+                    DateTime date = Convert.ToDateTime(row.Cells["Date"].Value);
+
+                    if (date >= startDate && date <= endDate)
                     {
-                        SumUSD += amount;
-                    }
-                    else if (currency == "LBP")
-                    {
-                        SumLBP += amount;
+                        // Assuming your amount column is at index 1 and currency column is at index 2
+                        decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
+
+                        // You can use the currency information if needed
+                        string currency = Convert.ToString(row.Cells["Currency"].Value);
+
+
+                        // Convert to dollars and Lebanese pounds based on exchange rates
+                        if (currency == "USD")
+                        {
+                            SumUSD += amount;
+                        }
+                        else if (currency == "LBP")
+                        {
+                            SumLBP += amount;
+                        }
                     }
                 }
-            }
 
-            // Display the total amounts in some labels or other controls
-            TxtBoxUSD.Text = SumUSD.ToString();
-            TxtBoxLBP.Text = SumLBP.ToString();
+                // Display the total amounts in some labels or other controls
+                TxtBoxUSD.Text = SumUSD.ToString();
+                TxtBoxLBP.Text = SumLBP.ToString();
+            }
         }
 
         private void Search_Click(object sender, EventArgs e)

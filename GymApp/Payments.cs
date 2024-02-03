@@ -83,7 +83,6 @@ namespace GymApp
             Currency.Text = string.Empty;
         }
 
-
         private void Save_Click(object sender, EventArgs e)
         {
             try
@@ -92,6 +91,7 @@ namespace GymApp
                 {
                     MessageBox.Show("Please fill required fields!!");
                 }
+
                 else
                 {
                     string Client = ClientName.SelectedItem.ToString();
@@ -182,6 +182,11 @@ namespace GymApp
             }
          }
 
-       
+        private void All_Payments(object sender, EventArgs e)
+        {
+            AllPayments form = new AllPayments();
+            form.ReceivedDataGridView = GridViewPayments;
+            form.Show();
+        }
     }
 }

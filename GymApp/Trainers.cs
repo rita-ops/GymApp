@@ -50,21 +50,31 @@ namespace GymApp
                 {
                     MessageBox.Show("Please enter the required fields!!");
                 }
-                else
+
+                if (DateTime.TryParse(TrainerDOB.Text, out DateTime trainerDOB))
                 {
-                    string FirstName = TrainerFName.Text;
-                    string LastName = TrainerLName.Text;
-                    string Number = TrainerPhone.Text;
-                    int Exp = Convert.ToInt32(Experience.SelectedItem.ToString());
-                    string Add = Address.Text;
-                    string Gen = Gender.Text;
-                    string Blood = BloodType.Text;
-                    string Query = "Insert into TrainersTable Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')";
-                    Query = string.Format(Query, FirstName, LastName, TrainerDOB.Value.Date, Number, Exp, Add, Gen, Blood);
-                    Con.setData(Query);
-                    ShowTrainers();
-                    MessageBox.Show("New Trainer Added");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (trainerDOB > DateTime.Now || trainerDOB == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                    }
+
+                        else
+                        {
+                            string FirstName = TrainerFName.Text;
+                            string LastName = TrainerLName.Text;
+                            string Number = TrainerPhone.Text;
+                            int Exp = Convert.ToInt32(Experience.SelectedItem.ToString());
+                            string Add = Address.Text;
+                            string Gen = Gender.Text;
+                            string Blood = BloodType.Text;
+                            string Query = "Insert into TrainersTable Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')";
+                            Query = string.Format(Query, FirstName, LastName, TrainerDOB.Value.Date, Number, Exp, Add, Gen, Blood);
+                            Con.setData(Query);
+                            ShowTrainers();
+                            MessageBox.Show("New Trainer Added");
+                            Reset();
+                        }
                 }
             }
             catch (Exception Ex)
@@ -81,23 +91,33 @@ namespace GymApp
                 {
                     MessageBox.Show("Please select the row!!");
                 }
-                else
+
+                if (DateTime.TryParse(TrainerDOB.Text, out DateTime trainerDOB))
                 {
-                    int Key = int.Parse(GridViewTrainers.CurrentRow.Cells[0].Value.ToString());
-                    string FirstName = TrainerFName.Text;
-                    string LastName = TrainerLName.Text;
-                    string Number = TrainerPhone.Text;
-                    int Exp = Convert.ToInt32(Experience.SelectedItem.ToString());
-                    string Add = Address.Text;
-                    string Gen = Gender.Text;
-                    string Blood = BloodType.Text;
-                    string Query = "Update TrainersTable set TrainerFName = '{0}', TrainerLName = '{1}', TrainerDOB = '{2}', TrainerPhone = '{3}', Experience = '{4}', Address = '{5}', Gender = '{6}', BloodType = '{7}' Where TrainerID = {8}";
-                    Query = string.Format(Query, FirstName, LastName, TrainerDOB.Value.Date, Number, Exp, Add, Gen, Blood, Key);
-                    Con.setData(Query);
-                    ShowTrainers();
-                    MessageBox.Show("Trainer Updated");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (trainerDOB > DateTime.Now || trainerDOB == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                    }
+                    else
+                    {
+                        int Key = int.Parse(GridViewTrainers.CurrentRow.Cells[0].Value.ToString());
+                        string FirstName = TrainerFName.Text;
+                        string LastName = TrainerLName.Text;
+                        string Number = TrainerPhone.Text;
+                        int Exp = Convert.ToInt32(Experience.SelectedItem.ToString());
+                        string Add = Address.Text;
+                        string Gen = Gender.Text;
+                        string Blood = BloodType.Text;
+                        string Query = "Update TrainersTable set TrainerFName = '{0}', TrainerLName = '{1}', TrainerDOB = '{2}', TrainerPhone = '{3}', Experience = '{4}', Address = '{5}', Gender = '{6}', BloodType = '{7}' Where TrainerID = {8}";
+                        Query = string.Format(Query, FirstName, LastName, TrainerDOB.Value.Date, Number, Exp, Add, Gen, Blood, Key);
+                        Con.setData(Query);
+                        ShowTrainers();
+                        MessageBox.Show("Trainer Updated");
+                        Reset();
+                    }
                 }
+
             }
             catch (Exception Ex)
             {

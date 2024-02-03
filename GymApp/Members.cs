@@ -115,24 +115,46 @@ namespace GymApp
                 {
                     MessageBox.Show("Please enter the required fields!!");
                 }
-                else
+
+                // Assuming txtMemberDOB is a TextBox for entering date of birth
+                if (DateTime.TryParse(MemberDOB.Text, out DateTime memberDOB))
                 {
-                    string MemFName = MemberFName.Text;
-                    string MemLName = MemberLName.Text;
-                    string BirthDate = MemberDOB.Value.Date.ToString();
-                    string JoinedDate = JoinDate.Value.Date.ToString();
-                    int Memship = Convert.ToInt32(MembershipType.SelectedValue.ToString());
-                    string Number = Phone.Text;
-                    string Time = Timing.SelectedItem.ToString();
-                    string Blood = BloodType.SelectedItem.ToString();
-                    string Gen = Gender.SelectedItem.ToString();
-                    string TrainerName = Trainer.SelectedValue.ToString();
-                    string Query = "Insert into MembersTable values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
-                    Query = string.Format(Query, MemFName, MemLName, MemberDOB.Value.Date, JoinDate.Value.Date, Memship, Number, Time, Blood, Gen, TrainerName);
-                    Con.setData(Query);
-                    ShowMembers();
-                    MessageBox.Show("Member added");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (memberDOB > DateTime.Now || memberDOB == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                    }
+                    else
+                    {
+
+                        if (DateTime.TryParse(JoinDate.Text, out DateTime memberJoin))
+                        {
+                            if (memberJoin > DateTime.Now)
+                            {
+                                MessageBox.Show(" Join date should be less or equal the current date.!");
+                            }
+
+                            else
+                            {
+                                string MemFName = MemberFName.Text;
+                                string MemLName = MemberLName.Text;
+                                string BirthDate = MemberDOB.Value.Date.ToString();
+                                string JoinedDate = JoinDate.Value.Date.ToString();
+                                int Memship = Convert.ToInt32(MembershipType.SelectedValue.ToString());
+                                string Number = Phone.Text;
+                                string Time = Timing.SelectedItem.ToString();
+                                string Blood = BloodType.SelectedItem.ToString();
+                                string Gen = Gender.SelectedItem.ToString();
+                                string TrainerName = Trainer.SelectedValue.ToString();
+                                string Query = "Insert into MembersTable values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')";
+                                Query = string.Format(Query, MemFName, MemLName, MemberDOB.Value.Date, JoinDate.Value.Date, Memship, Number, Time, Blood, Gen, TrainerName);
+                                Con.setData(Query);
+                                ShowMembers();
+                                MessageBox.Show("Member added");
+                                Reset();
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception Ex)
@@ -149,25 +171,46 @@ namespace GymApp
                 {
                     MessageBox.Show("Please enter the required fields!!");
                 }
-                else
+
+                if (DateTime.TryParse(MemberDOB.Text, out DateTime memberDOB))
                 {
-                    int Key = int.Parse(GridViewMembers.CurrentRow.Cells[0].Value.ToString());
-                    string MemFName = MemberFName.Text;
-                    string MemLName = MemberLName.Text;
-                    string BirthDate = MemberDOB.Value.Date.ToString();
-                    string JoinedDate = JoinDate.Value.Date.ToString();
-                    string Memship = MembershipType.SelectedValue.ToString();
-                    string Number = Phone.Text;
-                    string Time = Timing.SelectedItem.ToString();
-                    string Blood = BloodType.SelectedItem.ToString();
-                    string Gen = Gender.SelectedItem.ToString();
-                    string TrainerName = Trainer.SelectedValue.ToString();
-                    string Query = "Update MembersTable set MemberFName = '{0}', MemberLName = '{1}', MemberDOB = '{2}', JoinDate = '{3}', MembershipID = {4}, Phone = '{5}' , Timing = '{6}', BloodType = '{7}', Gender = '{8}' , TrainerID = {9} Where MembersID = {10}";
-                    Query = string.Format(Query, MemFName, MemLName, MemberDOB.Value.Date, JoinDate.Value.Date, Memship, Number, Time, Blood, Gen, TrainerName, Key);
-                    Con.setData(Query);
-                    ShowMembers();
-                    MessageBox.Show("Member Updated");
-                    Reset();
+                    // Validate if memberDOB is greater than the system date
+                    if (memberDOB > DateTime.Now || memberDOB == DateTime.Now)
+                    {
+                        MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                    }
+
+                    else
+                    {
+
+                        if (DateTime.TryParse(JoinDate.Text, out DateTime memberJoin))
+                        {
+                            if (memberJoin > DateTime.Now)
+                            {
+                                MessageBox.Show(" Join date should be less or equal the current date.!");
+                            }
+                            else
+                            {
+                                int Key = int.Parse(GridViewMembers.CurrentRow.Cells[0].Value.ToString());
+                                string MemFName = MemberFName.Text;
+                                string MemLName = MemberLName.Text;
+                                string BirthDate = MemberDOB.Value.Date.ToString();
+                                string JoinedDate = JoinDate.Value.Date.ToString();
+                                string Memship = MembershipType.SelectedValue.ToString();
+                                string Number = Phone.Text;
+                                string Time = Timing.SelectedItem.ToString();
+                                string Blood = BloodType.SelectedItem.ToString();
+                                string Gen = Gender.SelectedItem.ToString();
+                                string TrainerName = Trainer.SelectedValue.ToString();
+                                string Query = "Update MembersTable set MemberFName = '{0}', MemberLName = '{1}', MemberDOB = '{2}', JoinDate = '{3}', MembershipID = {4}, Phone = '{5}' , Timing = '{6}', BloodType = '{7}', Gender = '{8}' , TrainerID = {9} Where MembersID = {10}";
+                                Query = string.Format(Query, MemFName, MemLName, MemberDOB.Value.Date, JoinDate.Value.Date, Memship, Number, Time, Blood, Gen, TrainerName, Key);
+                                Con.setData(Query);
+                                ShowMembers();
+                                MessageBox.Show("Member Updated");
+                                Reset();
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception Ex)

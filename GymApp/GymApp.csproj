@@ -80,6 +80,12 @@
     <Compile Include="AllBills.Designer.cs">
       <DependentUpon>AllBills.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllPayments.Designer.cs">
+      <DependentUpon>AllPayments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bills.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="AllBills.resx">
       <DependentUpon>AllBills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllPayments.resx">
+      <DependentUpon>AllPayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bills.resx">
       <DependentUpon>Bills.cs</DependentUpon>
