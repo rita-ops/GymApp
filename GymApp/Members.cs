@@ -71,7 +71,7 @@ namespace GymApp
             this.Hide();
         }
 
-        private void PaymentLbl_Click_1(object sender, EventArgs e)
+        private void PaymentLbl_Click(object sender, EventArgs e)
         {
             Payments Obj = new Payments();
             Obj.Show();
@@ -265,6 +265,5 @@ namespace GymApp
 
             }
         }
-   
     }
 }

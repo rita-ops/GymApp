@@ -243,7 +243,7 @@
             this.PaymentLbl.Size = new System.Drawing.Size(68, 17);
             this.PaymentLbl.TabIndex = 2;
             this.PaymentLbl.Text = "Payments";
-            this.PaymentLbl.Click += new System.EventHandler(this.PaymentLbl_Click_1);
+            this.PaymentLbl.Click += new System.EventHandler(this.PaymentLbl_Click);
             // 
             // BillsLbl
             // 
