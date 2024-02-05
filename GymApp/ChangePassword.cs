@@ -14,6 +14,8 @@ namespace GymApp
     {
 
         Functions Con;
+        // Placeholder for the current password (this should come from your application's data)
+        private string currentPassword = "current_password";
         public ChangePassword()
         {
             InitializeComponent();
@@ -57,7 +59,9 @@ namespace GymApp
 
         private void ChangePassLbl_Click(object sender, EventArgs e)
         {
-
+            ChangePassword Obj = new ChangePassword();
+            Obj.Show();
+            this.Hide();
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -65,14 +69,44 @@ namespace GymApp
             Application.Restart();
         }
 
-        private void Save_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Cancel_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            string oldPassword = txtCurrentPassword.Text;
+            string newPassword = txtNewPassword.Text;
+            string confirmPassword = txtConfirmPassword.Text;
+
+            // Check if the old password is correct
+            if (oldPassword == currentPassword)
+            {
+                // Check if the new password and confirmation match
+                if (newPassword == confirmPassword)
+                {
+                    // Update the password (in this example, just updating the placeholder)
+                    currentPassword = newPassword;
+
+                    // Optionally, you can save the updated password to your database or application
+                    string Query = "UPDATE UsersTable SET Password = @NewPassword WHERE Username = @Username";
+                    Query = string.Format(Query, currentPassword);
+                    Con.setData(Query);
+
+                    MessageBox.Show("Password changed successfully!");
+                    this.Close(); // Close the form or navigate to another page as needed
+                }
+                else
+                {
+                    MessageBox.Show("New password and confirmation do not match.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect old password. Please try again.");
+            }
+        }
+     
     }
 }

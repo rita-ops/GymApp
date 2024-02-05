@@ -208,5 +208,12 @@ namespace GymApp
         {
             Application.Restart();
         }
+
+        private void ChangePassLbl_Click(object sender, EventArgs e)
+        {
+            ChangePassword Obj = new ChangePassword();
+            Obj.Show();
+            this.Hide();
+        }
     }
 }

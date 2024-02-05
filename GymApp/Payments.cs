@@ -20,6 +20,7 @@ namespace GymApp
             ShowPayments();
             GridViewPayments.Columns[0].Visible = false;
             GridViewPayments.Columns[1].HeaderText = "Client Name";
+            GridViewPayments.Columns["Amount"].DefaultCellStyle.Format = "N2";
             GridViewPayments.SelectionChanged += GridViewPayments_SelectionChanged;
         }
 
@@ -67,7 +68,9 @@ namespace GymApp
 
         private void ChangePassLbl_Click(object sender, EventArgs e)
         {
-
+            ChangePassword Obj = new ChangePassword();
+            Obj.Show();
+            this.Hide();
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -106,6 +109,7 @@ namespace GymApp
                         string date = Date.Value.Date.ToString();
                         string Number = Phone.Text;
                         string Amoun = Amount.Text;
+                        GridViewPayments.Columns["Amount"].DefaultCellStyle.Format = "N2";
                         string Curr = Currency.SelectedItem.ToString();
                         string Query = "Insert into PaymentsTable Values('{0}','{1}','{2}','{3}','{4}')";
                         Query = string.Format(Query, Client, date, Number, Amoun, Curr);
@@ -145,6 +149,7 @@ namespace GymApp
                         string date = Date.Value.Date.ToString();
                         string Number = Phone.Text;
                         string Amoun = Amount.Text;
+                        GridViewPayments.Columns["Amount"].DefaultCellStyle.Format = "N2";
                         string Curr = Currency.SelectedItem.ToString();
                         string Query = "Update PaymentsTable set ClientName = '{0}', Date = '{1}', Phone = '{2}', Amount = '{3}', Currency = '{4}' Where PaymentID = {5}";
                         Query = string.Format(Query, Client, Date.Value.Date, Number, Amoun, Curr, Key);

@@ -270,6 +270,7 @@
             this.ChangePassLbl.Size = new System.Drawing.Size(116, 17);
             this.ChangePassLbl.TabIndex = 2;
             this.ChangePassLbl.Text = "Change Password";
+            this.ChangePassLbl.Click += new System.EventHandler(this.ChangePassLbl_Click);
             // 
             // Logout
             // 

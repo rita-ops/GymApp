@@ -19,6 +19,7 @@ namespace GymApp
         {
             InitializeComponent();
             Con = new Functions();
+            
             //receivedDataGridView = (DataGridView)GridViewBills.DataSource;
             //GridViewBills.DataSource = receivedDataGridView;
         }
@@ -33,7 +34,7 @@ namespace GymApp
             {
                 // Do something with the received DataGridView
                 GridViewBills.DataSource = ReceivedDataGridView.DataSource;
-
+                GridViewBills.Columns["Amount"].DefaultCellStyle.Format = "N2";
             }
 
             // Access and manipulate the DataGridView as needed
@@ -68,13 +69,12 @@ namespace GymApp
             }
 
             // Display or use the calculated totals
-            TxtBoxUSD.Text = SumUSD.ToString();
-            TxtBoxLBP.Text = SumLBP.ToString();
+            TxtBoxUSD.Text = SumUSD.ToString("#,##0");
+            TxtBoxLBP.Text = SumLBP.ToString("#,##0");
         }
 
         private void SearchTxtBox_TextChanged(object sender, EventArgs e)
         {
-
             string searchTerm = SearchTxtBox.Text.Trim();
             BindingSource bs = new BindingSource();
             bs.DataSource = GridViewBills.DataSource;
@@ -165,8 +165,8 @@ namespace GymApp
                 }
 
                 // Display the total amounts in some labels or other controls
-                TxtBoxUSD.Text = SumUSD.ToString();
-                TxtBoxLBP.Text = SumLBP.ToString();
+                TxtBoxUSD.Text = SumUSD.ToString("#,##0");
+                TxtBoxLBP.Text = SumLBP.ToString("#,##0");
             }
         }
 
@@ -218,7 +218,9 @@ namespace GymApp
 
         private void ChangePassLbl_Click(object sender, EventArgs e)
         {
-
+            ChangePassword Obj = new ChangePassword();
+            Obj.Show();
+            this.Hide();
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -231,8 +233,21 @@ namespace GymApp
 
         }
 
+        private void ResetFilterByDateRange()
+        {
+            // Reset the start and end dates to default values or null
+            DateTime startDate = DateTime.MinValue;
+            DateTime endDate = DateTime.MaxValue;
+            // Call the method to filter data with the updated date range
+            FilterDataByDateRange(startDate,endDate);
+        }
+
         private void Clear_Search(object sender, EventArgs e)
         {
+            SearchTxtBox.Text = null;
+            ResetFilterByDateRange();
+            StartDate.Text = null;
+            EndDate.Text = null;
 
         }
     }

@@ -20,7 +20,9 @@ namespace GymApp
             ShowBills();
             GetMembers();
             GridViewBills.Columns[4].Visible = false;
+            GridViewBills.Columns["Amount"].DefaultCellStyle.Format = "N2";
             GridViewBills.SelectionChanged += GridViewBills_SelectionChanged;
+            
         }
 
         private void Reset()
@@ -59,7 +61,7 @@ namespace GymApp
                 if (DateTime.TryParse(Date.Text, out DateTime billdate))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (billdate > DateTime.Now || billdate == DateTime.Now)
+                    if (billdate > DateTime.Now || billdate == DateTime.Now.Date)
                     {
                         MessageBox.Show(" Please enter a date less than the current date.!");
                     }
@@ -67,7 +69,9 @@ namespace GymApp
                     {
                         string Memship = Member.SelectedValue.ToString();
                         string BillDate = Date.Value.Date.ToString();
-                        string Amo = Amount.Text;
+                        decimal Amo = Convert.ToDecimal(Amount.Text);
+                        // Assuming 'AmountColumn' is the index of the 'Amount' column in yourDataGridView
+                        GridViewBills.Columns["Amount"].DefaultCellStyle.Format = "N2";  // N2 format for two decimal places and the thousands separator
                         string Curr = Currency.SelectedItem.ToString();
                         string Query = "insert into BillsTable values({0},'{1}','{2}','{3}')";
                         Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr);
@@ -106,7 +110,9 @@ namespace GymApp
                         int Key = int.Parse(GridViewBills.SelectedRows[0].Cells[4].Value.ToString());
                         string Memship = Member.SelectedValue.ToString();
                         string BillDate = Date.Value.Date.ToString();
-                        string Amo = Amount.Text;
+                        decimal Amo = Convert.ToDecimal(Amount.Text);
+                        // Assuming 'AmountColumn' is the index of the 'Amount' column in yourDataGridView
+                        GridViewBills.Columns["Amount"].DefaultCellStyle.Format = "N2";  // N2 format for two decimal places and the thousands separator
                         string Curr = Currency.SelectedItem.ToString();
                         string Query = "update BillsTable set MembersID= {0}, Date = '{1}', Amount = '{2}', Currency = '{3}' where BillID = {4}";
                         Query = string.Format(Query, Memship, Date.Value.Date, Amo, Curr, Key);
@@ -185,7 +191,9 @@ namespace GymApp
 
         private void ChangePassLbl_Click(object sender, EventArgs e)
         {
-
+            ChangePassword Obj = new ChangePassword();
+            Obj.Show();
+            this.Hide();
         }
 
         private void Logout_Click(object sender, EventArgs e)
