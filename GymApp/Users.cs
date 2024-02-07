@@ -40,17 +40,41 @@ namespace GymApp
             isAdmin.Checked = false;
         }
 
+        private bool IsUserAlreadyExists(string username)
+        {
+            foreach (DataGridViewRow row in GridViewUsers.Rows)
+            {
+                // Assuming "UsernameColumn" is the name of the column containing usernames
+                string existingUsername = row.Cells["Username"].Value as string;
+
+                // Check if the username already exists
+                if (!string.IsNullOrEmpty(existingUsername) && existingUsername.Equals(username, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true; // User already exists
+                }
+            }
+
+            return false; // User does not exist
+        }
+
         private void Save_Click(object sender, EventArgs e)
         {
             try
             {
+
                 if (Username.Text == "" || Password.Text == "" || Phone.Text == "")
                 {
                     MessageBox.Show("Please fill required fields!!");
                 }
 
-                else
+                // Check if the username already exists
+                if (IsUserAlreadyExists(Username.Text))
                 {
+                    MessageBox.Show("User already exists. Choose a different username.");
+                    return; // Abort saving
+                }
+                else
+                    {
                     string user = Username.Text;
                     string pass = Password.Text;
                     string number = Phone.Text;
