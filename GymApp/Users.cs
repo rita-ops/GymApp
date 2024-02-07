@@ -13,6 +13,7 @@ namespace GymApp
     public partial class Users : Form
     {
         Functions Con;
+
         public Users()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace GymApp
             GridViewUsers.Columns[0].Visible = false;
             GridViewUsers.Columns[5].HeaderText = "Admin";
             GridViewUsers.SelectionChanged += GridViewUsers_SelectionChanged;
+            checkBoxShowPassword.CheckedChanged += CheckBoxShowPassword_CheckedChanged;
             bool admin = isAdmin.Checked;
         }
 
@@ -165,6 +167,12 @@ namespace GymApp
                 isAdmin.Checked = admin;
             }
                 
-        } 
+        }
+
+        private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            // Toggle the password visibility based on the CheckBox state
+            Password.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
+        }
     }
 }

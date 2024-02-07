@@ -32,12 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
+            this.isAdmin = new System.Windows.Forms.CheckBox();
             this.GridViewUsers = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Password = new System.Windows.Forms.TextBox();
             this.Username = new System.Windows.Forms.TextBox();
             this.Mail = new System.Windows.Forms.TextBox();
             this.Phone = new System.Windows.Forms.TextBox();
@@ -66,7 +67,7 @@
             this.MemberShipLbl = new System.Windows.Forms.Label();
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
-            this.isAdmin = new System.Windows.Forms.CheckBox();
+            this.Password = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewUsers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.checkBoxShowPassword);
             this.panel3.Controls.Add(this.isAdmin);
             this.panel3.Controls.Add(this.GridViewUsers);
             this.panel3.Controls.Add(this.label6);
@@ -104,6 +106,28 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1152, 745);
             this.panel3.TabIndex = 28;
+            // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(230, 140);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxShowPassword.TabIndex = 58;
+            this.checkBoxShowPassword.Text = "Show Password";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.CheckBoxShowPassword_CheckedChanged);
+            // 
+            // isAdmin
+            // 
+            this.isAdmin.AutoSize = true;
+            this.isAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isAdmin.Location = new System.Drawing.Point(826, 109);
+            this.isAdmin.Name = "isAdmin";
+            this.isAdmin.Size = new System.Drawing.Size(73, 24);
+            this.isAdmin.TabIndex = 57;
+            this.isAdmin.Text = "Admin";
+            this.isAdmin.UseVisualStyleBackColor = true;
             // 
             // GridViewUsers
             // 
@@ -147,7 +171,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(806, 163);
+            this.button3.Location = new System.Drawing.Point(810, 171);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 32);
             this.button3.TabIndex = 43;
@@ -159,7 +183,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(510, 163);
+            this.button2.Location = new System.Drawing.Point(510, 171);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 42;
@@ -171,22 +195,13 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(179, 163);
+            this.button1.Location = new System.Drawing.Point(179, 171);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 10;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
-            // 
-            // Password
-            // 
-            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(230, 111);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(160, 22);
-            this.Password.TabIndex = 1;
-            this.Password.UseSystemPasswordChar = true;
             // 
             // Username
             // 
@@ -478,16 +493,14 @@
             this.TrainersLbl.TabIndex = 0;
             this.TrainersLbl.Text = "Trainers";
             // 
-            // isAdmin
+            // Password
             // 
-            this.isAdmin.AutoSize = true;
-            this.isAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isAdmin.Location = new System.Drawing.Point(826, 109);
-            this.isAdmin.Name = "isAdmin";
-            this.isAdmin.Size = new System.Drawing.Size(73, 24);
-            this.isAdmin.TabIndex = 57;
-            this.isAdmin.Text = "Admin";
-            this.isAdmin.UseVisualStyleBackColor = true;
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.Location = new System.Drawing.Point(230, 109);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(159, 22);
+            this.Password.TabIndex = 0;
+            this.Password.UseSystemPasswordChar = true;
             // 
             // Users
             // 
@@ -527,7 +540,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.TextBox Username;
         private System.Windows.Forms.TextBox Phone;
         private System.Windows.Forms.Label label4;
@@ -558,5 +570,7 @@
         private System.Windows.Forms.DataGridView GridViewUsers;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox isAdmin;
+        private System.Windows.Forms.CheckBox checkBoxShowPassword;
+        private System.Windows.Forms.TextBox Password;
     }
 }
