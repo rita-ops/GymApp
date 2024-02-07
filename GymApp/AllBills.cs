@@ -122,7 +122,6 @@ namespace GymApp
             {
                 MessageBox.Show("Date To should be greater then Date From");
             }
-
             else
             {
                 // Assuming your DataGridView has a DataTable as its DataSource
@@ -131,6 +130,7 @@ namespace GymApp
                     // Apply a filter to the DataTable based on the date range
                     string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
                     dataTable.DefaultView.RowFilter = filterExpression;
+
                 }
 
                 decimal SumUSD = 0;
@@ -212,6 +212,12 @@ namespace GymApp
         private void BillsLbl_Click(object sender, EventArgs e)
         {
             Bills Obj = new Bills();
+            Obj.Show();
+            this.Hide();
+        }
+        private void Users_Click(object sender, EventArgs e)
+        {
+            Users Obj = new Users();
             Obj.Show();
             this.Hide();
         }

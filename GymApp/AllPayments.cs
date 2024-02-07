@@ -111,8 +111,6 @@ namespace GymApp
             TxtBoxLBP.Text = SumLBP.ToString("#,##0");
         }
 
-
-
         private void MemberLbl_Click(object sender, EventArgs e)
         {
             Members Obj = new Members();
@@ -144,6 +142,13 @@ namespace GymApp
         private void BillsLbl_Click(object sender, EventArgs e)
         {
             Bills Obj = new Bills();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            Users Obj = new Users();
             Obj.Show();
             this.Hide();
         }

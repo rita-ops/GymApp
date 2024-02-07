@@ -136,6 +136,12 @@
     <Compile Include="Trainers.Designer.cs">
       <DependentUpon>Trainers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AllBills.resx">
       <DependentUpon>AllBills.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="Trainers.resx">
       <DependentUpon>Trainers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GymDataSet.xsc">
       <DependentUpon>GymDataSet.xsd</DependentUpon>

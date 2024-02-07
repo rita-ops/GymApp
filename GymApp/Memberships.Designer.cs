@@ -28,26 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Memberships));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.ChangePassLbl = new System.Windows.Forms.Label();
-            this.Logout = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.PaymentLbl = new System.Windows.Forms.Label();
-            this.BillsLbl = new System.Windows.Forms.Label();
-            this.MemberShipLbl = new System.Windows.Forms.Label();
-            this.MemberLbl = new System.Windows.Forms.Label();
-            this.TrainersLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,219 +44,40 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.GridViewMemberships = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.ChangePassLbl = new System.Windows.Forms.Label();
+            this.Logout = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PaymentLbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.BillsLbl = new System.Windows.Forms.Label();
+            this.MemberShipLbl = new System.Windows.Forms.Label();
+            this.MemberLbl = new System.Windows.Forms.Label();
+            this.TrainersLbl = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewMemberships)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewMemberships)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(-3, -7);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 757);
-            this.panel1.TabIndex = 9;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.Controls.Add(this.pictureBox7);
-            this.panel4.Controls.Add(this.pictureBox8);
-            this.panel4.Controls.Add(this.ChangePassLbl);
-            this.panel4.Controls.Add(this.Logout);
-            this.panel4.Location = new System.Drawing.Point(16, 539);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(197, 141);
-            this.panel4.TabIndex = 9;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(19, 12);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox7.TabIndex = 9;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(19, 78);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox8.TabIndex = 9;
-            this.pictureBox8.TabStop = false;
-            // 
-            // ChangePassLbl
-            // 
-            this.ChangePassLbl.AutoSize = true;
-            this.ChangePassLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangePassLbl.Location = new System.Drawing.Point(68, 39);
-            this.ChangePassLbl.Name = "ChangePassLbl";
-            this.ChangePassLbl.Size = new System.Drawing.Size(116, 17);
-            this.ChangePassLbl.TabIndex = 2;
-            this.ChangePassLbl.Text = "Change Password";
-            this.ChangePassLbl.Click += new System.EventHandler(this.ChangePassLbl_Click);
-            // 
-            // Logout
-            // 
-            this.Logout.AutoSize = true;
-            this.Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logout.ForeColor = System.Drawing.Color.Black;
-            this.Logout.Location = new System.Drawing.Point(68, 105);
-            this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(51, 17);
-            this.Logout.TabIndex = 4;
-            this.Logout.Text = "Logout";
-            this.Logout.Click += new System.EventHandler(this.Logout_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.pictureBox6);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.PaymentLbl);
-            this.panel2.Controls.Add(this.BillsLbl);
-            this.panel2.Controls.Add(this.MemberShipLbl);
-            this.panel2.Controls.Add(this.MemberLbl);
-            this.panel2.Controls.Add(this.TrainersLbl);
-            this.panel2.Location = new System.Drawing.Point(16, 33);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(197, 475);
-            this.panel2.TabIndex = 3;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(19, 376);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox6.TabIndex = 9;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(58, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(78, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(19, 314);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox5.TabIndex = 9;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(19, 249);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(19, 180);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(19, 118);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(43, 44);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // PaymentLbl
-            // 
-            this.PaymentLbl.AutoSize = true;
-            this.PaymentLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PaymentLbl.Location = new System.Drawing.Point(68, 341);
-            this.PaymentLbl.Name = "PaymentLbl";
-            this.PaymentLbl.Size = new System.Drawing.Size(68, 17);
-            this.PaymentLbl.TabIndex = 2;
-            this.PaymentLbl.Text = "Payments";
-            this.PaymentLbl.Click += new System.EventHandler(this.PaymentLbl_Click);
-            // 
-            // BillsLbl
-            // 
-            this.BillsLbl.AutoSize = true;
-            this.BillsLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillsLbl.Location = new System.Drawing.Point(68, 403);
-            this.BillsLbl.Name = "BillsLbl";
-            this.BillsLbl.Size = new System.Drawing.Size(31, 17);
-            this.BillsLbl.TabIndex = 0;
-            this.BillsLbl.Text = "Bills";
-            this.BillsLbl.Click += new System.EventHandler(this.BillsLbl_Click);
-            // 
-            // MemberShipLbl
-            // 
-            this.MemberShipLbl.AutoSize = true;
-            this.MemberShipLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MemberShipLbl.Location = new System.Drawing.Point(68, 207);
-            this.MemberShipLbl.Name = "MemberShipLbl";
-            this.MemberShipLbl.Size = new System.Drawing.Size(90, 17);
-            this.MemberShipLbl.TabIndex = 0;
-            this.MemberShipLbl.Text = "Memberships";
-            this.MemberShipLbl.Click += new System.EventHandler(this.MemberShipLbl_Click);
-            // 
-            // MemberLbl
-            // 
-            this.MemberLbl.AutoSize = true;
-            this.MemberLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MemberLbl.Location = new System.Drawing.Point(68, 145);
-            this.MemberLbl.Name = "MemberLbl";
-            this.MemberLbl.Size = new System.Drawing.Size(65, 17);
-            this.MemberLbl.TabIndex = 0;
-            this.MemberLbl.Text = "Members";
-            this.MemberLbl.Click += new System.EventHandler(this.MemberLbl_Click);
-            // 
-            // TrainersLbl
-            // 
-            this.TrainersLbl.AutoSize = true;
-            this.TrainersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrainersLbl.Location = new System.Drawing.Point(68, 276);
-            this.TrainersLbl.Name = "TrainersLbl";
-            this.TrainersLbl.Size = new System.Drawing.Size(55, 17);
-            this.TrainersLbl.TabIndex = 0;
-            this.TrainersLbl.Text = "Trainers";
-            this.TrainersLbl.Click += new System.EventHandler(this.TrainersLbl_Click);
             // 
             // label1
             // 
@@ -418,14 +221,14 @@
             // 
             this.GridViewMemberships.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewMemberships.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewMemberships.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewMemberships.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.GridViewMemberships.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewMemberships.Location = new System.Drawing.Point(305, 275);
             this.GridViewMemberships.MultiSelect = false;
@@ -434,11 +237,235 @@
             this.GridViewMemberships.Size = new System.Drawing.Size(891, 398);
             this.GridViewMemberships.TabIndex = 19;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(213, 757);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.Controls.Add(this.pictureBox7);
+            this.panel4.Controls.Add(this.pictureBox8);
+            this.panel4.Controls.Add(this.ChangePassLbl);
+            this.panel4.Controls.Add(this.Logout);
+            this.panel4.Location = new System.Drawing.Point(16, 562);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(197, 141);
+            this.panel4.TabIndex = 9;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Location = new System.Drawing.Point(19, 12);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox7.TabIndex = 9;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(19, 78);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox8.TabIndex = 9;
+            this.pictureBox8.TabStop = false;
+            // 
+            // ChangePassLbl
+            // 
+            this.ChangePassLbl.AutoSize = true;
+            this.ChangePassLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangePassLbl.Location = new System.Drawing.Point(68, 39);
+            this.ChangePassLbl.Name = "ChangePassLbl";
+            this.ChangePassLbl.Size = new System.Drawing.Size(116, 17);
+            this.ChangePassLbl.TabIndex = 2;
+            this.ChangePassLbl.Text = "Change Password";
+            this.ChangePassLbl.Click += new System.EventHandler(this.ChangePassLbl_Click);
+            // 
+            // Logout
+            // 
+            this.Logout.AutoSize = true;
+            this.Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logout.ForeColor = System.Drawing.Color.Black;
+            this.Logout.Location = new System.Drawing.Point(68, 105);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(51, 17);
+            this.Logout.TabIndex = 4;
+            this.Logout.Text = "Logout";
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.pictureBox9);
+            this.panel2.Controls.Add(this.pictureBox6);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pictureBox5);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.PaymentLbl);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.BillsLbl);
+            this.panel2.Controls.Add(this.MemberShipLbl);
+            this.panel2.Controls.Add(this.MemberLbl);
+            this.panel2.Controls.Add(this.TrainersLbl);
+            this.panel2.Location = new System.Drawing.Point(16, 33);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(197, 500);
+            this.panel2.TabIndex = 3;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(19, 439);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox9.TabIndex = 9;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(19, 376);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(58, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(78, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(19, 314);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox5.TabIndex = 9;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(19, 249);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(19, 180);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(19, 118);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 44);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // PaymentLbl
+            // 
+            this.PaymentLbl.AutoSize = true;
+            this.PaymentLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentLbl.Location = new System.Drawing.Point(68, 341);
+            this.PaymentLbl.Name = "PaymentLbl";
+            this.PaymentLbl.Size = new System.Drawing.Size(68, 17);
+            this.PaymentLbl.TabIndex = 2;
+            this.PaymentLbl.Text = "Payments";
+            this.PaymentLbl.Click += new System.EventHandler(this.PaymentLbl_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(68, 466);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Users";
+            this.label12.Click += new System.EventHandler(this.Users_Click);
+            // 
+            // BillsLbl
+            // 
+            this.BillsLbl.AutoSize = true;
+            this.BillsLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BillsLbl.Location = new System.Drawing.Point(68, 403);
+            this.BillsLbl.Name = "BillsLbl";
+            this.BillsLbl.Size = new System.Drawing.Size(31, 17);
+            this.BillsLbl.TabIndex = 0;
+            this.BillsLbl.Text = "Bills";
+            this.BillsLbl.Click += new System.EventHandler(this.BillsLbl_Click);
+            // 
+            // MemberShipLbl
+            // 
+            this.MemberShipLbl.AutoSize = true;
+            this.MemberShipLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberShipLbl.Location = new System.Drawing.Point(68, 207);
+            this.MemberShipLbl.Name = "MemberShipLbl";
+            this.MemberShipLbl.Size = new System.Drawing.Size(90, 17);
+            this.MemberShipLbl.TabIndex = 0;
+            this.MemberShipLbl.Text = "Memberships";
+            this.MemberShipLbl.Click += new System.EventHandler(this.MemberShipLbl_Click);
+            // 
+            // MemberLbl
+            // 
+            this.MemberLbl.AutoSize = true;
+            this.MemberLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberLbl.Location = new System.Drawing.Point(68, 145);
+            this.MemberLbl.Name = "MemberLbl";
+            this.MemberLbl.Size = new System.Drawing.Size(65, 17);
+            this.MemberLbl.TabIndex = 0;
+            this.MemberLbl.Text = "Members";
+            this.MemberLbl.Click += new System.EventHandler(this.MemberLbl_Click);
+            // 
+            // TrainersLbl
+            // 
+            this.TrainersLbl.AutoSize = true;
+            this.TrainersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrainersLbl.Location = new System.Drawing.Point(68, 276);
+            this.TrainersLbl.Name = "TrainersLbl";
+            this.TrainersLbl.Size = new System.Drawing.Size(55, 17);
+            this.TrainersLbl.TabIndex = 0;
+            this.TrainersLbl.Text = "Trainers";
+            this.TrainersLbl.Click += new System.EventHandler(this.TrainersLbl_Click);
+            // 
             // Memberships
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.GridViewMemberships);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button3);
@@ -453,10 +480,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Memberships";
             this.Text = "Memberships";
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewMemberships)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -464,38 +491,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewMemberships)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label ChangePassLbl;
-        private System.Windows.Forms.Label Logout;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label PaymentLbl;
-        private System.Windows.Forms.Label BillsLbl;
-        private System.Windows.Forms.Label MemberShipLbl;
-        private System.Windows.Forms.Label MemberLbl;
-        private System.Windows.Forms.Label TrainersLbl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -510,5 +518,25 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView GridViewMemberships;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label ChangePassLbl;
+        private System.Windows.Forms.Label Logout;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label PaymentLbl;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label BillsLbl;
+        private System.Windows.Forms.Label MemberShipLbl;
+        private System.Windows.Forms.Label MemberLbl;
+        private System.Windows.Forms.Label TrainersLbl;
     }
 }

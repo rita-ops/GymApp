@@ -22,6 +22,7 @@ namespace GymApp
 
         private void Login_Click(object sender, EventArgs e)
         {
+
             if (Username.Text == "" || Password.Text == "")
             {
                 MessageBox.Show("Invalid username or password. Please try again.");
@@ -29,6 +30,7 @@ namespace GymApp
             else
             {
                 try
+
                 {
                     string Query = "select * from UsersTable where Username = '{0}' and Password = '{1}'";
                     Query = string.Format(Query, Username.Text, Password.Text);
@@ -42,7 +44,7 @@ namespace GymApp
                         UserId = Convert.ToInt32(dt.Rows[0][0].ToString());
                         Members Obj = new Members();
                         Obj.Show();
-                        this.Hide();
+                        this.Hide();  
                     }
 
                 }

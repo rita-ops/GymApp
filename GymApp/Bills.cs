@@ -100,7 +100,7 @@ namespace GymApp
                 if (DateTime.TryParse(Date.Text, out DateTime billdate))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (billdate > DateTime.Now || billdate == DateTime.Now)
+                    if (billdate > DateTime.Now || billdate == DateTime.Now.Date)
                     {
                         MessageBox.Show(" Please enter a date less than the current date.!");
                     }
@@ -185,6 +185,13 @@ namespace GymApp
         private void BillsLbl_Click(object sender, EventArgs e)
         {
             Bills Obj = new Bills();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            Users Obj = new Users();
             Obj.Show();
             this.Hide();
         }

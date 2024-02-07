@@ -13,6 +13,7 @@ namespace GymApp
     public partial class Members : Form
     {
         Functions Con;
+
         public Members()
         {
             InitializeComponent();
@@ -81,6 +82,13 @@ namespace GymApp
         private void BillsLbl_Click(object sender, EventArgs e)
         {
             Bills Obj = new Bills();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void Users_Click(object sender, EventArgs e)
+        {
+            Users Obj = new Users();
             Obj.Show();
             this.Hide();
         }
@@ -267,5 +275,6 @@ namespace GymApp
 
             }
         }
+       
     }
 }

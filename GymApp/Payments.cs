@@ -66,6 +66,13 @@ namespace GymApp
             this.Hide();
         }
 
+        private void Users_Click(object sender, EventArgs e)
+        {
+            Users Obj = new Users();
+            Obj.Show();
+            this.Hide();
+        }
+
         private void ChangePassLbl_Click(object sender, EventArgs e)
         {
             ChangePassword Obj = new ChangePassword();

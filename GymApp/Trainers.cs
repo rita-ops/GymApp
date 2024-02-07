@@ -169,13 +169,6 @@ namespace GymApp
             }
         }
 
-        private void TrainersLbl_Click(object sender, EventArgs e)
-        {
-            Payments Obj = new Payments();
-            Obj.Show();
-            this.Hide();
-        }
-
         private void MemberLbl_Click(object sender, EventArgs e)
         {
             Members Obj = new Members();
@@ -186,6 +179,13 @@ namespace GymApp
         private void MemberShipLbl_Click(object sender, EventArgs e)
         {
             Memberships Obj = new Memberships();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void TrainersLbl_Click(object sender, EventArgs e)
+        {
+            Payments Obj = new Payments();
             Obj.Show();
             this.Hide();
         }
@@ -204,9 +204,11 @@ namespace GymApp
             this.Hide();
         }
 
-        private void Logout_Click(object sender, EventArgs e)
+        private void Users_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            Users Obj = new Users();
+            Obj.Show();
+            this.Hide();
         }
 
         private void ChangePassLbl_Click(object sender, EventArgs e)
@@ -215,5 +217,10 @@ namespace GymApp
             Obj.Show();
             this.Hide();
         }
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
     }
 }
