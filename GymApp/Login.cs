@@ -17,6 +17,7 @@ namespace GymApp
         {
             InitializeComponent();
             Con = new Functions();
+            checkBoxShowPassword.CheckedChanged += CheckBoxShowPassword_CheckedChanged;
         }
         public static int UserId;
 
@@ -58,6 +59,12 @@ namespace GymApp
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void CheckBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            // Toggle the password visibility based on the CheckBox state
+            Password.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
         }
     }
 }

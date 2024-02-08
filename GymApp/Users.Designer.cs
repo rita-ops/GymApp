@@ -39,6 +39,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Password = new System.Windows.Forms.TextBox();
             this.Username = new System.Windows.Forms.TextBox();
             this.Mail = new System.Windows.Forms.TextBox();
             this.Phone = new System.Windows.Forms.TextBox();
@@ -67,7 +68,7 @@
             this.MemberShipLbl = new System.Windows.Forms.Label();
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
-            this.Password = new System.Windows.Forms.TextBox();
+            this.lblEmailValidation = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewUsers)).BeginInit();
             this.panel1.SuspendLayout();
@@ -86,6 +87,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblEmailValidation);
             this.panel3.Controls.Add(this.checkBoxShowPassword);
             this.panel3.Controls.Add(this.isAdmin);
             this.panel3.Controls.Add(this.GridViewUsers);
@@ -202,6 +204,15 @@
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // Password
+            // 
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.Location = new System.Drawing.Point(230, 109);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(159, 22);
+            this.Password.TabIndex = 0;
+            this.Password.UseSystemPasswordChar = true;
             // 
             // Username
             // 
@@ -328,6 +339,7 @@
             this.ChangePassLbl.Size = new System.Drawing.Size(116, 17);
             this.ChangePassLbl.TabIndex = 2;
             this.ChangePassLbl.Text = "Change Password";
+            this.ChangePassLbl.Click += new System.EventHandler(this.ChangePassLbl_Click);
             // 
             // Logout
             // 
@@ -339,6 +351,7 @@
             this.Logout.Size = new System.Drawing.Size(51, 17);
             this.Logout.TabIndex = 4;
             this.Logout.Text = "Logout";
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // panel2
             // 
@@ -441,6 +454,7 @@
             this.PaymentLbl.Size = new System.Drawing.Size(68, 17);
             this.PaymentLbl.TabIndex = 2;
             this.PaymentLbl.Text = "Payments";
+            this.PaymentLbl.Click += new System.EventHandler(this.PaymentLbl_Click);
             // 
             // label12
             // 
@@ -451,6 +465,7 @@
             this.label12.Size = new System.Drawing.Size(41, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "Users";
+            this.label12.Click += new System.EventHandler(this.Users_Click);
             // 
             // BillsLbl
             // 
@@ -461,6 +476,7 @@
             this.BillsLbl.Size = new System.Drawing.Size(31, 17);
             this.BillsLbl.TabIndex = 0;
             this.BillsLbl.Text = "Bills";
+            this.BillsLbl.Click += new System.EventHandler(this.BillsLbl_Click);
             // 
             // MemberShipLbl
             // 
@@ -471,6 +487,7 @@
             this.MemberShipLbl.Size = new System.Drawing.Size(90, 17);
             this.MemberShipLbl.TabIndex = 0;
             this.MemberShipLbl.Text = "Memberships";
+            this.MemberShipLbl.Click += new System.EventHandler(this.MemberShipLbl_Click);
             // 
             // MemberLbl
             // 
@@ -482,6 +499,7 @@
             this.MemberLbl.TabIndex = 0;
             this.MemberLbl.Text = "Members";
             this.MemberLbl.UseWaitCursor = true;
+            this.MemberLbl.Click += new System.EventHandler(this.MemberLbl_Click);
             // 
             // TrainersLbl
             // 
@@ -492,15 +510,16 @@
             this.TrainersLbl.Size = new System.Drawing.Size(55, 17);
             this.TrainersLbl.TabIndex = 0;
             this.TrainersLbl.Text = "Trainers";
+            this.TrainersLbl.Click += new System.EventHandler(this.TrainersLbl_Click);
             // 
-            // Password
+            // lblEmailValidation
             // 
-            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(230, 109);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(159, 22);
-            this.Password.TabIndex = 0;
-            this.Password.UseSystemPasswordChar = true;
+            this.lblEmailValidation.AutoSize = true;
+            this.lblEmailValidation.Location = new System.Drawing.Point(615, 136);
+            this.lblEmailValidation.Name = "lblEmailValidation";
+            this.lblEmailValidation.Size = new System.Drawing.Size(60, 13);
+            this.lblEmailValidation.TabIndex = 59;
+            this.lblEmailValidation.Text = "mail is valid";
             // 
             // Users
             // 
@@ -572,5 +591,6 @@
         private System.Windows.Forms.CheckBox isAdmin;
         private System.Windows.Forms.CheckBox checkBoxShowPassword;
         private System.Windows.Forms.TextBox Password;
+        private System.Windows.Forms.Label lblEmailValidation;
     }
 }

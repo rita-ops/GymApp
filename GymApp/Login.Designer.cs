@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.Password = new System.Windows.Forms.TextBox();
             this.Username = new System.Windows.Forms.TextBox();
@@ -115,6 +116,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.checkBoxShowPassword);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.Password);
             this.panel2.Controls.Add(this.Username);
@@ -125,6 +127,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(373, 282);
             this.panel2.TabIndex = 10;
+            // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(145, 176);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxShowPassword.TabIndex = 59;
+            this.checkBoxShowPassword.Text = "Show Password";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.CheckBoxShowPassword_CheckedChanged);
             // 
             // button1
             // 
@@ -237,6 +250,7 @@
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.TextBox Username;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBoxShowPassword;
     }
 }
 
