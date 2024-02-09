@@ -97,19 +97,26 @@ namespace GymApp
         {
             try
             {
-                if (ClientName.SelectedIndex == -1 ||  Amount.Text=="" || Currency.SelectedIndex == -1)
+                if ((ClientName.SelectedIndex == -1 || Amount.Text == "" || Currency.SelectedIndex == -1) && (Date.Value > DateTime.Now.Date))
                 {
-                    MessageBox.Show("Please fill required fields!!");
+                    MessageBox.Show("Please enter the required fields and the date should be less then or equal to the system date!!");
+                    return;
                 }
-
+             
                 if (DateTime.TryParse(Date.Text, out DateTime paydate))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (paydate > DateTime.Now || paydate == DateTime.Now)
+                    if (paydate > DateTime.Now)
                     {
-                        MessageBox.Show(" Please enter a date less than the current date.!");
+                        MessageBox.Show(" Please enter a date less than or equal the current date.!");
+                        return;
                     }
 
+                    if (ClientName.SelectedIndex == -1 || Amount.Text == "" || Currency.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Please fill required fields!!");
+                        return;
+                    }
                     else
                     {
                         string Client = ClientName.SelectedItem.ToString();
@@ -137,16 +144,25 @@ namespace GymApp
         {
             try
             {
-                if (ClientName.SelectedIndex == -1 || Phone.Text == "" || Amount.Text == "" || Currency.SelectedIndex == -1)
+                if ((ClientName.SelectedIndex == -1 || Amount.Text == "" || Currency.SelectedIndex == -1) && (Date.Value > DateTime.Now.Date))
                 {
-                    MessageBox.Show("Please select a row!!");
+                    MessageBox.Show("Please enter the required fields and the date should be less then or equal to the system date!!");
+                    return;
                 }
+
                 if (DateTime.TryParse(Date.Text, out DateTime paydate))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (paydate > DateTime.Now || paydate == DateTime.Now)
+                    if (paydate > DateTime.Now)
                     {
-                        MessageBox.Show(" Please enter a date less than the current date.!");
+                        MessageBox.Show(" Please enter a date less than or equal the current date.!");
+                        return;
+                    }
+
+                    if (ClientName.SelectedIndex == -1 || Amount.Text == "" || Currency.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Please fill required fields!!");
+                        return;
                     }
 
                     else
@@ -217,6 +233,7 @@ namespace GymApp
             AllPayments form = new AllPayments();
             form.ReceivedDataGridView = GridViewPayments;
             form.Show();
+            this.Hide();
         }
     }
 }

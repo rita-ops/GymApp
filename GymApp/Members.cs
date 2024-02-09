@@ -121,19 +121,33 @@ namespace GymApp
         {
             try
             {
+                if ((MemberFName.Text == "" || MemberLName.Text == "" || MembershipType.SelectedIndex == -1 || Phone.Text == "" || Timing.SelectedIndex == -1 || BloodType.SelectedIndex == -1 || Gender.SelectedIndex == -1 || Trainer.SelectedIndex == -1) && (MemberDOB.Value > DateTime.Now.Date) || (JoinDate.Value >DateTime.Now.Date))
+                {
+                    MessageBox.Show("Please enter the required fields and the date should be less then or equal to the system date!!");
+                    return;
+                }
+
                 if (MemberFName.Text == "" || MemberLName.Text == "" || MembershipType.SelectedIndex == -1 || Phone.Text == "" || Timing.SelectedIndex == -1 || BloodType.SelectedIndex == -1 || Gender.SelectedIndex == -1 || Trainer.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please enter the required fields!!");
+                    return;
                 }
 
                 // Assuming txtMemberDOB is a TextBox for entering date of birth
                 if (DateTime.TryParse(MemberDOB.Text, out DateTime memberDOB))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (memberDOB > DateTime.Now || memberDOB == DateTime.Now)
+                    if (memberDOB > DateTime.Now || memberDOB == DateTime.Now.Date)
                     {
                         MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                        return;
                     }
+                    if (JoinDate.Value > DateTime.Now.Date)
+                    {
+                        MessageBox.Show("Join date should be less than or equal the current date.!");
+                        return;
+                    }
+
                     else
                     {
 
@@ -177,17 +191,30 @@ namespace GymApp
         {
             try
             {
+                if ((MemberFName.Text == "" || MemberLName.Text == "" || MembershipType.SelectedIndex == -1 || Phone.Text == "" || Timing.SelectedIndex == -1 || BloodType.SelectedIndex == -1 || Gender.SelectedIndex == -1 || Trainer.SelectedIndex == -1) && (MemberDOB.Value > DateTime.Now.Date) || (JoinDate.Value > DateTime.Now.Date))
+                {
+                    MessageBox.Show("Please enter the required fields and the date should be less then or equal to the system date!!");
+                    return;
+                }
+
                 if (MemberFName.Text == "" || MemberLName.Text == "" || MembershipType.SelectedIndex == -1 || Phone.Text == "" || Timing.SelectedIndex == -1 || BloodType.SelectedIndex == -1 || Gender.SelectedIndex == -1 || Trainer.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please enter the required fields!!");
+                    return;
                 }
 
                 if (DateTime.TryParse(MemberDOB.Text, out DateTime memberDOB))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (memberDOB > DateTime.Now || memberDOB == DateTime.Now)
+                    if (memberDOB > DateTime.Now || memberDOB == DateTime.Now.Date)
                     {
                         MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                        return;
+                    }
+                    if (JoinDate.Value > DateTime.Now.Date)
+                    {
+                        MessageBox.Show("Join date should be less than or equal the current date.!");
+                        return;
                     }
 
                     else

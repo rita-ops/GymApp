@@ -26,7 +26,7 @@ namespace GymApp
 
             if (Username.Text == "" || Password.Text == "")
             {
-                MessageBox.Show("Invalid username or password. Please try again.");
+                MessageBox.Show("Invalid Credentials! Please try again.");
             }
             else
             {
@@ -38,8 +38,9 @@ namespace GymApp
                     DataTable dt = Con.GetData(Query);
                     if (dt.Rows.Count == 0)
                     {
-                        MessageBox.Show("Invalid username");
+                        MessageBox.Show("Invalid Credentials!");
                     }
+
                     else
                     {
                         UserId = Convert.ToInt32(dt.Rows[0][0].ToString());

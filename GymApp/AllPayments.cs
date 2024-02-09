@@ -181,8 +181,7 @@ namespace GymApp
                     string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
                     dataTable.DefaultView.RowFilter = filterExpression;
                 }
-            
-
+             
             decimal SumUSD = 0;
             decimal SumLBP = 0;
 

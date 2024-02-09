@@ -46,17 +46,25 @@ namespace GymApp
         {
             try
             {
+                if ((TrainerFName.Text == "" || TrainerLName.Text == "" || TrainerPhone.Text == "" || Experience.SelectedIndex == -1 || Address.Text == "" || Gender.SelectedIndex == -1 || BloodType.SelectedIndex == -1) && (TrainerDOB.Value > DateTime.Now.Date))
+                {
+                    MessageBox.Show("Please enter the required fields and the date should be less then or equal to the system date!!");
+                    return;
+                }
+
                 if (TrainerFName.Text == "" || TrainerLName.Text == "" || TrainerPhone.Text == "" || Experience.SelectedIndex == -1 || Address.Text == "" || Gender.SelectedIndex == -1 || BloodType.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please enter the required fields!!");
+                    return;
                 }
 
                 if (DateTime.TryParse(TrainerDOB.Text, out DateTime trainerDOB))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (trainerDOB > DateTime.Now || trainerDOB == DateTime.Now)
+                    if (trainerDOB > DateTime.Now || trainerDOB == DateTime.Now.Date)
                     {
                         MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                        return;
                     }
 
                         else
@@ -87,17 +95,25 @@ namespace GymApp
         {
             try
             {
+                if ((TrainerFName.Text == "" || TrainerLName.Text == "" || TrainerPhone.Text == "" || Experience.SelectedIndex == -1 || Address.Text == "" || Gender.SelectedIndex == -1 || BloodType.SelectedIndex == -1) && (TrainerDOB.Value > DateTime.Now.Date))
+                {
+                    MessageBox.Show("Please enter the required fields and the date should be less then or equal to the system date!!");
+                    return;
+                }
+
                 if (TrainerFName.Text == "" || TrainerLName.Text == "" || TrainerPhone.Text == "" || Experience.SelectedIndex == -1 || Address.Text == "" || Gender.SelectedIndex == -1 || BloodType.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please select the row!!");
+                    return;
                 }
 
                 if (DateTime.TryParse(TrainerDOB.Text, out DateTime trainerDOB))
                 {
                     // Validate if memberDOB is greater than the system date
-                    if (trainerDOB > DateTime.Now || trainerDOB == DateTime.Now)
+                    if (trainerDOB > DateTime.Now || trainerDOB == DateTime.Now.Date)
                     {
                         MessageBox.Show(" Please enter a date of birth less than the current date.!");
+                        return;
                     }
                     else
                     {

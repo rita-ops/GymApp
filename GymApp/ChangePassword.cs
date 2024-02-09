@@ -78,7 +78,7 @@ namespace GymApp
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            Memberships Obj = new Memberships();
+            Members Obj = new Members();
             Obj.Show();
             this.Hide();
         }

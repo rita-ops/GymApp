@@ -61,6 +61,7 @@ namespace GymApp
             Password.Text = string.Empty;
             Phone.Text = string.Empty;
             Mail.Text = string.Empty;
+            lblEmailValidation.Visible = false;
             isAdmin.Checked = false;
         }
 
@@ -129,7 +130,7 @@ namespace GymApp
                     Con.setData(Query);
                     ShowUsers();
                     MessageBox.Show("User Added");
-                     Reset();
+                    Reset();
                 }
             }
             catch (Exception Ex)
@@ -155,24 +156,6 @@ namespace GymApp
                     MessageBox.Show("Please enter the required fields!!");
                 }
 
-                if (!string.IsNullOrEmpty(Mail.Text))
-                {
-                    if (IsValidEmail(Mail.Text))
-                    {
-                        lblEmailValidation.Visible = true;
-                        // The email is valid, update the label message.
-                        lblEmailValidation.Text = "Email is valid!";
-                        lblEmailValidation.ForeColor = System.Drawing.Color.Green;
-                    }
-
-                    else
-                    {
-                        // The email is not valid. Display an error message.
-                        MessageBox.Show("Invalid email address. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-
                 else
                 {
                     int Key = int.Parse(GridViewUsers.CurrentRow.Cells[0].Value.ToString());
@@ -187,6 +170,25 @@ namespace GymApp
                     Query = string.Format(Query, user, pass, number, email, admin, Key);
                     Con.setData(Query);
                     ShowUsers();
+
+                    if (!string.IsNullOrEmpty(Mail.Text))
+                    {
+                        if (IsValidEmail(Mail.Text))
+                        {
+                            lblEmailValidation.Visible = true;
+                            // The email is valid, update the label message.
+                            lblEmailValidation.Text = "Email is valid!";
+                            lblEmailValidation.ForeColor = System.Drawing.Color.Green;
+                        }
+
+                        else
+                        {
+                            // The email is not valid. Display an error message.
+                            MessageBox.Show("Invalid email address. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
                     MessageBox.Show("User Updated");
                     Reset();
                 }
@@ -196,6 +198,8 @@ namespace GymApp
                 MessageBox.Show(Ex.Message);
             }
         }
+
+
         private void Delete_Click(object sender, EventArgs e)
         {
             try

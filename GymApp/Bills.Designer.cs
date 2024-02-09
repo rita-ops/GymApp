@@ -197,15 +197,6 @@
             // 
             this.Member.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Member.FormattingEnabled = true;
-            this.Member.Items.AddRange(new object[] {
-            "Rent",
-            "Electricity",
-            "Water",
-            "Moteur",
-            "Internet",
-            "Salaries",
-            "Cleanings",
-            "Others"});
             this.Member.Location = new System.Drawing.Point(24, 105);
             this.Member.Name = "Member";
             this.Member.Size = new System.Drawing.Size(160, 24);

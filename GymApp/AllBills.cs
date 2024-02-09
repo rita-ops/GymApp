@@ -13,13 +13,17 @@ namespace GymApp
     public partial class AllBills : Form
     {
         Functions Con;
+        private string filterExpression;
+
+
         //private DataTable originalDataTable;
 
         public AllBills()
         {
             InitializeComponent();
             Con = new Functions();
-            
+            //StartDate.Enabled = false;
+           // EndDate.Enabled = false;
             //receivedDataGridView = (DataGridView)GridViewBills.DataSource;
             //GridViewBills.DataSource = receivedDataGridView;
         }
@@ -112,73 +116,103 @@ namespace GymApp
             }
 
             // Display or use the calculated totals
-            TxtBoxUSD.Text = SumUSD.ToString();
-            TxtBoxLBP.Text = SumLBP.ToString();
+            TxtBoxUSD.Text = SumUSD.ToString("#,##0");
+            TxtBoxLBP.Text = SumLBP.ToString("#,##0");
         }
 
-        private void FilterDataByDateRange(DateTime startDate, DateTime endDate)
+        private void FilterDataByDateRange(DateTime startDate, DateTime endDate, string member)
         {
             if (startDate > endDate)
             {
-                MessageBox.Show("Date To should be greater then Date From");
+                MessageBox.Show("Date To should be greater than Date From");
+                return;
             }
-            else
-            {
-                // Assuming your DataGridView has a DataTable as its DataSource
-                if (GridViewBills.DataSource is DataTable dataTable)
-                {
-                    // Apply a filter to the DataTable based on the date range
-                    string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
-                    dataTable.DefaultView.RowFilter = filterExpression;
 
+            // Assuming your DataGridView has a DataTable as its DataSource
+            DataTable dataTable = ((DataTable)ReceivedDataGridView.DataSource);
+
+            if (dataTable != null)
+            {
+                // Apply the filter to the DataTable
+                string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
+
+
+                // Add the member condition if it is provided
+                if (!string.IsNullOrEmpty(member))
+                {
+                    filterExpression += $" AND Member = '{member}'";
+                    ReceivedDataGridView.DataSource = filterExpression;
                 }
 
-                decimal SumUSD = 0;
-                decimal SumLBP = 0;
+                dataTable.DefaultView.RowFilter = filterExpression;
 
-                foreach (DataGridViewRow row in GridViewBills.Rows)
+                // Update the DataSource to reflect the changes
+
+                ReceivedDataGridView.DataSource = dataTable;
+
+            }
+            decimal SumUSD = 0;
+            decimal SumLBP = 0;
+
+            foreach (DataGridViewRow row in GridViewBills.Rows)
+            {
+                if (row.IsNewRow) continue; // Skip the new row if it's there
+
+                // Assuming your columns are named "DateColumn", "DollarAmountColumn", and "LbpAmountColumn"
+                DateTime date = Convert.ToDateTime(row.Cells["Date"].Value);
+
+                if (date >= startDate && date <= endDate)
                 {
-                    if (row.IsNewRow) continue; // Skip the new row if it's there
+                    // Assuming your amount column is at index 1 and currency column is at index 2
+                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
 
-                    // Assuming your columns are named "DateColumn", "DollarAmountColumn", and "LbpAmountColumn"
-                    DateTime date = Convert.ToDateTime(row.Cells["Date"].Value);
+                    // You can use the currency information if needed
+                    string currency = Convert.ToString(row.Cells["Currency"].Value);
 
-                    if (date >= startDate && date <= endDate)
+
+                    // Convert to dollars and Lebanese pounds based on exchange rates
+                    if (currency == "USD")
                     {
-                        // Assuming your amount column is at index 1 and currency column is at index 2
-                        decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
-
-                        // You can use the currency information if needed
-                        string currency = Convert.ToString(row.Cells["Currency"].Value);
-
-
-                        // Convert to dollars and Lebanese pounds based on exchange rates
-                        if (currency == "USD")
-                        {
-                            SumUSD += amount;
-                        }
-                        else if (currency == "LBP")
-                        {
-                            SumLBP += amount;
-                        }
+                        SumUSD += amount;
+                    }
+                    else if (currency == "LBP")
+                    {
+                        SumLBP += amount;
                     }
                 }
-
-                // Display the total amounts in some labels or other controls
-                TxtBoxUSD.Text = SumUSD.ToString("#,##0");
-                TxtBoxLBP.Text = SumLBP.ToString("#,##0");
             }
+            // Display the total amounts in some labels or other controls
+            TxtBoxUSD.Text = SumUSD.ToString("#,##0");
+            TxtBoxLBP.Text = SumLBP.ToString("#,##0");
         }
-
+   
         private void Search_Click(object sender, EventArgs e)
         {
+            string member = SearchTxtBox.Text;
             // Get the start and end dates from your UI controls
             DateTime startDate = StartDate.Value;
             DateTime endDate = EndDate.Value;
 
             // Call the filtering method
-            FilterDataByDateRange(startDate, endDate);
+            FilterDataByDateRange(startDate, endDate, member);
+        }
 
+        private void ResetFilterByDateRange()
+        {
+            string member = SearchTxtBox.Text;
+            DateTime startDate = StartDate.Value;
+            DateTime endDate = EndDate.Value;
+            // Call the method to filter data with the updated date range
+            //FilterDataByDateRange(startDate, endDate,member);
+        }
+
+        private void Clear_Search(object sender, EventArgs e)
+        {
+            SearchTxtBox.Text = string.Empty;
+            StartDate.Text = null;
+            EndDate.Text = null;
+
+           
         }
 
         private void MemberLbl_Click(object sender, EventArgs e)
@@ -232,29 +266,6 @@ namespace GymApp
         private void Logout_Click(object sender, EventArgs e)
         {
             Application.Restart();
-        }
-
-        private void Print_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ResetFilterByDateRange()
-        {
-            // Reset the start and end dates to default values or null
-            DateTime startDate = DateTime.MinValue;
-            DateTime endDate = DateTime.MaxValue;
-            // Call the method to filter data with the updated date range
-            FilterDataByDateRange(startDate,endDate);
-        }
-
-        private void Clear_Search(object sender, EventArgs e)
-        {
-            SearchTxtBox.Text = null;
-            ResetFilterByDateRange();
-            StartDate.Text = null;
-            EndDate.Text = null;
-
         }
     }
 }

@@ -34,7 +34,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.SearchTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.EndDate = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -67,6 +65,7 @@
             this.MemberShipLbl = new System.Windows.Forms.Label();
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
+            this.SearchTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -132,15 +131,6 @@
             this.label10.TabIndex = 46;
             this.label10.Text = "Search";
             // 
-            // SearchTxtBox
-            // 
-            this.SearchTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTxtBox.Location = new System.Drawing.Point(302, 92);
-            this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(160, 22);
-            this.SearchTxtBox.TabIndex = 47;
-            this.SearchTxtBox.TextChanged += new System.EventHandler(this.SearchTxtBox_TextChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -189,7 +179,7 @@
             // 
             this.StartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartDate.Location = new System.Drawing.Point(626, 87);
+            this.StartDate.Location = new System.Drawing.Point(756, 87);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(160, 22);
             this.StartDate.TabIndex = 50;
@@ -199,7 +189,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(576, 89);
+            this.label8.Location = new System.Drawing.Point(704, 89);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 20);
             this.label8.TabIndex = 51;
@@ -209,7 +199,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(812, 89);
+            this.label5.Location = new System.Drawing.Point(946, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 20);
             this.label5.TabIndex = 51;
@@ -219,29 +209,17 @@
             // 
             this.EndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDate.Location = new System.Drawing.Point(845, 87);
+            this.EndDate.Location = new System.Drawing.Point(979, 87);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(160, 22);
             this.EndDate.TabIndex = 50;
             this.EndDate.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1191, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Print_Click);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1097, 84);
+            this.button2.Location = new System.Drawing.Point(1215, 80);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 52;
@@ -253,7 +231,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1011, 90);
+            this.label7.Location = new System.Drawing.Point(1145, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 18);
             this.label7.TabIndex = 53;
@@ -483,15 +461,24 @@
             this.TrainersLbl.Text = "Trainers";
             this.TrainersLbl.Click += new System.EventHandler(this.TrainersLbl_Click);
             // 
+            // SearchTxtBox
+            // 
+            this.SearchTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTxtBox.Location = new System.Drawing.Point(302, 89);
+            this.SearchTxtBox.Name = "SearchTxtBox";
+            this.SearchTxtBox.Size = new System.Drawing.Size(160, 22);
+            this.SearchTxtBox.TabIndex = 57;
+            this.SearchTxtBox.TextChanged += new System.EventHandler(this.SearchTxtBox_TextChanged);
+            // 
             // AllBills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.EndDate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.StartDate);
@@ -501,7 +488,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
@@ -535,7 +521,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox SearchTxtBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -545,7 +530,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker EndDate;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
@@ -568,5 +552,6 @@
         private System.Windows.Forms.Label MemberShipLbl;
         private System.Windows.Forms.Label MemberLbl;
         private System.Windows.Forms.Label TrainersLbl;
+        private System.Windows.Forms.TextBox SearchTxtBox;
     }
 }
