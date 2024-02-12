@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllBills));
             this.GridViewBills = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -39,10 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtBoxUSD = new System.Windows.Forms.TextBox();
             this.TxtBoxLBP = new System.Windows.Forms.TextBox();
-            this.StartDate = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.EndDate = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -66,6 +64,9 @@
             this.MemberLbl = new System.Windows.Forms.Label();
             this.TrainersLbl = new System.Windows.Forms.Label();
             this.SearchTxtBox = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.StartDate = new System.Windows.Forms.DateTimePicker();
+            this.EndDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -85,14 +86,14 @@
             // 
             this.GridViewBills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewBills.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridViewBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewBills.Location = new System.Drawing.Point(380, 197);
             this.GridViewBills.MultiSelect = false;
@@ -175,16 +176,6 @@
             this.TxtBoxLBP.Size = new System.Drawing.Size(135, 20);
             this.TxtBoxLBP.TabIndex = 49;
             // 
-            // StartDate
-            // 
-            this.StartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartDate.Location = new System.Drawing.Point(756, 87);
-            this.StartDate.Name = "StartDate";
-            this.StartDate.Size = new System.Drawing.Size(160, 22);
-            this.StartDate.TabIndex = 50;
-            this.StartDate.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -204,16 +195,6 @@
             this.label5.Size = new System.Drawing.Size(27, 20);
             this.label5.TabIndex = 51;
             this.label5.Text = "To";
-            // 
-            // EndDate
-            // 
-            this.EndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDate.Location = new System.Drawing.Point(979, 87);
-            this.EndDate.Name = "EndDate";
-            this.EndDate.Size = new System.Drawing.Size(160, 22);
-            this.EndDate.TabIndex = 50;
-            this.EndDate.Value = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             // 
             // button2
             // 
@@ -470,18 +451,47 @@
             this.SearchTxtBox.TabIndex = 57;
             this.SearchTxtBox.TextChanged += new System.EventHandler(this.SearchTxtBox_TextChanged);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(670, 94);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 58;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // StartDate
+            // 
+            this.StartDate.Enabled = false;
+            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.StartDate.Location = new System.Drawing.Point(756, 90);
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Size = new System.Drawing.Size(152, 20);
+            this.StartDate.TabIndex = 59;
+            // 
+            // EndDate
+            // 
+            this.EndDate.Enabled = false;
+            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.EndDate.Location = new System.Drawing.Point(979, 88);
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Size = new System.Drawing.Size(152, 20);
+            this.EndDate.TabIndex = 59;
+            // 
             // AllBills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.EndDate);
+            this.Controls.Add(this.StartDate);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.EndDate);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.StartDate);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TxtBoxLBP);
             this.Controls.Add(this.TxtBoxUSD);
@@ -526,10 +536,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtBoxUSD;
         private System.Windows.Forms.TextBox TxtBoxLBP;
-        private System.Windows.Forms.DateTimePicker StartDate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker EndDate;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
@@ -553,5 +561,8 @@
         private System.Windows.Forms.Label MemberLbl;
         private System.Windows.Forms.Label TrainersLbl;
         private System.Windows.Forms.TextBox SearchTxtBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DateTimePicker StartDate;
+        private System.Windows.Forms.DateTimePicker EndDate;
     }
 }

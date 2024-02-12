@@ -13,19 +13,25 @@ namespace GymApp
     public partial class AllBills : Form
     {
         Functions Con;
-        private string filterExpression;
-
-
-        //private DataTable originalDataTable;
+        //private string filterExpression;
+        private DataTable originalDataTable;
 
         public AllBills()
         {
             InitializeComponent();
             Con = new Functions();
-            //StartDate.Enabled = false;
-           // EndDate.Enabled = false;
-            //receivedDataGridView = (DataGridView)GridViewBills.DataSource;
-            //GridViewBills.DataSource = receivedDataGridView;
+            // receivedDataGridView = (DataGridView)GridViewBills.DataSource;
+            //GridViewBills.DataSource = originalDataTable;
+            LoadOriginalData();
+        }
+
+        private void LoadOriginalData()
+        {
+            // Assuming your DataGridView has a DataTable as its DataSource
+            originalDataTable = new DataTable(); // Replace with your actual method to load data into originalDataTable
+
+            // Set the original data as the DataSource for the DataGridView
+            GridViewBills.DataSource = originalDataTable; // Change to your actual DataGridView name
         }
 
         // Property to receive DataGridView
@@ -79,140 +85,140 @@ namespace GymApp
 
         private void SearchTxtBox_TextChanged(object sender, EventArgs e)
         {
-            string searchTerm = SearchTxtBox.Text.Trim();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = GridViewBills.DataSource;
-            bs.Filter = string.Format("Member LIKE '%{0}%'", searchTerm);
-            GridViewBills.DataSource = bs;
+            //string searchTerm = SearchTxtBox.Text.Trim();
+            //BindingSource bs = new BindingSource();
+            //bs.DataSource = GridViewBills.DataSource;
+            //bs.Filter = string.Format("Member LIKE '%{0}%'", searchTerm);
+            //GridViewBills.DataSource = bs;
 
-            decimal SumUSD = 0;
-            decimal SumLBP = 0;
+            //decimal SumUSD = 0;
+            //decimal SumLBP = 0;
 
-            foreach (DataGridViewRow row in GridViewBills.Rows)
-            {
-                // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
-                DataGridViewCell paymentCell = row.Cells["Amount"];
-                DataGridViewCell currencyCell = row.Cells["Currency"];
+            //foreach (DataGridViewRow row in GridViewBills.Rows)
+            //{
+            //    // Replace "PaymentAmount" and "CurrencyType" with the actual column names in your DataGridView
+            //    DataGridViewCell paymentCell = row.Cells["Amount"];
+            //    DataGridViewCell currencyCell = row.Cells["Currency"];
 
-                // Check if the cells are not null and contain valid values
-                if (paymentCell.Value != null && currencyCell.Value != null)
-                {
-                    decimal Amount;
-                    if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
-                    {
-                        string Currency = currencyCell.Value.ToString();
+            //    // Check if the cells are not null and contain valid values
+            //    if (paymentCell.Value != null && currencyCell.Value != null)
+            //    {
+            //        decimal Amount;
+            //        if (decimal.TryParse(paymentCell.Value.ToString(), out Amount))
+            //        {
+            //            string Currency = currencyCell.Value.ToString();
 
-                        // Convert to dollars and Lebanese pounds based on exchange rates
-                        if (Currency == "USD")
-                        {
-                            SumUSD += Amount;
-                        }
-                        else if (Currency == "LBP")
-                        {
-                            SumLBP += Amount;
-                        }
-                    }
-                }
-            }
+            //            // Convert to dollars and Lebanese pounds based on exchange rates
+            //            if (Currency == "USD")
+            //            {
+            //                SumUSD += Amount;
+            //            }
+            //            else if (Currency == "LBP")
+            //            {
+            //                SumLBP += Amount;
+            //            }
+            //        }
+            //    }
+            //}
 
-            // Display or use the calculated totals
-            TxtBoxUSD.Text = SumUSD.ToString("#,##0");
-            TxtBoxLBP.Text = SumLBP.ToString("#,##0");
+            //// Display or use the calculated totals
+            //TxtBoxUSD.Text = SumUSD.ToString("#,##0");
+            //TxtBoxLBP.Text = SumLBP.ToString("#,##0");
         }
 
-        private void FilterDataByDateRange(DateTime startDate, DateTime endDate, string member)
+        private DateTime disabledDatePickerValue;
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (startDate > endDate)
+            StartDate.Enabled = checkBox1.Checked;
+            EndDate.Enabled = checkBox1.Checked;
+
+            if (checkBox1.Checked)
             {
-                MessageBox.Show("Date To should be greater than Date From");
-                return;
+                // Use the saved value when disabling the DateTimePicker.
+                DateTime startDate = StartDate.Value.Date;
+                DateTime endDate = EndDate.Value.Date;
             }
-
-            // Assuming your DataGridView has a DataTable as its DataSource
-            DataTable dataTable = ((DataTable)ReceivedDataGridView.DataSource);
-
-            if (dataTable != null)
+            else
             {
-                // Apply the filter to the DataTable
-                string filterExpression = $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
-
-
-                // Add the member condition if it is provided
-                if (!string.IsNullOrEmpty(member))
-                {
-                    filterExpression += $" AND Member = '{member}'";
-                    ReceivedDataGridView.DataSource = filterExpression;
-                }
-
-                dataTable.DefaultView.RowFilter = filterExpression;
-
-                // Update the DataSource to reflect the changes
-
-                ReceivedDataGridView.DataSource = dataTable;
-
+                // Save the current value when enabling the DateTimePicker.
+                disabledDatePickerValue = StartDate.Value.Date;
+                disabledDatePickerValue = EndDate.Value.Date;
             }
-            decimal SumUSD = 0;
-            decimal SumLBP = 0;
-
-            foreach (DataGridViewRow row in GridViewBills.Rows)
-            {
-                if (row.IsNewRow) continue; // Skip the new row if it's there
-
-                // Assuming your columns are named "DateColumn", "DollarAmountColumn", and "LbpAmountColumn"
-                DateTime date = Convert.ToDateTime(row.Cells["Date"].Value);
-
-                if (date >= startDate && date <= endDate)
-                {
-                    // Assuming your amount column is at index 1 and currency column is at index 2
-                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
-
-                    // You can use the currency information if needed
-                    string currency = Convert.ToString(row.Cells["Currency"].Value);
-
-
-                    // Convert to dollars and Lebanese pounds based on exchange rates
-                    if (currency == "USD")
-                    {
-                        SumUSD += amount;
-                    }
-                    else if (currency == "LBP")
-                    {
-                        SumLBP += amount;
-                    }
-                }
-            }
-            // Display the total amounts in some labels or other controls
-            TxtBoxUSD.Text = SumUSD.ToString("#,##0");
-            TxtBoxLBP.Text = SumLBP.ToString("#,##0");
         }
-   
+
         private void Search_Click(object sender, EventArgs e)
         {
-            string member = SearchTxtBox.Text;
-            // Get the start and end dates from your UI controls
+            // Get search parameters
+            string memberName = SearchTxtBox.Text.Trim();
             DateTime startDate = StartDate.Value;
             DateTime endDate = EndDate.Value;
 
-            // Call the filtering method
-            FilterDataByDateRange(startDate, endDate, member);
+            // Assuming your DataGridView has a DataTable as its DataSource
+            DataTable dataTable = ((DataTable)ReceivedDataGridView.DataSource); // Change to your actual DataGridView name
+
+            // Construct the filter based on member name and date range
+            string filter = "";
+
+            if (!string.IsNullOrEmpty(memberName))
+            {
+                filter += $"Member LIKE '%{memberName}%'";
+            }
+
+            if (checkBox1.Checked)
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    filter += " AND ";
+                }
+
+                filter += $"Date >= #{startDate.ToString("MM/dd/yyyy")}# AND Date <= #{endDate.ToString("MM/dd/yyyy")}#";
+            }
+
+            // Apply the filter to the DataTable
+            dataTable.DefaultView.RowFilter = filter;
+
+            // Update the DataGridView to reflect the changes
+            GridViewBills.DataSource = dataTable; // Change to your actual DataGridView name
+
+            // Calculate the sum of amounts for USD and LBP
+            decimal sumUSD = 0;
+            decimal sumLBP = 0;
+
+            foreach (DataRowView rowView in dataTable.DefaultView)
+            {
+                DataRow row = rowView.Row;
+
+                decimal amount = Convert.ToDecimal(row["Amount"]);
+                string currency = Convert.ToString(row["Currency"]);
+
+                if (currency == "USD")
+                {
+                    sumUSD += amount;
+                }
+                else if (currency == "LBP")
+                {
+                    sumLBP += amount;
+                }
+            }
+
+            // Display the sums in the appropriate TextBoxes or labels
+            TxtBoxUSD.Text = sumUSD.ToString("#,##0");
+            TxtBoxLBP.Text = sumLBP.ToString("#,##0");
         }
 
-        private void ResetFilterByDateRange()
+        private void ClearSearch()
         {
-            string member = SearchTxtBox.Text;
-            DateTime startDate = StartDate.Value;
-            DateTime endDate = EndDate.Value;
-            // Call the method to filter data with the updated date range
-            //FilterDataByDateRange(startDate, endDate,member);
+            //// Clear search parameters
+            //SearchTxtBox.Clear();
+            //StartDate.Value = DateTime.Now.Date;
+            //EndDate.Value = DateTime.Now.Date;
+            //checkBox1.Checked = false;
+            //// Restore the original data in the DataGridView
+            //LoadOriginalData();
         }
-
         private void Clear_Search(object sender, EventArgs e)
         {
-            SearchTxtBox.Text = string.Empty;
-            StartDate.Text = null;
-            EndDate.Text = null;
-
-           
+            //ClearSearch();
         }
 
         private void MemberLbl_Click(object sender, EventArgs e)
@@ -267,5 +273,6 @@ namespace GymApp
         {
             Application.Restart();
         }
+       
     }
 }
