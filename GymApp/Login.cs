@@ -20,9 +20,11 @@ namespace GymApp
             checkBoxShowPassword.CheckedChanged += CheckBoxShowPassword_CheckedChanged;
         }
         public static int UserId;
+      //  bool isAdmin;
 
         private void Login_Click(object sender, EventArgs e)
         {
+            
 
             if (Username.Text == "" || Password.Text == "")
             {
@@ -31,24 +33,24 @@ namespace GymApp
             else
             {
                 try
-
                 {
                     string Query = "select * from UsersTable where Username = '{0}' and Password = '{1}'";
                     Query = string.Format(Query, Username.Text, Password.Text);
                     DataTable dt = Con.GetData(Query);
+
                     if (dt.Rows.Count == 0)
                     {
                         MessageBox.Show("Invalid Credentials!");
                     }
-
                     else
                     {
+                        bool isAdmin = Convert.ToBoolean(dt.Rows[0]["isAdmin"]);
                         UserId = Convert.ToInt32(dt.Rows[0][0].ToString());
-                        Members Obj = new Members();
-                        Obj.Show();
-                        this.Hide();  
-                    }
 
+                        Members Obj = isAdmin ? new Members(isAdmin) : new Members();
+                        Obj.Show();
+                        this.Hide();
+                    }
                 }
                 catch (Exception Ex)
                 {

@@ -10,9 +10,27 @@ using System.Windows.Forms;
 
 namespace GymApp
 {
+   
     public partial class Members : Form
     {
         Functions Con;
+        private bool isAdmin;
+        public Members(bool isAdmin)
+        {
+            InitializeComponent();
+            Con = new Functions();
+            ShowMembers();
+            GetTrainers();
+            GetMemberships();
+            GridViewMembers.Columns[0].Visible = false;
+            GridViewMembers.Columns[4].Visible = false;
+            GridViewMembers.Columns[10].Visible = false;
+            GridViewMembers.Columns[2].HeaderText = "Date Of Birth";
+            GridViewMembers.SelectionChanged += GridViewMembers_SelectionChanged;
+            this.isAdmin = isAdmin;
+            // Set the visibility of the label based on the isAdmin flag
+            label12.Visible = isAdmin;
+        }
 
         public Members()
         {
@@ -26,7 +44,14 @@ namespace GymApp
             GridViewMembers.Columns[10].Visible = false;
             GridViewMembers.Columns[2].HeaderText = "Date Of Birth";
             GridViewMembers.SelectionChanged += GridViewMembers_SelectionChanged;
+            this.isAdmin = isAdmin;
+            // Set the visibility of the label based on the isAdmin flag
+            label12.Visible = isAdmin;
+            usericon.Visible = false;
+
         }
+
+
 
         private void ShowMembers()
         {
@@ -53,9 +78,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-            Members Obj = new Members();
-            Obj.Show();
-            this.Hide();
+          //  Members Obj = new Members();
+           // Obj.Show();
+           // this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)

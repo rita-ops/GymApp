@@ -69,9 +69,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-            Members Obj = new Members();
-            Obj.Show();
-            this.Hide();
+           // Members Obj = new Members();
+            //Obj.Show();
+            //this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
@@ -200,7 +200,6 @@ namespace GymApp
             TxtBoxUSD.Text = sumUSD.ToString("#,##0");
             TxtBoxLBP.Text = sumLBP.ToString("#,##0");
         }
-
 
         private void ClearSearch()
         {

@@ -173,9 +173,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-            Members Obj = new Members();
-            Obj.Show();
-            this.Hide();
+            //Members Obj = new Members();
+           // Obj.Show();
+           // this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
