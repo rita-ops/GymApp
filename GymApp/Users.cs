@@ -116,11 +116,16 @@ namespace GymApp
                     {
                     string user = Username.Text;
                     string pass = Password.Text;
+                    // Generate a random salt
+                    string salt = GenerateSalt();
+
+                    // Combine the password and salt, then hash the result
+                    string hashedPassword = HashPassword(pass, salt);
                     string number = Phone.Text;
                     string email = Mail.Text;
                     string admin = isAdmin.Checked.ToString();
-                    string Query = "Insert into UsersTable Values('{0}','{1}','{2}','{3}','{4}')";
-                    Query = string.Format(Query, user, pass, number, email, admin);
+                    string Query = "Insert into UsersTable Values('{0}','{1}','{2}','{3}','{4}','{5}')";
+                    Query = string.Format(Query, user, pass, salt, number, email, admin);
                     Con.setData(Query);
                     ShowUsers();
                     MessageBox.Show("User Added");
@@ -145,45 +150,45 @@ namespace GymApp
         {
             try
             {
-                if (Username.Text == "" || Password.Text == "" || Phone.Text == "")
+                if (Username.Text == "" || Phone.Text == "")
                 {
                     MessageBox.Show("Please enter the required fields!!");
-                }
+                }                  
+                   else
+                   {
+                        int Key = int.Parse(GridViewUsers.CurrentRow.Cells[0].Value.ToString());
+                        string user = Username.Text;
+                        string pass = Password.Text;
+                        // Generate a random salt
+                        string salt = GenerateSalt();
 
-                else
-                {
-                    int Key = int.Parse(GridViewUsers.CurrentRow.Cells[0].Value.ToString());
-                    string user = Username.Text;
-                    string pass = Password.Text;
-                    string number = Phone.Text;
-                    string email = Mail.Text;
-                    bool admin = Convert.ToBoolean(isAdmin.Checked);
-                    string Query = "Update UsersTable set Username ='{0}', Password = '{1}', Phone ='{2}', Mail = '{3}', isAdmin = '{4}' Where UserID = {5}";
-                    Query = string.Format(Query, user, pass, number, email, admin, Key);
-                    Con.setData(Query);
-                    ShowUsers();
+                        // Combine the password and salt, then hash the result
+                        string hashedPassword = HashPassword(pass, salt);
+                        string number = Phone.Text;
+                        string email = Mail.Text;
+                        string admin = isAdmin.Checked.ToString();
+                        string Query = "Update UsersTable set Username ='{0}', Password = '{1}', Salt ='{2}', Phone ='{3}', Mail = '{4}', isAdmin = '{5}' Where UserID = {6}";
+                        Query = string.Format(Query, user, pass, salt, number, email, admin, Key);
+                        Con.setData(Query);
+                        ShowUsers();
+                        MessageBox.Show("User Updated");
+                        Reset();       
+                   }
 
                     if (!string.IsNullOrEmpty(Mail.Text))
                     {
                         if (IsValidEmail(Mail.Text))
                         {
                             lblEmailValidation.Visible = true;
-                            // The email is valid, update the label message.
                             lblEmailValidation.Text = "Email is valid!";
                             lblEmailValidation.ForeColor = System.Drawing.Color.Green;
                         }
-
                         else
                         {
-                            // The email is not valid. Display an error message.
                             MessageBox.Show("Invalid email address. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
-
-                    MessageBox.Show("User Updated");
-                    Reset();
-                }
             }
             catch (Exception Ex)
             {
@@ -223,8 +228,8 @@ namespace GymApp
                 DataGridViewRow selectedRow = GridViewUsers.SelectedRows[0];
 
                 Username.Text = GridViewUsers.CurrentRow.Cells[1].Value.ToString();
-                // Password.Text = GridViewUsers.CurrentRow.Cells[2].Value.ToString();
-                Password.Text = string.Empty;
+                Password.Text = GridViewUsers.CurrentRow.Cells[2].Value.ToString();
+                //Password.Text = string.Empty;
                 Phone.Text = GridViewUsers.CurrentRow.Cells[3].Value.ToString();
                 Mail.Text = GridViewUsers.CurrentRow.Cells[4].Value.ToString();
                 bool admin = (bool)GridViewUsers.CurrentRow.Cells["isAdmin"].Value;
@@ -302,6 +307,7 @@ namespace GymApp
                 e.Value = EncryptPassword(e.Value.ToString());
             }
         }
+
         private string EncryptPassword(string plainText)
         {
             // Generate a random salt
