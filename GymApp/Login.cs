@@ -22,8 +22,8 @@ namespace GymApp
         public static int UserId;
       
         private void Login_Click(object sender, EventArgs e)
-        {   
 
+        {   
             if (Username.Text == "" || Password.Text == "")
             {
                 MessageBox.Show("Invalid Credentials! Please try again.");

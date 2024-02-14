@@ -167,6 +167,7 @@
             this.GridViewUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.GridViewUsers.Size = new System.Drawing.Size(691, 371);
             this.GridViewUsers.TabIndex = 56;
+            this.GridViewUsers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GridViewUsers_CellFormatting);
             // 
             // label6
             // 

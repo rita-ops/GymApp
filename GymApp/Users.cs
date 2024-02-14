@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -27,8 +28,7 @@ namespace GymApp
             checkBoxShowPassword.CheckedChanged += CheckBoxShowPassword_CheckedChanged;
             bool admin = isAdmin.Checked;
             lblEmailValidation.Visible = false;
-            //GridViewUsers.Columns.Add("HashedPassword", "Hashed Password");
-            //GridViewUsers.Columns["Password"].DefaultCellStyle.Format =UTF32Encoding;
+            GridViewUsers.CellFormatting += GridViewUsers_CellFormatting;
             // Compare the isAdmin property with the current value of Program.IsAdmin
             if (adm != Program.IsAdmin)
             {
@@ -50,24 +50,7 @@ namespace GymApp
             GridViewUsers.DataSource = Con.GetData(Query);
             GridViewUsers.ClearSelection();
         }
-
-        //private string HashedPassword(string password)
-        //{
-        //    using (MD5 md5 = MD5.Create())
-        //    {
-        //        byte[] inputBytes = Encoding.ASCII.GetBytes(password);
-        //        byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-        //        StringBuilder builder = new StringBuilder();
-        //        for (int i = 0; i < hashBytes.Length; i++)
-        //        {
-        //            builder.Append(hashBytes[i].ToString("x2"));
-        //        }
-
-        //        return builder.ToString();
-        //    }
-        //}
-
+  
         private void Reset()
         {
             Username.Text = string.Empty;
@@ -133,8 +116,6 @@ namespace GymApp
                     {
                     string user = Username.Text;
                     string pass = Password.Text;
-                    // Hash the password before saving it
-                    //string hashedPassword = HashedPassword(pass);
                     string number = Phone.Text;
                     string email = Mail.Text;
                     string admin = isAdmin.Checked.ToString();
@@ -174,8 +155,6 @@ namespace GymApp
                     int Key = int.Parse(GridViewUsers.CurrentRow.Cells[0].Value.ToString());
                     string user = Username.Text;
                     string pass = Password.Text;
-                    // Hash the password before saving it
-                    //string hashedPassword = HashedPassword(pass);
                     string number = Phone.Text;
                     string email = Mail.Text;
                     bool admin = Convert.ToBoolean(isAdmin.Checked);
@@ -212,7 +191,6 @@ namespace GymApp
             }
         }
 
-
         private void Delete_Click(object sender, EventArgs e)
         {
             try
@@ -245,7 +223,8 @@ namespace GymApp
                 DataGridViewRow selectedRow = GridViewUsers.SelectedRows[0];
 
                 Username.Text = GridViewUsers.CurrentRow.Cells[1].Value.ToString();
-                Password.Text = GridViewUsers.CurrentRow.Cells[2].Value.ToString();
+                // Password.Text = GridViewUsers.CurrentRow.Cells[2].Value.ToString();
+                Password.Text = string.Empty;
                 Phone.Text = GridViewUsers.CurrentRow.Cells[3].Value.ToString();
                 Mail.Text = GridViewUsers.CurrentRow.Cells[4].Value.ToString();
                 bool admin = (bool)GridViewUsers.CurrentRow.Cells["isAdmin"].Value;
@@ -312,6 +291,49 @@ namespace GymApp
         private void Logout_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void GridViewUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check if the current cell is in the Password column and the value is not null
+            if (e.ColumnIndex == GridViewUsers.Columns["Password"].Index && e.Value != null)
+            {
+                // Replace the displayed value with the encrypted version
+                e.Value = EncryptPassword(e.Value.ToString());
+            }
+        }
+        private string EncryptPassword(string plainText)
+        {
+            // Generate a random salt
+            string salt = GenerateSalt();
+
+            // Combine the password and salt, then hash the result
+            string hashedPassword = HashPassword(plainText, salt);
+
+            // Store the salt and hashed password (you'll need to save these values in your database)
+            string storedPassword = salt + hashedPassword;
+
+            return storedPassword;
+        }
+
+        private string GenerateSalt()
+        {
+            byte[] saltBytes = new byte[16]; // Choose an appropriate size for your salt
+            using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
+            {
+                rngCsp.GetBytes(saltBytes);
+            }
+            return Convert.ToBase64String(saltBytes);
+        }
+
+        private string HashPassword(string password, string salt)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] combinedBytes = Encoding.UTF8.GetBytes(password + salt);
+                byte[] hashBytes = sha256.ComputeHash(combinedBytes);
+                return Convert.ToBase64String(hashBytes);
+            }
         }
     }
 }
