@@ -21,12 +21,12 @@ namespace GymApp
             // Compare the isAdmin property with the current value of Program.IsAdmin
             if (adm != Program.IsAdmin)
             {
-                label12.Visible = true;
+                UsersLbl.Visible = true;
                 usericon.Visible = true;
             }
             else
             {
-                label12.Visible = false;
+                UsersLbl.Visible = false;
                 usericon.Visible = false;
             }
             // Update the local variable to match the current state of Program.IsAdmin

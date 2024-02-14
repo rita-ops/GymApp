@@ -55,7 +55,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PaymentLbl = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.UsersLbl = new System.Windows.Forms.Label();
             this.BillsLbl = new System.Windows.Forms.Label();
             this.MemberShipLbl = new System.Windows.Forms.Label();
             this.MemberLbl = new System.Windows.Forms.Label();
@@ -258,7 +258,7 @@
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.PaymentLbl);
-            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.UsersLbl);
             this.panel2.Controls.Add(this.BillsLbl);
             this.panel2.Controls.Add(this.MemberShipLbl);
             this.panel2.Controls.Add(this.MemberLbl);
@@ -350,16 +350,16 @@
             this.PaymentLbl.Text = "Payments";
             this.PaymentLbl.Click += new System.EventHandler(this.PaymentLbl_Click);
             // 
-            // label12
+            // UsersLbl
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(68, 466);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 17);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Users";
-            this.label12.Click += new System.EventHandler(this.Users_Click);
+            this.UsersLbl.AutoSize = true;
+            this.UsersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsersLbl.Location = new System.Drawing.Point(68, 466);
+            this.UsersLbl.Name = "UsersLbl";
+            this.UsersLbl.Size = new System.Drawing.Size(41, 17);
+            this.UsersLbl.TabIndex = 0;
+            this.UsersLbl.Text = "Users";
+            this.UsersLbl.Click += new System.EventHandler(this.Users_Click);
             // 
             // BillsLbl
             // 
@@ -549,7 +549,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label PaymentLbl;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label UsersLbl;
         private System.Windows.Forms.Label BillsLbl;
         private System.Windows.Forms.Label MemberShipLbl;
         private System.Windows.Forms.Label MemberLbl;
