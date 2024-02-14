@@ -12,8 +12,7 @@ namespace GymApp
         /// The main entry point for the application.
         /// </summary>
         /// 
-
-        
+    
         public static bool IsAdmin
         {
             get { return adm; }
