@@ -13,11 +13,24 @@ namespace GymApp
     public partial class AllPayments : Form
     {
         Functions Con;
-
+        bool adm;
         public AllPayments()
         {
             InitializeComponent();
             Con = new Functions();
+            // Compare the isAdmin property with the current value of Program.IsAdmin
+            if (adm != Program.IsAdmin)
+            {
+                label12.Visible = true;
+                usericon.Visible = true;
+            }
+            else
+            {
+                label12.Visible = false;
+                usericon.Visible = false;
+            }
+            // Update the local variable to match the current state of Program.IsAdmin
+            adm = Program.IsAdmin;
         }
         public DataGridView ReceivedDataGridView { get; set; }
 

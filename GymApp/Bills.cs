@@ -36,7 +36,6 @@ namespace GymApp
             }
             // Update the local variable to match the current state of Program.IsAdmin
             adm = Program.IsAdmin;
-
         }
 
         private void Reset()
