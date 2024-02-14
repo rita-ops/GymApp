@@ -13,6 +13,7 @@ namespace GymApp
     public partial class Memberships : Form
     {
         Functions Con;
+        bool adm; // No need to assign Program.IsAdmin here
         public Memberships()
         {
             InitializeComponent();
@@ -20,6 +21,19 @@ namespace GymApp
             ShowMemberships();
             GridViewMemberships.Columns[0].Visible = false;
             GridViewMemberships.SelectionChanged += GridViewMemberships_SelectionChanged;
+            // Compare the isAdmin property with the current value of Program.IsAdmin
+            if (adm != Program.IsAdmin)
+            {
+                label12.Visible = true;
+                usericon.Visible = true;
+            }
+            else
+            {
+                label12.Visible = false;
+                usericon.Visible = false;
+            }
+            // Update the local variable to match the current state of Program.IsAdmin
+            adm = Program.IsAdmin;
         }
 
         private void ShowMemberships()
@@ -31,9 +45,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-           // Members Obj = new Members();
-          //  Obj.Show();
-            //this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)

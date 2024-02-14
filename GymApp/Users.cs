@@ -15,7 +15,7 @@ namespace GymApp
     public partial class Users : Form
     {
         Functions Con;
-    
+        bool adm;
         public Users()
         {
             InitializeComponent();
@@ -29,6 +29,19 @@ namespace GymApp
             lblEmailValidation.Visible = false;
             //GridViewUsers.Columns.Add("HashedPassword", "Hashed Password");
             //GridViewUsers.Columns["Password"].DefaultCellStyle.Format =UTF32Encoding;
+            // Compare the isAdmin property with the current value of Program.IsAdmin
+            if (adm != Program.IsAdmin)
+            {
+                label12.Visible = true;
+                usericon.Visible = true;
+            }
+            else
+            {
+                label12.Visible = false;
+                usericon.Visible = false;
+            }
+            // Update the local variable to match the current state of Program.IsAdmin
+            adm = Program.IsAdmin;
         }
 
         private void ShowUsers()
@@ -249,9 +262,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-         //   Members Obj = new Members();
-          //  Obj.Show();
-          //  this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)

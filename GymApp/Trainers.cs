@@ -13,6 +13,7 @@ namespace GymApp
     public partial class Trainers : Form
     {
         Functions Con;
+        bool adm;
 
         public Trainers()
         {
@@ -23,7 +24,22 @@ namespace GymApp
             GridViewTrainers.Columns[2].HeaderText = "Date Of Birth";
             GridViewTrainers.Columns[3].HeaderText = "Phone";
             GridViewTrainers.SelectionChanged += GridViewTrainers_SelectionChanged;
+            // Compare the isAdmin property with the current value of Program.IsAdmin
+            if (adm != Program.IsAdmin)
+            {
+                label12.Visible = true;
+                usericon.Visible = true;
+            }
+            else
+            {
+                label12.Visible = false;
+                usericon.Visible = false;
+            }
+            // Update the local variable to match the current state of Program.IsAdmin
+            adm = Program.IsAdmin;
+
         }
+
         private void Reset()
         {
             TrainerFName.Text = string.Empty;
@@ -42,6 +58,7 @@ namespace GymApp
             GridViewTrainers.DataSource = Con.GetData(Query);
             GridViewTrainers.ClearSelection();
         }
+
         private void Save_Click(object sender, EventArgs e)
         {
             try
@@ -187,9 +204,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-           // Members Obj = new Members();
-           // Obj.Show();
-           // this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
@@ -233,6 +250,7 @@ namespace GymApp
             Obj.Show();
             this.Hide();
         }
+
         private void Logout_Click(object sender, EventArgs e)
         {
             Application.Restart();

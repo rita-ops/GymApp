@@ -16,17 +16,32 @@ namespace GymApp
         Functions Con;
         // Placeholder for the current password (this should come from your application's data)
         private string currentPassword = "current_password";
+        bool adm; // No need to assign Program.IsAdmin here
+
         public ChangePassword()
         {
             InitializeComponent();
             Con = new Functions();
+            // Compare the isAdmin property with the current value of Program.IsAdmin
+            if (adm != Program.IsAdmin)
+            {
+                label12.Visible = true;
+                usericon.Visible = true;
+            }
+            else
+            {
+                label12.Visible = false;
+                usericon.Visible = false;
+            }
+            // Update the local variable to match the current state of Program.IsAdmin
+            adm = Program.IsAdmin;
         }
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-          //  Members Obj = new Members();
-           // Obj.Show();
-           // this.Hide();
+           Members Obj = new Members();
+           Obj.Show();
+           this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)

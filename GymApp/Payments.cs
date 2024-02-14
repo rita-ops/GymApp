@@ -13,6 +13,7 @@ namespace GymApp
     public partial class Payments : Form
     {
         Functions Con;
+        bool adm; // No need to assign Program.IsAdmin here
         public Payments()
         {
             InitializeComponent();
@@ -22,6 +23,19 @@ namespace GymApp
             GridViewPayments.Columns[1].HeaderText = "Client Name";
             GridViewPayments.Columns["Amount"].DefaultCellStyle.Format = "N2";
             GridViewPayments.SelectionChanged += GridViewPayments_SelectionChanged;
+            // Compare the isAdmin property with the current value of Program.IsAdmin
+            if (adm != Program.IsAdmin)
+            {
+                label12.Visible = true;
+                usericon.Visible = true;
+            }
+            else
+            {
+                label12.Visible = false;
+                usericon.Visible = false;
+            }
+            // Update the local variable to match the current state of Program.IsAdmin
+            adm = Program.IsAdmin;
         }
 
         private void ShowPayments()
@@ -33,9 +47,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-            //Members Obj = new Members();
-          //  Obj.Show();
-           // this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
@@ -65,6 +79,7 @@ namespace GymApp
             Obj.Show();
             this.Hide();
         }
+
 
         private void Users_Click(object sender, EventArgs e)
         {
