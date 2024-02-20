@@ -264,6 +264,15 @@ namespace GymApp
         {
             Application.Restart();
         }
-       
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            FormReportBills Obj = new FormReportBills();
+            Obj.Show();
+        }
+    }
+
+    class BillsTable
+    {
     }
 }

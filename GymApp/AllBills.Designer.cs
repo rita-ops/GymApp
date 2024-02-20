@@ -67,6 +67,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.StartDate = new System.Windows.Forms.DateTimePicker();
             this.EndDate = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBills)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -180,7 +181,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(666, 87);
+            this.label8.Location = new System.Drawing.Point(668, 84);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 20);
             this.label8.TabIndex = 51;
@@ -190,7 +191,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(908, 87);
+            this.label5.Location = new System.Drawing.Point(910, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 20);
             this.label5.TabIndex = 51;
@@ -200,10 +201,10 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1177, 78);
+            this.button2.Location = new System.Drawing.Point(1143, 73);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 52;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Search_Click);
@@ -212,10 +213,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1107, 88);
+            this.label7.Location = new System.Drawing.Point(1109, 85);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 18);
-            this.label7.TabIndex = 53;
+            this.label7.TabIndex = 4;
             this.label7.Text = "X";
             this.label7.Click += new System.EventHandler(this.Clear_Search);
             // 
@@ -453,7 +454,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(632, 92);
+            this.checkBox1.Location = new System.Drawing.Point(634, 89);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 58;
@@ -464,19 +465,31 @@
             // 
             this.StartDate.Enabled = false;
             this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StartDate.Location = new System.Drawing.Point(718, 88);
+            this.StartDate.Location = new System.Drawing.Point(720, 85);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(152, 20);
-            this.StartDate.TabIndex = 59;
+            this.StartDate.TabIndex = 1;
             // 
             // EndDate
             // 
             this.EndDate.Enabled = false;
             this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDate.Location = new System.Drawing.Point(941, 86);
+            this.EndDate.Location = new System.Drawing.Point(943, 83);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(152, 20);
-            this.EndDate.TabIndex = 59;
+            this.EndDate.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1235, 73);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 32);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Print_Click);
             // 
             // AllBills
             // 
@@ -489,6 +502,7 @@
             this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label8);
@@ -563,5 +577,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DateTimePicker StartDate;
         private System.Windows.Forms.DateTimePicker EndDate;
+        private System.Windows.Forms.Button button1;
     }
 }

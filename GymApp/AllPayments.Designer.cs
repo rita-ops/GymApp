@@ -170,7 +170,7 @@
             this.SearchTxtBox.Location = new System.Drawing.Point(301, 107);
             this.SearchTxtBox.Name = "SearchTxtBox";
             this.SearchTxtBox.Size = new System.Drawing.Size(160, 22);
-            this.SearchTxtBox.TabIndex = 56;
+            this.SearchTxtBox.TabIndex = 0;
             // 
             // label10
             // 
@@ -412,7 +412,7 @@
             this.EndDate.Location = new System.Drawing.Point(950, 104);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(152, 20);
-            this.EndDate.TabIndex = 65;
+            this.EndDate.TabIndex = 2;
             // 
             // StartDate
             // 
@@ -421,7 +421,7 @@
             this.StartDate.Location = new System.Drawing.Point(727, 106);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(152, 20);
-            this.StartDate.TabIndex = 66;
+            this.StartDate.TabIndex = 1;
             // 
             // checkBox1
             // 
@@ -440,7 +440,7 @@
             this.label7.Location = new System.Drawing.Point(1116, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 18);
-            this.label7.TabIndex = 63;
+            this.label7.TabIndex = 4;
             this.label7.Text = "X";
             this.label7.Click += new System.EventHandler(this.Clear_Click);
             // 
@@ -451,7 +451,7 @@
             this.button2.Location = new System.Drawing.Point(1186, 96);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 62;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Search_Click);

@@ -107,7 +107,7 @@
             this.panel3.Location = new System.Drawing.Point(219, -4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1152, 745);
-            this.panel3.TabIndex = 28;
+            this.panel3.TabIndex = 0;
             // 
             // lblEmailValidation
             // 
@@ -136,7 +136,7 @@
             this.isAdmin.Location = new System.Drawing.Point(826, 109);
             this.isAdmin.Name = "isAdmin";
             this.isAdmin.Size = new System.Drawing.Size(73, 24);
-            this.isAdmin.TabIndex = 57;
+            this.isAdmin.TabIndex = 4;
             this.isAdmin.Text = "Admin";
             this.isAdmin.UseVisualStyleBackColor = true;
             // 
@@ -198,7 +198,7 @@
             this.button2.Location = new System.Drawing.Point(510, 171);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 42;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Edit_Click);
@@ -210,7 +210,7 @@
             this.button1.Location = new System.Drawing.Point(179, 171);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 10;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
@@ -221,7 +221,7 @@
             this.Password.Location = new System.Drawing.Point(230, 109);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(159, 22);
-            this.Password.TabIndex = 0;
+            this.Password.TabIndex = 1;
             this.Password.UseSystemPasswordChar = true;
             // 
             // Username
@@ -238,7 +238,7 @@
             this.Mail.Location = new System.Drawing.Point(617, 111);
             this.Mail.Name = "Mail";
             this.Mail.Size = new System.Drawing.Size(160, 22);
-            this.Mail.TabIndex = 5;
+            this.Mail.TabIndex = 3;
             // 
             // Phone
             // 
@@ -246,7 +246,7 @@
             this.Phone.Location = new System.Drawing.Point(425, 111);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(160, 22);
-            this.Phone.TabIndex = 5;
+            this.Phone.TabIndex = 2;
             // 
             // label5
             // 

@@ -23,6 +23,7 @@ namespace GymApp
             Con = new Functions();
             ShowUsers();
             GridViewUsers.Columns[0].Visible = false;
+            GridViewUsers.Columns[2].Visible = false;
             GridViewUsers.Columns[5].HeaderText = "Admin";
             GridViewUsers.SelectionChanged += GridViewUsers_SelectionChanged;
             checkBoxShowPassword.CheckedChanged += CheckBoxShowPassword_CheckedChanged;
@@ -59,6 +60,7 @@ namespace GymApp
             Mail.Text = string.Empty;
             lblEmailValidation.Visible = false;
             isAdmin.Checked = false;
+            checkBoxShowPassword.Checked = false;
         }
 
         private bool IsUserAlreadyExists(string username)
@@ -228,8 +230,8 @@ namespace GymApp
                 DataGridViewRow selectedRow = GridViewUsers.SelectedRows[0];
 
                 Username.Text = GridViewUsers.CurrentRow.Cells[1].Value.ToString();
-                Password.Text = GridViewUsers.CurrentRow.Cells[2].Value.ToString();
-                //Password.Text = string.Empty;
+                //Password.Text = GridViewUsers.CurrentRow.Cells[2].Value.ToString();
+                Password.Text = string.Empty;
                 Phone.Text = GridViewUsers.CurrentRow.Cells[3].Value.ToString();
                 Mail.Text = GridViewUsers.CurrentRow.Cells[4].Value.ToString();
                 bool admin = (bool)GridViewUsers.CurrentRow.Cells["isAdmin"].Value;
