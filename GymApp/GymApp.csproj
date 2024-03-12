@@ -128,11 +128,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetBills.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetPayments.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPayments.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormReportBills.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReportBills.Designer.cs">
       <DependentUpon>FormReportBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportPayments.Designer.cs">
+      <DependentUpon>FormReportPayments.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="GymDataSet.Designer.cs">
@@ -194,6 +205,9 @@
     <EmbeddedResource Include="FormReportBills.resx">
       <DependentUpon>FormReportBills.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportPayments.resx">
+      <DependentUpon>FormReportPayments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +230,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ReportBills.rdlc" />
+    <EmbeddedResource Include="ReportPayments.rdlc" />
     <EmbeddedResource Include="Trainers.resx">
       <DependentUpon>Trainers.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +247,17 @@
     </None>
     <None Include="DataSetBills.xss">
       <DependentUpon>DataSetBills.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPayments.xsc">
+      <DependentUpon>DataSetPayments.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPayments.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPayments.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPayments.xss">
+      <DependentUpon>DataSetPayments.xsd</DependentUpon>
     </None>
     <None Include="GymDataSet.xsc">
       <DependentUpon>GymDataSet.xsd</DependentUpon>

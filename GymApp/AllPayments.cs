@@ -82,9 +82,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-           // Members Obj = new Members();
-            //Obj.Show();
-            //this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
@@ -261,6 +261,46 @@ namespace GymApp
         private void Clear_Click(object sender, EventArgs e)
         {
             ClearSearch();
+        }
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            FormReportPayments Obj;
+            decimal sumUSD = 0;
+            decimal sumLBP = 0;
+
+            if (SearchTxtBox.Text.Length == 0 && checkBox1.Checked == false)
+            {
+                Obj = new FormReportPayments();
+            }
+            else
+            {
+                string client = SearchTxtBox.Text.Trim().Length == 0 ? null : SearchTxtBox.Text;
+
+                // Set fromDate to DateTime.MinValue if checkBox1 is not checked
+                DateTime fromDate = checkBox1.Checked ? StartDate.Value.Date : DateTime.MinValue;
+
+                // Set toDate to DateTime.MinValue if checkBox1 is not checked
+                DateTime toDate = checkBox1.Checked ? EndDate.Value.Date : DateTime.MaxValue;
+
+                // Calculate sums
+                foreach (DataGridViewRow row in GridViewPayments.Rows)
+                {
+                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
+                    string currency = Convert.ToString(row.Cells["Currency"].Value);
+
+                    if (currency == "USD")
+                    {
+                        sumUSD += amount;
+                    }
+                    else if (currency == "LBP")
+                    {
+                        sumLBP += amount;
+                    }
+                }
+                Obj = new FormReportPayments(client, fromDate, toDate, sumUSD, sumLBP);
+            }
+            Obj.Show();
         }
     }
 }
