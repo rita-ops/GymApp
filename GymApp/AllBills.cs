@@ -268,7 +268,9 @@ namespace GymApp
         private void Print_Click(object sender, EventArgs e)
         {
             FormReportBills Obj;
-        
+            decimal sumUSD = 0;
+            decimal sumLBP = 0;
+
             if (SearchTxtBox.Text.Length == 0 && checkBox1.Checked == false)
             {
                 Obj = new FormReportBills();
@@ -282,7 +284,23 @@ namespace GymApp
 
                 // Set toDate to DateTime.MinValue if checkBox1 is not checked
                 DateTime toDate = checkBox1.Checked ? EndDate.Value.Date : DateTime.MaxValue;
-                Obj = new FormReportBills(member, fromDate, toDate);
+
+                // Calculate sums
+                foreach (DataGridViewRow row in GridViewBills.Rows)
+                {
+                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
+                    string currency = Convert.ToString(row.Cells["Currency"].Value);
+
+                    if (currency == "USD")
+                    {
+                        sumUSD += amount;
+                    }
+                    else if (currency == "LBP")
+                    {
+                        sumLBP += amount;
+                    }
+                }
+                Obj = new FormReportBills(member, fromDate, toDate,  sumUSD, sumLBP);
             }
             Obj.Show();
         }
