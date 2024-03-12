@@ -19,6 +19,9 @@ namespace GymApp
         public FormReportBills()
         {
             InitializeComponent();
+            this.BillsTableTableAdapter.Fill(this.DataSetBills.BillsTable);
+  
+            this.reportViewer1.RefreshReport();
         }
 
         public FormReportBills(string member, DateTime fromDate, DateTime toDate)
