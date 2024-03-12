@@ -15,7 +15,7 @@ namespace GymApp
         Functions Con;
         bool adm;
 
-        public Trainers()
+       public Trainers()
         {
             InitializeComponent();
             Con = new Functions();

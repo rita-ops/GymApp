@@ -14,6 +14,7 @@ namespace GymApp
     {
         Functions Con;
         bool adm; // No need to assign Program.IsAdmin here
+
         public Memberships()
         {
             InitializeComponent();

@@ -17,6 +17,7 @@ namespace GymApp
     {
         Functions Con;
         bool adm;
+
         public Users()
         {
             InitializeComponent();

@@ -214,9 +214,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-           // Members Obj = new Members();
-            //Obj.Show();
-            //this.Hide();
+           Members Obj = new Members();
+           Obj.Show();
+           this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
@@ -267,12 +267,25 @@ namespace GymApp
 
         private void Print_Click(object sender, EventArgs e)
         {
-            FormReportBills Obj = new FormReportBills();
+            FormReportBills Obj;
+        
+            if (SearchTxtBox.Text.Length == 0 && checkBox1.Checked == false)
+            {
+                Obj = new FormReportBills();
+            }
+            else
+            {
+                string member = SearchTxtBox.Text.Trim().Length == 0 ? null : SearchTxtBox.Text;
+
+                // Set fromDate to DateTime.MinValue if checkBox1 is not checked
+                DateTime fromDate = checkBox1.Checked ? StartDate.Value.Date : DateTime.MinValue;
+
+                // Set toDate to DateTime.MinValue if checkBox1 is not checked
+                DateTime toDate = checkBox1.Checked ? EndDate.Value.Date : DateTime.MaxValue;
+                Obj = new FormReportBills(member, fromDate, toDate);
+            }
             Obj.Show();
         }
     }
 
-    class BillsTable
-    {
-    }
 }

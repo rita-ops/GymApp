@@ -860,13 +860,37 @@ namespace GymApp.DataSetBillsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        MembersTable.MemberFName + '  ' + MembersTable.MemberLName AS Member, BillsTable.Amount, BillsTable.Currency, BillsTable.BillID, BillsTable.Date
+            this._commandCollection[0].CommandText = @"SELECT        MembersTable.MemberFName + ' ' + MembersTable.MemberLName AS Member, BillsTable.Amount, BillsTable.Currency, BillsTable.BillID, BillsTable.Date
 FROM            BillsTable INNER JOIN
                          MembersTable ON BillsTable.MembersID = MembersTable.MembersID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        MembersTable.MemberFName + ' ' + MembersTable.MemberLName AS Member, BillsTable.Amount, BillsTable.Currency, BillsTable.BillID, BillsTable.Date
+FROM            BillsTable INNER JOIN
+                         MembersTable ON BillsTable.MembersID = MembersTable.MembersID
+WHERE        (MembersTable.MemberFName + ' ' + MembersTable.MemberLName = @member) AND (BillsTable.Date >= @fromDate) AND (BillsTable.Date <= @toDate)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@member", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fromDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        MembersTable.MemberFName + ' ' + MembersTable.MemberLName AS Member, BillsTable.Amount, BillsTable.Currency, BillsTable.BillID, BillsTable.Date
+FROM            BillsTable INNER JOIN
+                         MembersTable ON BillsTable.MembersID = MembersTable.MembersID
+WHERE        (BillsTable.Date >= @fromDate) AND (BillsTable.Date <= @toDate)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fromDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT MembersTable.MemberFName + ' ' + MembersTable.MemberLName AS Member, BillsTable.Amount, BillsTable.BillID, BillsTable.Currency, BillsTable.Date FROM BillsTable INNER JOIN MembersTable ON BillsTable.MembersID = MembersTable.MembersID WHERE (MembersTable.MemberFName + ' ' + MembersTable.MemberLName = @Member)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Member", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -888,6 +912,150 @@ FROM            BillsTable INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBills.BillsTableDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBills.BillsTableDataTable dataTable = new DataSetBills.BillsTableDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAll(DataSetBills.BillsTableDataTable dataTable, string member, string fromDate, string toDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((member == null)) {
+                throw new global::System.ArgumentNullException("member");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(member));
+            }
+            if ((fromDate == null)) {
+                throw new global::System.ArgumentNullException("fromDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fromDate));
+            }
+            if ((toDate == null)) {
+                throw new global::System.ArgumentNullException("toDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(toDate));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBills.BillsTableDataTable GetDataByAll(string member, string fromDate, string toDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((member == null)) {
+                throw new global::System.ArgumentNullException("member");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(member));
+            }
+            if ((fromDate == null)) {
+                throw new global::System.ArgumentNullException("fromDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(fromDate));
+            }
+            if ((toDate == null)) {
+                throw new global::System.ArgumentNullException("toDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(toDate));
+            }
+            DataSetBills.BillsTableDataTable dataTable = new DataSetBills.BillsTableDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByDate(DataSetBills.BillsTableDataTable dataTable, string fromDate, string toDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((fromDate == null)) {
+                throw new global::System.ArgumentNullException("fromDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(fromDate));
+            }
+            if ((toDate == null)) {
+                throw new global::System.ArgumentNullException("toDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(toDate));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBills.BillsTableDataTable GetDataByDate(string fromDate, string toDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((fromDate == null)) {
+                throw new global::System.ArgumentNullException("fromDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(fromDate));
+            }
+            if ((toDate == null)) {
+                throw new global::System.ArgumentNullException("toDate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(toDate));
+            }
+            DataSetBills.BillsTableDataTable dataTable = new DataSetBills.BillsTableDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMember(DataSetBills.BillsTableDataTable dataTable, string Member) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Member == null)) {
+                throw new global::System.ArgumentNullException("Member");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Member));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBills.BillsTableDataTable GetDataByMember(string Member) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Member == null)) {
+                throw new global::System.ArgumentNullException("Member");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Member));
+            }
             DataSetBills.BillsTableDataTable dataTable = new DataSetBills.BillsTableDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
