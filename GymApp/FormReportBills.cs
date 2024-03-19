@@ -15,15 +15,15 @@ namespace GymApp
     {
         string member;
         DateTime fromDate, toDate;
-        private decimal sumUSD = 0;
-        private decimal sumLBP = 0;
+        decimal sumUSD ;
+        decimal sumLBP;
 
-        public FormReportBills()
+        public FormReportBills(decimal sumUSD, decimal sumLBP)
         {
             InitializeComponent();
-            this.BillsTableTableAdapter.Fill(this.DataSetBills.BillsTable);
-            this.reportViewer1.RefreshReport();
-            CalculateAndDisplaySums();
+            this.sumLBP = sumLBP;
+            this.sumUSD = sumUSD;
+            LoadReport();
         }
 
         public FormReportBills(string member, DateTime fromDate, DateTime toDate, decimal sumUSD, decimal sumLBP)
@@ -37,30 +37,32 @@ namespace GymApp
             LoadReport();
         }
 
-            private void LoadReport()
-            {
-                // Fill the data table based on the filter criteria
-                if (!string.IsNullOrEmpty(member) && fromDate != DateTime.MinValue && toDate != DateTime.MinValue)
-                {
-                    this.BillsTableTableAdapter.FillByAll(this.DataSetBills.BillsTable, member, fromDate.ToString(), toDate.ToString());
-                }
-                else if (!string.IsNullOrEmpty(member) && fromDate == DateTime.MinValue)
-                {
-                    this.BillsTableTableAdapter.FillByMember(this.DataSetBills.BillsTable, member);
-                }
-                else if (member == null && fromDate != DateTime.MinValue && toDate != DateTime.MaxValue)
-                {
-                    this.BillsTableTableAdapter.FillByDate(this.DataSetBills.BillsTable, fromDate.ToString(), toDate.ToString());
-                }
-                else
-                {
-                    this.BillsTableTableAdapter.Fill(this.DataSetBills.BillsTable);
-                }
+        private void LoadReport()
+        {
+           // Fill the data table based on the filter criteria
+           if (!string.IsNullOrEmpty(member) && fromDate != DateTime.MinValue && toDate != DateTime.MinValue)
+           {
+             this.BillsTableTableAdapter.FillByAll(this.DataSetBills.BillsTable, member, fromDate.ToString(), toDate.ToString());
+           }
+           else if (!string.IsNullOrEmpty(member) && fromDate == DateTime.MinValue)
+           {
+            this.BillsTableTableAdapter.FillByMember(this.DataSetBills.BillsTable, member);
+           }
+           else if (member == null && fromDate != DateTime.MinValue && toDate != DateTime.MaxValue)
+           {
+            this.BillsTableTableAdapter.FillByDate(this.DataSetBills.BillsTable, fromDate.ToString(), toDate.ToString());
+           }
+           else
+           {
+            this.BillsTableTableAdapter.Fill(this.DataSetBills.BillsTable);
+           }
 
-                // Refresh report and update sums
-                this.reportViewer1.RefreshReport();
-                CalculateAndDisplaySums();
-            }
+            ReportParameter parameter1 = new ReportParameter("sumUSD", this.sumUSD.ToString("#,##0"));
+            ReportParameter parameter2 = new ReportParameter("sumLBP", this.sumLBP.ToString("#,##0"));
+
+            reportViewer1.LocalReport.SetParameters(new ReportParameter[] { parameter1, parameter2 });
+            this.reportViewer1.RefreshReport();
+        }
            
         private void FormReportBills_Load(object sender, EventArgs e)
         {
@@ -68,31 +70,6 @@ namespace GymApp
                 //this.BillsTableTableAdapter.Fill(this.DataSetBills.BillsTable);
                 //this.reportViewer1.RefreshReport();
                // CalculateAndDisplaySums();
-        }
-
-        private void CalculateAndDisplaySums()
-        {
-            // Reset sums
-            decimal sumUSD = 0;
-            decimal sumLBP = 0;
-            // Calculate sums
-            foreach (DataRow row in DataSetBills.BillsTable.Rows)
-            {
-                string currency = row["Currency"].ToString();
-                decimal amount = Convert.ToDecimal(row["Amount"]);
-
-                if (currency == "USD")
-                {
-                    sumUSD += amount;
-                }
-                else if (currency == "LBP")
-                {
-                    sumLBP += amount;
-                }
-            }
-            // Display or use the calculated totals
-            TxtBoxUSD.Text = sumUSD.ToString("#,##0");
-            TxtBoxLBP.Text = sumLBP.ToString("#,##0");
         }
     }
 }

@@ -269,11 +269,25 @@ namespace GymApp
         {
             FormReportBills Obj;
             decimal sumUSD = 0;
-            decimal sumLBP = 0;
+            decimal sumLBP = 0; 
 
             if (SearchTxtBox.Text.Length == 0 && checkBox1.Checked == false)
             {
-                Obj = new FormReportBills();
+                 foreach (DataGridViewRow row in GridViewBills.Rows)
+                {
+                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
+                    string currency = Convert.ToString(row.Cells["Currency"].Value);
+
+                    if (currency == "USD")
+                    {
+                        sumUSD += amount;
+                    }
+                    else if (currency == "LBP")
+                    {
+                        sumLBP += amount;
+                    }
+                }
+                Obj = new FormReportBills(sumUSD, sumLBP);
             }
             else
             {
@@ -302,8 +316,8 @@ namespace GymApp
                 }
                 Obj = new FormReportBills(member, fromDate, toDate,  sumUSD, sumLBP);
             }
+
             Obj.Show();
         }
     }
-
 }
