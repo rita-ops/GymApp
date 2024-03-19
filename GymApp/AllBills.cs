@@ -112,7 +112,7 @@ namespace GymApp
             DateTime endDate = EndDate.Value;
 
             // Assuming your DataGridView has a DataTable as its DataSource
-            DataTable dataTable = ((DataTable)ReceivedDataGridView.DataSource); // Change to your actual DataGridView name
+            DataTable dataTable = ((DataTable)ReceivedDataGridView.DataSource); 
 
             // Construct the filter based on member name and date range
             string filter = "";
@@ -136,7 +136,7 @@ namespace GymApp
             dataTable.DefaultView.RowFilter = filter;
 
             // Update the DataGridView to reflect the changes
-            GridViewBills.DataSource = dataTable; // Change to your actual DataGridView name
+            GridViewBills.DataSource = dataTable;
 
             // Calculate the sum of amounts for USD and LBP
             decimal sumUSD = 0;

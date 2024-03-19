@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,15 +15,15 @@ namespace GymApp
     {
         string client;
         DateTime fromDate, toDate;
-        private decimal sumUSD = 0;
-        private decimal sumLBP = 0;
+        decimal sumUSD = 0;
+        decimal sumLBP = 0;
 
-        public FormReportPayments()
+        public FormReportPayments(decimal sumUSD, decimal sumLBP)
         {
             InitializeComponent();
-            this.PaymentsTableTableAdapter.Fill(this.DataSetPayments.PaymentsTable);
-            this.reportViewer1.RefreshReport();
-            CalculateAndDisplaySums();
+            this.sumLBP = sumLBP;
+            this.sumUSD = sumUSD;
+            LoadReport();
         }
 
         public FormReportPayments(string client, DateTime fromDate, DateTime toDate, decimal sumUSD, decimal sumLBP)
@@ -56,9 +57,12 @@ namespace GymApp
                 this.PaymentsTableTableAdapter.Fill(this.DataSetPayments.PaymentsTable);
             }
 
+            ReportParameter par= new ReportParameter("sumUSD", this.sumUSD.ToString("#,##0"));
+            ReportParameter par1 = new ReportParameter("sumLBP", this.sumLBP.ToString("#,##0"));
+
+            RVpayments.LocalReport.SetParameters(new ReportParameter[] { par, par1 });
             // Refresh report and update sums
-            this.reportViewer1.RefreshReport();
-            CalculateAndDisplaySums();
+            this.RVpayments.RefreshReport();
         }
 
         private void FormReportPayments_Load(object sender, EventArgs e)
@@ -67,31 +71,6 @@ namespace GymApp
           //  this.PaymentsTableTableAdapter.Fill(this.DataSetPayments.PaymentsTable);
 
           //  this.reportViewer1.RefreshReport();
-        }
-
-        private void CalculateAndDisplaySums()
-        {
-            // Reset sums
-            decimal sumUSD = 0;
-            decimal sumLBP = 0;
-            // Calculate sums
-            foreach (DataRow row in DataSetPayments.PaymentsTable.Rows)
-            {
-                string currency = row["Currency"].ToString();
-                decimal amount = Convert.ToDecimal(row["Amount"]);
-
-                if (currency == "USD")
-                {
-                    sumUSD += amount;
-                }
-                else if (currency == "LBP")
-                {
-                    sumLBP += amount;
-                }
-            }
-            // Display or use the calculated totals
-            TxtBoxUSD.Text = sumUSD.ToString("#,##0");
-            TxtBoxLBP.Text = sumLBP.ToString("#,##0");
         }
     }
 }

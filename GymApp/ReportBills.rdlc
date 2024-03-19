@@ -261,7 +261,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Date.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>dd/MM/yyyy</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -367,8 +369,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetBills</DataSetName>
-            <Top>0.55084in</Top>
-            <Left>0.17129in</Left>
+            <Top>0.93626in</Top>
+            <Left>0.17128in</Left>
             <Height>0.65624in</Height>
             <Width>5.87369in</Width>
             <Style>
@@ -395,8 +397,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>0.16542in</Top>
-            <Left>2.64914in</Left>
+            <Top>0.55084in</Top>
+            <Left>2.64913in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -428,8 +430,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>1.52778in</Top>
-            <Left>5.15501in</Left>
+            <Top>1.9132in</Top>
+            <Left>5.155in</Left>
             <Height>0.14583in</Height>
             <Width>0.53125in</Width>
             <ZIndex>2</ZIndex>
@@ -458,8 +460,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>sumUSD</rd:DefaultName>
-            <Top>1.52778in</Top>
-            <Left>1.99876in</Left>
+            <Top>1.9132in</Top>
+            <Left>1.99875in</Left>
             <Height>0.25in</Height>
             <Width>0.73611in</Width>
             <ZIndex>3</ZIndex>
@@ -488,8 +490,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>sumLBP</rd:DefaultName>
-            <Top>1.52778in</Top>
-            <Left>4.21859in</Left>
+            <Top>1.9132in</Top>
+            <Left>4.21858in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>4</ZIndex>
@@ -521,8 +523,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>1.52778in</Top>
-            <Left>0.28131in</Left>
+            <Top>1.9132in</Top>
+            <Left>0.2813in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>5</ZIndex>
@@ -554,8 +556,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>1.52778in</Top>
-            <Left>2.64914in</Left>
+            <Top>1.9132in</Top>
+            <Left>2.64913in</Left>
             <Height>0.14583in</Height>
             <Width>0.53125in</Width>
             <ZIndex>6</ZIndex>
@@ -569,8 +571,73 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="ExecutionTime">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Globals!ExecutionTime</Value>
+                    <Style>
+                      <Format>dd/MM/yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ExecutionTime</rd:DefaultName>
+            <Top>0.06944in</Top>
+            <Left>0.75917in</Left>
+            <Height>0.25in</Height>
+            <Width>1.13542in</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox12">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Print Date:</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox10</rd:DefaultName>
+            <Top>0.06944in</Top>
+            <Left>0.19059in</Left>
+            <Height>0.25in</Height>
+            <Width>0.77083in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.5625in</Height>
+        <Height>2.34375in</Height>
         <Style />
       </Body>
       <Width>6.30083in</Width>
@@ -617,7 +684,7 @@
               <Value>IMG20231120WA0008</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0.45139in</Top>
-              <Left>5.68626in</Left>
+              <Left>5.57623in</Left>
               <Height>0.42708in</Height>
               <Width>0.46875in</Width>
               <ZIndex>1</ZIndex>
@@ -695,38 +762,10 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.08161cm</Height>
+          <Height>0.81703cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="ExecutionTime">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.06944in</Top>
-              <Height>0.25in</Height>
-              <Width>1.84375in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Textbox Name="OverallPageNumber">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -742,11 +781,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>OverallPageNumber</rd:DefaultName>
-              <Top>0.05556in</Top>
+              <Top>0.02778in</Top>
               <Left>5.68626in</Left>
-              <Height>0.25in</Height>
-              <Width>0.46875in</Width>
-              <ZIndex>1</ZIndex>
+              <Height>0.21875in</Height>
+              <Width>0.35872in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>

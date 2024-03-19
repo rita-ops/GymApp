@@ -271,7 +271,21 @@ namespace GymApp
 
             if (SearchTxtBox.Text.Length == 0 && checkBox1.Checked == false)
             {
-                Obj = new FormReportPayments();
+                foreach (DataGridViewRow row in GridViewPayments.Rows)
+                {
+                    decimal amount = Convert.ToDecimal(row.Cells["Amount"].Value);
+                    string currency = Convert.ToString(row.Cells["Currency"].Value);
+
+                    if (currency == "USD")
+                    {
+                        sumUSD += amount;
+                    }
+                    else if (currency == "LBP")
+                    {
+                        sumLBP += amount;
+                    }
+                }
+                Obj = new FormReportPayments(sumUSD, sumLBP);
             }
             else
             {
