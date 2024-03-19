@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+
 
 namespace GymApp
 {
@@ -14,9 +17,9 @@ namespace GymApp
     {
 
         Functions Con;
-        // Placeholder for the current password (this should come from your application's data)
-        private string currentPassword = "current_password";
         bool adm; // No need to assign Program.IsAdmin here
+
+        public int UserId { get; internal set; }
 
         public ChangePassword()
         {
@@ -39,9 +42,9 @@ namespace GymApp
 
         private void MemberLbl_Click(object sender, EventArgs e)
         {
-           Members Obj = new Members();
-           Obj.Show();
-           this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void MemberShipLbl_Click(object sender, EventArgs e)
@@ -93,44 +96,50 @@ namespace GymApp
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-           // Members Obj = new Members();
-            //Obj.Show();
-           // this.Hide();
+            Members Obj = new Members();
+            Obj.Show();
+            this.Hide();
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            string oldPassword = txtCurrentPassword.Text;
-            string newPassword = txtNewPassword.Text;
-            string confirmPassword = txtConfirmPassword.Text;
-
-            // Check if the old password is correct
-            if (oldPassword == currentPassword)
+            try
             {
-                // Check if the new password and confirmation match
-                if (newPassword == confirmPassword)
+                if (txtNewPassword.Text == "" || txtConfPassword.Text == "")
                 {
-                    // Update the password (in this example, just updating the placeholder)
-                    currentPassword = newPassword;
-
-                    // Optionally, you can save the updated password to your database or application
-                    string Query = "UPDATE UsersTable SET Password = @NewPassword WHERE Username = @Username";
-                    Query = string.Format(Query, currentPassword);
-                    Con.setData(Query);
-
-                    MessageBox.Show("Password changed successfully!");
-                    this.Close(); // Close the form or navigate to another page as needed
+                    MessageBox.Show("Please enter the new password");
+                    return;
                 }
-                else
+
+                else if (txtNewPassword.Text != txtConfPassword.Text)
                 {
-                    MessageBox.Show("New password and confirmation do not match.");
+                    MessageBox.Show("New password and confirm password do not match.");
+                    return;
                 }
+
+                string newPassword = txtNewPassword.Text;
+
+                // Update the password in the database
+                string Query = "UPDATE UsersTable SET Password = '{0}' WHERE UserId = {1}";
+                Query = string.Format(Query, newPassword, UserId);
+                Con.setData(Query);
+                MessageBox.Show("Password changed successfully.");
+
+                // Clear the textboxes
+                txtNewPassword.Text = "";
+                txtConfPassword.Text = "";
+
+                // Redirect to the login form
+                Login Obj = new Login();
+                Obj.Name = ""; // Reset the username text box
+                Obj.Text = ""; 
+                Obj.Show();
+                this.Hide();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Incorrect old password. Please try again.");
+                MessageBox.Show("Error occurred: " + ex.Message);
             }
         }
-     
     }
 }
