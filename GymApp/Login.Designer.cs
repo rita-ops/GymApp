@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -116,6 +117,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.checkBoxShowPassword);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.Password);
@@ -131,7 +133,7 @@
             // checkBoxShowPassword
             // 
             this.checkBoxShowPassword.AutoSize = true;
-            this.checkBoxShowPassword.Location = new System.Drawing.Point(145, 176);
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(130, 176);
             this.checkBoxShowPassword.Name = "checkBoxShowPassword";
             this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
             this.checkBoxShowPassword.TabIndex = 59;
@@ -143,7 +145,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(162, 211);
+            this.button1.Location = new System.Drawing.Point(162, 236);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 2;
@@ -154,18 +156,18 @@
             // Password
             // 
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(145, 144);
+            this.Password.Location = new System.Drawing.Point(130, 144);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(158, 26);
+            this.Password.Size = new System.Drawing.Size(156, 26);
             this.Password.TabIndex = 1;
             this.Password.UseSystemPasswordChar = true;
             // 
             // Username
             // 
             this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.Location = new System.Drawing.Point(145, 80);
+            this.Username.Location = new System.Drawing.Point(130, 80);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(158, 26);
+            this.Username.Size = new System.Drawing.Size(156, 26);
             this.Username.TabIndex = 0;
             // 
             // label5
@@ -211,6 +213,17 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(128, 196);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(92, 13);
+            this.linkLabel1.TabIndex = 60;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Forget Password?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkforgetpassword_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +264,7 @@
         private System.Windows.Forms.TextBox Username;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxShowPassword;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

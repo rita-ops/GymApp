@@ -80,5 +80,28 @@ namespace GymApp
             // Toggle the password visibility based on the CheckBox state
             Password.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
         }
+
+        private void linkforgetpassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string Query = "select * from UsersTable where Username = '{0}'";
+            Query = string.Format(Query, Username.Text);
+            DataTable dt = Con.GetData(Query);
+
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("User does not exist.");
+                return;
+            }
+            else
+            {
+                {
+                    // Redirect user to change password form
+                    ChangePassword changePasswordForm = new ChangePassword();
+                    changePasswordForm.UserId = Convert.ToInt32(dt.Rows[0]["UserId"]);
+                    changePasswordForm.ShowDialog();
+                }
+            }
+        }
     }
 }
+

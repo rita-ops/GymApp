@@ -381,6 +381,7 @@
             // ChangePassLbl
             // 
             this.ChangePassLbl.AutoSize = true;
+            this.ChangePassLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangePassLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePassLbl.Location = new System.Drawing.Point(68, 39);
             this.ChangePassLbl.Name = "ChangePassLbl";
@@ -392,6 +393,7 @@
             // Logout
             // 
             this.Logout.AutoSize = true;
+            this.Logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout.ForeColor = System.Drawing.Color.Black;
             this.Logout.Location = new System.Drawing.Point(68, 105);
@@ -496,6 +498,7 @@
             // PaymentLbl
             // 
             this.PaymentLbl.AutoSize = true;
+            this.PaymentLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PaymentLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaymentLbl.Location = new System.Drawing.Point(68, 341);
             this.PaymentLbl.Name = "PaymentLbl";
@@ -507,6 +510,7 @@
             // UsersLbl
             // 
             this.UsersLbl.AutoSize = true;
+            this.UsersLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UsersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsersLbl.Location = new System.Drawing.Point(68, 466);
             this.UsersLbl.Name = "UsersLbl";
@@ -518,6 +522,7 @@
             // BillsLbl
             // 
             this.BillsLbl.AutoSize = true;
+            this.BillsLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BillsLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsLbl.Location = new System.Drawing.Point(68, 403);
             this.BillsLbl.Name = "BillsLbl";
@@ -529,6 +534,7 @@
             // MemberShipLbl
             // 
             this.MemberShipLbl.AutoSize = true;
+            this.MemberShipLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MemberShipLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberShipLbl.Location = new System.Drawing.Point(68, 207);
             this.MemberShipLbl.Name = "MemberShipLbl";
@@ -540,6 +546,7 @@
             // MemberLbl
             // 
             this.MemberLbl.AutoSize = true;
+            this.MemberLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MemberLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberLbl.Location = new System.Drawing.Point(68, 145);
             this.MemberLbl.Name = "MemberLbl";
@@ -551,6 +558,7 @@
             // TrainersLbl
             // 
             this.TrainersLbl.AutoSize = true;
+            this.TrainersLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrainersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TrainersLbl.Location = new System.Drawing.Point(68, 276);
             this.TrainersLbl.Name = "TrainersLbl";

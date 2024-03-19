@@ -56,6 +56,7 @@
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.txtConfPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -84,7 +85,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(512, 273);
+            this.button1.Location = new System.Drawing.Point(512, 282);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(249, 273);
+            this.button2.Location = new System.Drawing.Point(249, 282);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(145, 32);
             this.button2.TabIndex = 3;
@@ -149,6 +150,7 @@
             // ChangePassLbl
             // 
             this.ChangePassLbl.AutoSize = true;
+            this.ChangePassLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangePassLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePassLbl.Location = new System.Drawing.Point(68, 39);
             this.ChangePassLbl.Name = "ChangePassLbl";
@@ -160,6 +162,7 @@
             // Logout
             // 
             this.Logout.AutoSize = true;
+            this.Logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout.ForeColor = System.Drawing.Color.Black;
             this.Logout.Location = new System.Drawing.Point(68, 105);
@@ -264,6 +267,7 @@
             // PaymentLbl
             // 
             this.PaymentLbl.AutoSize = true;
+            this.PaymentLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PaymentLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaymentLbl.Location = new System.Drawing.Point(68, 341);
             this.PaymentLbl.Name = "PaymentLbl";
@@ -275,6 +279,7 @@
             // UsersLbl
             // 
             this.UsersLbl.AutoSize = true;
+            this.UsersLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UsersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsersLbl.Location = new System.Drawing.Point(68, 466);
             this.UsersLbl.Name = "UsersLbl";
@@ -286,6 +291,7 @@
             // BillsLbl
             // 
             this.BillsLbl.AutoSize = true;
+            this.BillsLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BillsLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsLbl.Location = new System.Drawing.Point(68, 403);
             this.BillsLbl.Name = "BillsLbl";
@@ -297,6 +303,7 @@
             // MemberShipLbl
             // 
             this.MemberShipLbl.AutoSize = true;
+            this.MemberShipLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MemberShipLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberShipLbl.Location = new System.Drawing.Point(68, 207);
             this.MemberShipLbl.Name = "MemberShipLbl";
@@ -308,6 +315,7 @@
             // MemberLbl
             // 
             this.MemberLbl.AutoSize = true;
+            this.MemberLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MemberLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberLbl.Location = new System.Drawing.Point(68, 145);
             this.MemberLbl.Name = "MemberLbl";
@@ -319,6 +327,7 @@
             // TrainersLbl
             // 
             this.TrainersLbl.AutoSize = true;
+            this.TrainersLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrainersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TrainersLbl.Location = new System.Drawing.Point(68, 276);
             this.TrainersLbl.Name = "TrainersLbl";
@@ -344,6 +353,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(219, 22);
             this.txtNewPassword.TabIndex = 1;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // txtConfPassword
             // 
@@ -352,6 +362,7 @@
             this.txtConfPassword.Name = "txtConfPassword";
             this.txtConfPassword.Size = new System.Drawing.Size(219, 22);
             this.txtConfPassword.TabIndex = 2;
+            this.txtConfPassword.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -363,11 +374,23 @@
             this.label4.TabIndex = 61;
             this.label4.Text = "Confirm Password";
             // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(421, 242);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxShowPassword.TabIndex = 62;
+            this.checkBoxShowPassword.Text = "Show Password";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged_1);
+            // 
             // ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 749);
+            this.Controls.Add(this.checkBoxShowPassword);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -426,5 +449,6 @@
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.TextBox txtConfPassword;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBoxShowPassword;
     }
 }

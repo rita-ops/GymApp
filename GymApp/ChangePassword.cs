@@ -125,10 +125,6 @@ namespace GymApp
                 Con.setData(Query);
                 MessageBox.Show("Password changed successfully.");
 
-                // Clear the textboxes
-                txtNewPassword.Text = "";
-                txtConfPassword.Text = "";
-
                 // Redirect to the login form
                 Login Obj = new Login();
                 Obj.Name = ""; // Reset the username text box
@@ -140,6 +136,13 @@ namespace GymApp
             {
                 MessageBox.Show("Error occurred: " + ex.Message);
             }
+        }
+
+        private void checkBoxShowPassword_CheckedChanged_1(object sender, EventArgs e)
+        {
+            // Toggle the password visibility based on the CheckBox state
+            txtNewPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
+            txtConfPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
         }
     }
 }

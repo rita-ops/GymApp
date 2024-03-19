@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblEmailValidation = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(219, -4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1152, 745);
+            this.panel3.Size = new System.Drawing.Size(1148, 741);
             this.panel3.TabIndex = 0;
             // 
             // lblEmailValidation
@@ -144,27 +144,27 @@
             // 
             this.GridViewUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridViewUsers.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.GridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridViewUsers.Location = new System.Drawing.Point(179, 272);
             this.GridViewUsers.MultiSelect = false;
             this.GridViewUsers.Name = "GridViewUsers";
             this.GridViewUsers.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridViewUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridViewUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.GridViewUsers.Size = new System.Drawing.Size(691, 371);
             this.GridViewUsers.TabIndex = 56;
             this.GridViewUsers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GridViewUsers_CellFormatting);
@@ -343,6 +343,7 @@
             // ChangePassLbl
             // 
             this.ChangePassLbl.AutoSize = true;
+            this.ChangePassLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangePassLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePassLbl.Location = new System.Drawing.Point(68, 39);
             this.ChangePassLbl.Name = "ChangePassLbl";
@@ -354,6 +355,7 @@
             // Logout
             // 
             this.Logout.AutoSize = true;
+            this.Logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Logout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout.ForeColor = System.Drawing.Color.Black;
             this.Logout.Location = new System.Drawing.Point(68, 105);
@@ -458,6 +460,7 @@
             // PaymentLbl
             // 
             this.PaymentLbl.AutoSize = true;
+            this.PaymentLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PaymentLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaymentLbl.Location = new System.Drawing.Point(68, 341);
             this.PaymentLbl.Name = "PaymentLbl";
@@ -469,6 +472,7 @@
             // UsersLbl
             // 
             this.UsersLbl.AutoSize = true;
+            this.UsersLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UsersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsersLbl.Location = new System.Drawing.Point(68, 466);
             this.UsersLbl.Name = "UsersLbl";
@@ -480,6 +484,7 @@
             // BillsLbl
             // 
             this.BillsLbl.AutoSize = true;
+            this.BillsLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BillsLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsLbl.Location = new System.Drawing.Point(68, 403);
             this.BillsLbl.Name = "BillsLbl";
@@ -491,6 +496,7 @@
             // MemberShipLbl
             // 
             this.MemberShipLbl.AutoSize = true;
+            this.MemberShipLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MemberShipLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberShipLbl.Location = new System.Drawing.Point(68, 207);
             this.MemberShipLbl.Name = "MemberShipLbl";
@@ -502,6 +508,7 @@
             // MemberLbl
             // 
             this.MemberLbl.AutoSize = true;
+            this.MemberLbl.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.MemberLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberLbl.Location = new System.Drawing.Point(68, 145);
             this.MemberLbl.Name = "MemberLbl";
@@ -514,6 +521,7 @@
             // TrainersLbl
             // 
             this.TrainersLbl.AutoSize = true;
+            this.TrainersLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrainersLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TrainersLbl.Location = new System.Drawing.Point(68, 276);
             this.TrainersLbl.Name = "TrainersLbl";
